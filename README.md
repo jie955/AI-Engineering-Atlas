@@ -7,6 +7,12 @@
 
 ## Overview
 
+# AI Engineering Atlas
+
+AI Engineering Atlas is an interactive platform for exploring modern AI systems through visual architecture maps, engineering domains, production patterns, and hands-on demos.
+
+Instead of reading isolated articles, developers can navigate the relationships between LLMs, RAG, Agents, Runtime, Memory, MCP, Evaluation, and Governance as an interconnected engineering ecosystem.
+
 This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
 Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
 
