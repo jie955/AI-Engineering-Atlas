@@ -1,0 +1,432 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Warm paper-like palette from AI Engineering Atlas spec */
+  --bg-light: #F5F0EB;
+  --bg-warm: #E8E2DB;
+  --text-primary: #2A2A2A;
+  --text-secondary: #6B6560;
+  --accent-primary: #B85C3A;
+  --accent-light: #D4A574;
+  --accent-deep: #8B3D2A;
+  --status-positive: #6B7B5E;
+  --status-positive-light: #8B9A7E;
+  --status-warning: #A67C5B;
+  --track-offline: #6B7B5E;
+  --track-online: #B85C3A;
+
+  /* Standard shadcn variables mapping to our warm theme */
+  --background: var(--bg-light);
+  --foreground: var(--text-primary);
+  --card: #ffffff; /* 白底卡片 */
+  --card-foreground: var(--text-primary);
+  --popover: #ffffff;
+  --popover-foreground: var(--text-primary);
+  --primary: var(--accent-primary);
+  --primary-foreground: var(--bg-light);
+  --secondary: var(--bg-warm);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--bg-warm);
+  --muted-foreground: var(--text-secondary);
+  --accent: var(--bg-warm);
+  --accent-foreground: var(--text-primary);
+  --destructive: var(--accent-deep);
+  --destructive-foreground: var(--bg-light);
+  --border: rgba(107, 101, 96, 0.25); /* Elegant thin warm grey border */
+  --input: var(--bg-warm);
+  --ring: var(--accent-primary);
+  --radius: 0.75rem;
+
+  /* Chart colors updated to align with ocher/earth tones */
+  --chart-1: var(--accent-primary);
+  --chart-2: var(--status-positive);
+  --chart-3: var(--status-warning);
+  --chart-4: var(--accent-light);
+  --chart-5: var(--accent-deep);
+
+  --sidebar: var(--bg-warm);
+  --sidebar-foreground: var(--text-primary);
+  --sidebar-primary: var(--accent-primary);
+  --sidebar-primary-foreground: var(--bg-light);
+  --sidebar-accent: rgba(107, 101, 96, 0.1);
+  --sidebar-accent-foreground: var(--text-primary);
+  --sidebar-border: rgba(107, 101, 96, 0.2);
+  --sidebar-ring: var(--accent-primary);
+}
+
+.dark {
+  /* Maintain the technical document paper aesthetic in dark mode as specified */
+  --bg-light: #F5F0EB;
+  --bg-warm: #E8E2DB;
+  --text-primary: #2A2A2A;
+  --text-secondary: #6B6560;
+  --accent-primary: #B85C3A;
+  --accent-light: #D4A574;
+  --accent-deep: #8B3D2A;
+  --status-positive: #6B7B5E;
+  --status-positive-light: #8B9A7E;
+  --status-warning: #A67C5B;
+  --track-offline: #6B7B5E;
+  --track-online: #B85C3A;
+
+  --background: var(--bg-light);
+  --foreground: var(--text-primary);
+  --card: #ffffff;
+  --card-foreground: var(--text-primary);
+  --popover: #ffffff;
+  --popover-foreground: var(--text-primary);
+  --primary: var(--accent-primary);
+  --primary-foreground: var(--bg-light);
+  --secondary: var(--bg-warm);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--bg-warm);
+  --muted-foreground: var(--text-secondary);
+  --accent: var(--bg-warm);
+  --accent-foreground: var(--text-primary);
+  --destructive: var(--accent-deep);
+  --destructive-foreground: var(--bg-light);
+  --border: rgba(107, 101, 96, 0.25);
+  --input: var(--bg-warm);
+  --ring: var(--accent-primary);
+
+  --chart-1: var(--accent-primary);
+  --chart-2: var(--status-positive);
+  --chart-3: var(--status-warning);
+  --chart-4: var(--accent-light);
+  --chart-5: var(--accent-deep);
+
+  --sidebar: var(--bg-warm);
+  --sidebar-foreground: var(--text-primary);
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Warm theme variables exposed directly to Tailwind classes */
+  --color-bg-light: var(--bg-light);
+  --color-bg-warm: var(--bg-warm);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-light: var(--accent-light);
+  --color-accent-deep: var(--accent-deep);
+  --color-status-positive: var(--status-positive);
+  --color-status-positive-light: var(--status-positive-light);
+  --color-status-warning: var(--status-warning);
+  --color-track-offline: var(--track-offline);
+  --color-track-online: var(--track-online);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Enhanced scrollbar styling for better UX */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.3);
+  }
+}
+
+@layer utilities {
+  /* Editorial display typography: tight, bold, expressive */
+  .text-display {
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    font-weight: 800;
+  }
+
+  .text-eyebrow {
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* Subtle dotted grid backdrop for editorial sections */
+  .bg-grid {
+    background-image: radial-gradient(
+      color-mix(in oklch, var(--border) 60%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+
+  /* Hairline separators used between editorial rows */
+  .border-hairline {
+    border-color: color-mix(in oklch, var(--border) 70%, transparent);
+  }
+
+  /* Gradient text accent for editorial headlines */
+  .text-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--foreground),
+      color-mix(in oklch, var(--primary) 70%, var(--foreground))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+}
+
+/* Custom CSS hover state to slightly elevate the element and change its opacity */
+#function-calling-container .grid-cols-5 .font-bold.text-primary {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease !important;
+}
+
+#function-calling-container .grid-cols-5 .font-bold.text-primary:hover {
+  transform: translateY(-4px) scale(1.08) !important;
+  opacity: 0.8 !important;
+}
+
+/* 1. Connecting pipeline line between step circles on medium/large screens */
+#function-calling-container .relative.grid-cols-5::before {
+  content: '';
+  position: absolute;
+  top: 1rem; /* Aligns with the vertical center of the w-8 h-8 (1rem) step bubbles */
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(168, 85, 247, 0.3),  /* purple */
+    rgba(59, 130, 246, 0.3),  /* blue */
+    rgba(234, 179, 8, 0.3),   /* yellow/amber */
+    rgba(249, 115, 22, 0.3),  /* orange */
+    rgba(16, 185, 129, 0.3)   /* emerald */
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* On mobile, stack or flex the grid layout gracefully so text labels don't overlap */
+@media (max-width: 640px) {
+  #function-calling-container .relative.grid-cols-5 {
+    display: grid !important;
+    grid-template-cols: repeat(5, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+  
+  #function-calling-container .relative.grid-cols-5::before {
+    display: none !important; /* Hide connecting line on wrapped mobile grid */
+  }
+}
+
+/* Extra-small mobile optimization to prevent clipping/overlapping of the 5 steps */
+@media (max-width: 480px) {
+  #function-calling-container .relative.grid-cols-5 {
+    grid-template-cols: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.25rem 0.75rem !important;
+  }
+  
+  /* Center the 5th step spanning across both columns for a centered bento aesthetic */
+  #function-calling-container .relative.grid-cols-5 > div:last-child {
+    grid-column: span 2 / span 2 !important;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 160px;
+  }
+
+  #function-calling-container main {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-top: 1.5rem !important;
+  }
+}
+
+/* Medium-large screen size optimization (1024px to 1200px) */
+/* Balance left/right column ratios from 5:7 to 6:6 so the content doesn't feel squashed */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  #function-calling-container .grid-cols-12 {
+    grid-template-cols: repeat(12, minmax(0, 1fr)) !important;
+    gap: 1.5rem !important;
+  }
+  #function-calling-container .lg\:col-span-5 {
+    grid-column: span 6 / span 6 !important;
+  }
+  #function-calling-container .lg\:col-span-7 {
+    grid-column: span 6 / span 6 !important;
+  }
+}
+
+@media (min-width: 641px) {
+  #function-calling-container .relative.grid-cols-5::before {
+    display: block !important;
+  }
+}
+
+/* Style the step bubble wrappers to stand cleanly above the connecting line */
+#function-calling-container .relative.grid-cols-5 > div {
+  position: relative;
+  z-index: 10;
+}
+
+#function-calling-container .relative.grid-cols-5 > div > div {
+  /* Ensure a solid background so the line doesn't clip behind the circle's content */
+  background-color: var(--card, #171717) !important;
+}
+
+/* Hover effects for step items to add micro-interactions */
+#function-calling-container .relative.grid-cols-5 > div:hover .rounded-full {
+  transform: scale(1.08);
+  border-color: currentColor;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+#function-calling-container .relative.grid-cols-5 > div .rounded-full {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Premium scenario cards within function-calling */
+#function-calling-container button.border-primary.bg-primary\/5 {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(59, 130, 246, 0.03) 100%) !important;
+  box-shadow: 0 4px 20px -2px rgba(139, 92, 246, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+#function-calling-container button {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#function-calling-container button:hover:not(.border-primary) {
+  transform: translateX(3px);
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Small screen optimizations for Function Calling container */
+@media (max-width: 1023px) {
+  /* Reorder console logs and self-healing explanation panel so explanation panel appears first */
+  #function-calling-container .fc-logs-and-healing-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  #function-calling-container .fc-explanation-column {
+    order: 1 !important;
+  }
+
+  #function-calling-container .fc-console-column {
+    order: 2 !important;
+  }
+
+  /* Make sure live dashboard metrics cards dynamically stack or auto-fit cleanly */
+  #function-calling-container .grid-cols-3 {
+    grid-template-cols: repeat(auto-fit, minmax(140px, 1fr)) !important;
+    display: grid !important;
+    gap: 0.75rem !important;
+  }
+}
+
+/* Extra optimization for mobile viewports to prevent awkward line wrapping (不折行) */
+@media (max-width: 640px) {
+  /* Turn the 5-step horizontal visualizer into a smooth touch-scrollable list so it never wraps awkwardly */
+  #function-calling-container .relative.grid-cols-5 {
+    display: flex !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    gap: 1rem !important;
+    padding-bottom: 0.75rem !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  #function-calling-container .relative.grid-cols-5::-webkit-scrollbar {
+    height: 3px !important;
+  }
+
+  #function-calling-container .relative.grid-cols-5::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 9px !important;
+  }
+
+  #function-calling-container .relative.grid-cols-5 > div {
+    flex: 0 0 auto !important;
+    min-width: 85px !important;
+  }
+
+  #function-calling-container .relative.grid-cols-5 span {
+    white-space: nowrap !important;
+    font-size: 8.5px !important;
+  }
+
+  /* Ensure console log labels/badges do not wrap, while raw log text retains wrapping */
+  #function-calling-container .fc-console-column span.shrink-0 {
+    white-space: nowrap !important;
+  }
+
+  #function-calling-container .fc-console-column span.leading-relaxed {
+    white-space: pre-wrap !important;
+  }
+}
+
+

@@ -1,0 +1,7 @@
+{
+  "name": "AI Engineering Atlas",
+  "description": "An interactive learning platform for enterprise AI/ML system architectures, best practices, and engineering patterns.",
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
