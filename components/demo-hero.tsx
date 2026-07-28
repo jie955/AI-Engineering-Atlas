@@ -16,7 +16,7 @@ export function DemoHero({ demoId, badge, title, description }: DemoHeroProps) {
   const resolvedTitle = title ?? demo.title
   const resolvedDescription = description ?? demo.description
   const resolvedBadge =
-    badge ?? `ATLAS NODE #${String(demo.track + 1).padStart(2, "0")}`
+    badge ?? (demo.category === "Components" ? "组件库 COMPONENTS" : `ATLAS NODE #${String(demo.track + 1).padStart(2, "0")}`)
 
   return (
     <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-r from-primary/10 via-background to-background p-6 md:p-8">
@@ -44,7 +44,7 @@ export function DemoHero({ demoId, badge, title, description }: DemoHeroProps) {
           <div className="space-y-1 ml-6">
             <div className="text-xs text-muted-foreground">阶段等级</div>
             <div className="text-lg font-bold text-primary">
-              Track {demo.track} · {demo.difficulty}
+              {demo.category === "Components" ? `组件库 · ${demo.difficulty}` : `Track ${demo.track} · ${demo.difficulty}`}
             </div>
           </div>
         </div>

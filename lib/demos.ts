@@ -1,5 +1,5 @@
 export type Difficulty = "入门" | "基础" | "中级" | "高级" | "专家"
-export type Category = "大模型" | "Agent" | "RAG" | "工程化"
+export type Category = "大模型" | "Agent" | "RAG" | "工程化" | "Components"
 
 export interface Demo {
   id: string
@@ -124,6 +124,16 @@ export const demos: Demo[] = [
     track: 2,
   },
   {
+    id: "agent-orchestration",
+    title: "智能体编排模式 (Agent Orchestration)",
+    description: "组织多个 Agent 的五种经典范式 - 顺序、并行、层级式与进阶编排模式系统梳理",
+    category: "Agent",
+    difficulty: "高级",
+    status: "active",
+    estimatedTime: 70,
+    track: 3,
+  },
+  {
     id: "multimodal-rag",
     title: "多模态 RAG 与高级解析工程 (Multimodal RAG)",
     description: "多模态文档解析与检索 - Vision-Chunking、Late Chunking 与跨模态对齐",
@@ -213,9 +223,19 @@ export const demos: Demo[] = [
     estimatedTime: 60,
     track: 4,
   },
+  {
+    id: "component-library",
+    title: "组件库 (Component Library)",
+    description: "跨多个 Playground 反复出现的可复用工程模式 - 与 T0-T3 知识节点平行存在",
+    category: "Components",
+    difficulty: "入门",
+    status: "active",
+    estimatedTime: 20,
+    track: -1,
+  },
 ]
 
-export const categories: Category[] = ["大模型", "Agent", "RAG", "工程化"]
+export const categories: Category[] = ["大模型", "Agent", "RAG", "工程化", "Components"]
 
 export const difficultyOrder: Difficulty[] = ["入门", "基础", "中级", "高级", "专家"]
 

@@ -10,19 +10,22 @@ const categoryAccent: Record<string, string> = {
   Agent: "text-chart-1",
   RAG: "text-chart-3",
   工程化: "text-chart-4",
+  Components: "text-foreground",
 }
 
 export function DemoShell({
   demoId,
   children,
+  standalone = false,
 }: {
   demoId: string
   children: React.ReactNode
+  standalone?: boolean
 }) {
   const demo = getDemo(demoId)
   const index = demos.findIndex((d) => d.id === demoId)
-  const prev = index > 0 ? demos[index - 1] : null
-  const next = index >= 0 && index < demos.length - 1 ? demos[index + 1] : null
+  const prev = !standalone && index > 0 ? demos[index - 1] : null
+  const next = !standalone && index >= 0 && index < demos.length - 1 ? demos[index + 1] : null
 
   return (
     <div className="min-h-screen bg-background">
@@ -56,7 +59,9 @@ export function DemoShell({
                   <Clock className="h-3.5 w-3.5" />
                   {demo.estimatedTime} 分钟
                 </span>
-                <span className="font-mono text-sm text-primary">Track {demo.track}</span>
+                <span className="font-mono text-sm text-primary">
+                  {demo.category === "Components" ? "组件库" : `Track ${demo.track}`}
+                </span>
               </div>
               <h1 className="text-display text-4xl text-foreground sm:text-5xl">{demo.title}</h1>
               <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">{demo.description}</p>

@@ -64,6 +64,31 @@ export function DemoBrowser() {
               </div>
             )
           })}
+          {demos
+            .filter((d) => d.track === -1)
+            .map((trackDemo) => (
+              <div key={trackDemo.id}>
+                <div className="mb-6 flex items-end justify-between border-b border-hairline pb-4">
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-mono text-4xl font-bold text-primary/30">◈</span>
+                    <div>
+                      <h3 className="text-2xl font-bold tracking-tight">组件库 (Components)</h3>
+                      <p className="text-eyebrow text-xs text-muted-foreground">与 T0–T4 平行 · 跨节点可复用模式聚合</p>
+                    </div>
+                  </div>
+                  <p className="hidden max-w-sm text-right text-sm text-muted-foreground md:block">
+                    散落在多个 Playground 里反复出现的工程小模式，单独抽节点会造成重复，故在此聚合。
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {[trackDemo].map((demo, i) => (
+                    <Reveal key={demo.id} delay={(i % 3) * 90}>
+                      <DemoCard demo={demo} index={i} />
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            ))}
         </div>
       ) : (
         // Filtered flat view

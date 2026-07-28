@@ -95,7 +95,7 @@ export const tracks: Track[] = [
     subtitle: "Expedition",
     description: "挑战生产级架构：图检索、多智能体协作与 Agent 系统工程",
     estimatedHours: 17,
-    demos: ["multimodal-rag", "graph-rag", "multi-agent-system", "harness-engineering", "loop-engineering"],
+    demos: ["agent-orchestration", "multimodal-rag", "graph-rag", "multi-agent-system", "harness-engineering", "loop-engineering"],
     capstone: {
       title: "企业级 AI 系统",
       description: "设计并实现一个完整的多 Agent + GraphRAG 企业解决方案",
@@ -364,6 +364,15 @@ export const demoMetadata: Record<string, {
     prerequisites: ["agent-runtime-loop"],
     skills: ["状态机暂停与唤醒", "状态序列化", "人工审批设计", "断点续传", "记忆回溯"],
     track: 2,
+  },
+  "agent-orchestration": {
+    title: "智能体编排模式 (Agent Orchestration)",
+    category: "Agent",
+    difficulty: "高级",
+    estimatedTime: 70,
+    prerequisites: ["single-agent"],
+    skills: ["顺序/并行编排", "层级式 Supervisor-Worker", "辩论/共识式", "事件驱动/黑板模式", "编排选型决策"],
+    track: 3,
   },
   "multimodal-rag": {
     title: "多模态 RAG 与高级解析工程 (Multimodal RAG)",

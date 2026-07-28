@@ -1,10 +1,11 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, ShieldAlert, CheckCircle2, AlertTriangle, UserCheck, Play, RefreshCw, Cpu, Layers, Shield, Database, Lock, Eye } from "lucide-react"
+import { ArrowRight, ShieldAlert, CheckCircle2, AlertTriangle, UserCheck, Play, RefreshCw, Cpu, Layers, Shield, Database, Lock, Eye, Workflow } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DemoShell } from "@/components/demo-shell"
 import { DemoHero } from "@/components/demo-hero"
@@ -280,6 +281,23 @@ export default function MultiAgentSystemPage() {
           title="Multi-Agent System: 多智能体协作系统"
           description="复杂任务分解与角色专业化 - 协作大于单打独斗"
         />
+
+        <Link href="/demos/agent-orchestration">
+          <div className="p-5 rounded-xl border border-violet-500/30 bg-violet-500/5 hover:bg-violet-500/10 transition-colors flex items-start justify-between gap-4 group">
+            <div className="flex items-start gap-3">
+              <Workflow className="w-5 h-5 text-violet-500 shrink-0 mt-0.5" />
+              <div>
+                <div className="text-xs font-semibold text-violet-500 mb-1 uppercase tracking-wider">编排模式回溯</div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  本页面的合规风控实战采用的是<strong className="text-foreground">层级式 (Supervisor-Worker) 编排</strong>：
+                  一个 Lead Agent 分派 AML / Pattern / KYC 三个子 Agent 并行评估，再统一裁决是否升级人工。
+                  更多编排模式（顺序、并行、辩论、事件驱动/黑板）详见「智能体编排模式」节点。
+                </p>
+              </div>
+            </div>
+            <ArrowRight className="w-5 h-5 text-violet-500 shrink-0 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </Link>
 
         <Tabs defaultValue="compliance-risk" className="space-y-8">
           <TabsList className="grid w-full grid-cols-4 bg-muted/40 p-1 rounded-xl border border-border/50 h-12">

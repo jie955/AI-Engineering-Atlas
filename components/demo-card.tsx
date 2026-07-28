@@ -8,6 +8,7 @@ const categoryAccent: Record<string, string> = {
   Agent: "text-chart-1",
   RAG: "text-chart-3",
   工程化: "text-chart-4",
+  Components: "text-foreground",
 }
 
 export function DemoCard({ demo, index }: { demo: Demo; index?: number }) {
@@ -43,7 +44,7 @@ export function DemoCard({ demo, index }: { demo: Demo; index?: number }) {
             <Clock className="h-3 w-3" />
             {demo.estimatedTime} 分钟
           </span>
-          <span className="font-mono text-primary">Track {demo.track}</span>
+          <span className="font-mono text-primary">{demo.track === -1 ? "组件库" : `Track ${demo.track}`}</span>
         </div>
         <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-all group-hover:text-primary" />
       </div>
