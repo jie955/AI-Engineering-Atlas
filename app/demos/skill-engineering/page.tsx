@@ -2,11 +2,11 @@
 
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowLeft, Sparkles, FileText, Zap, BookOpen, CheckCircle, AlertCircle, Code, Package } from "lucide-react"
-import Link from "next/link"
+import { Sparkles, FileText, Zap, BookOpen, CheckCircle, AlertCircle, Code } from "lucide-react"
+import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 
 const skillExamples = [
   {
@@ -210,40 +210,21 @@ export default function SkillEngineeringPage() {
   const [activeCategory, setActiveCategory] = useState(0)
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-40 border-b border-border/40 bg-background/80 backdrop-blur-lg">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="w-5 h-5" />
-            <span className="text-sm">返回首页</span>
-          </Link>
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-primary" />
-            <span className="font-semibold">SKILL 工程</span>
-          </div>
-        </div>
-      </header>
+    <DemoShell demoId="skill-engineering">
+      <main className="max-w-7xl mx-auto px-6 py-8 space-y-8">
+        <DemoHero
+          demoId="skill-engineering"
+          title="Anthropic Skills 标准实战"
+          description="使用 Anthropic Skills 教导 Claude 完成专业任务 — 从文档生成、代码审查到企业工作流自动化"
+        />
 
-      <main className="pt-20 pb-12">
-        <div className="max-w-6xl mx-auto px-6 space-y-12">
-          {/* Hero */}
-          <div className="space-y-4 text-center pt-8">
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              SKILL 工程 - Anthropic Skills 标准
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              使用 Anthropic Skills 教导 Claude 完成专业任务 — 从文档生成、代码审查到企业工作流自动化
-            </p>
-          </div>
-
-          {/* Tabs */}
-          <Tabs defaultValue="examples" className="w-full">
-            <TabsList className="grid w-full grid-cols-4">
-              <TabsTrigger value="examples">应用场景</TabsTrigger>
-              <TabsTrigger value="structure">技能结构</TabsTrigger>
-              <TabsTrigger value="practices">最佳实践</TabsTrigger>
-              <TabsTrigger value="cases">案例分析</TabsTrigger>
+        {/* Tabs */}
+        <Tabs defaultValue="examples" className="w-full">
+            <TabsList className="grid w-full grid-cols-4 bg-muted/40 p-1 rounded-xl border border-border/50 h-12">
+              <TabsTrigger value="examples" className="text-sm">应用场景</TabsTrigger>
+              <TabsTrigger value="structure" className="text-sm">技能结构</TabsTrigger>
+              <TabsTrigger value="practices" className="text-sm">最佳实践</TabsTrigger>
+              <TabsTrigger value="cases" className="text-sm">案例分析</TabsTrigger>
             </TabsList>
 
             {/* 应用场景 */}
@@ -435,8 +416,7 @@ export default function SkillEngineeringPage() {
               </ul>
             </CardContent>
           </Card>
-        </div>
       </main>
-    </div>
+    </DemoShell>
   )
 }

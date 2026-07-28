@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Switch } from "@/components/ui/switch"
 import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 import { useToast } from "@/components/ui/use-toast"
 import {
   ShieldAlert,
@@ -219,32 +220,12 @@ export default function GuardrailsPage() {
       <div className="space-y-10">
         
         {/* Course positioning banner */}
-        <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-r from-primary/10 via-background to-background p-6 md:p-8">
-          <div className="absolute right-0 top-0 -mr-6 -mt-6 h-32 w-32 rounded-full bg-primary/10 blur-3xl" />
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-            <div className="space-y-2">
-              <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
-                LLMOps Security & Compliance
-              </Badge>
-              <h2 className="text-2xl font-bold tracking-tight">安全护栏工程：捍卫生产上线的“最后一公里”</h2>
-              <p className="text-muted-foreground text-sm max-w-2xl leading-relaxed">
-                在将 Agent 对接高危本地工具调用与外部数据库前，必须构建严密的实时动态输入输出看门狗。本关深入实战针对大模型指令劫持（Prompt Injection）防御、个人隐私数据（PII）脱敏治理以及基于双向 Llama Guard 的网络大闸。
-              </p>
-            </div>
-            <div className="flex items-center gap-4 border-l border-hairline pl-0 md:pl-6 pt-4 md:pt-0 shrink-0">
-              <div className="space-y-1">
-                <div className="text-xs text-muted-foreground">预计掌握时间</div>
-                <div className="text-lg font-bold font-mono text-primary flex items-center gap-1.5">
-                  <Clock className="w-4 h-4" /> 60 分钟
-                </div>
-              </div>
-              <div className="space-y-1 ml-6">
-                <div className="text-xs text-muted-foreground">阶段等级</div>
-                <div className="text-lg font-bold text-primary">Track 4 · 专家</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DemoHero
+          demoId="guardrails"
+          badge="LLMOps Security & Compliance"
+          title="安全护栏工程：捍卫生产上线的“最后一公里”"
+          description="在将 Agent 对接高危本地工具调用与外部数据库前，必须构建严密的实时动态输入输出看门狗。本关深入实战针对大模型指令劫持（Prompt Injection）防御、个人隐私数据（PII）脱敏治理以及基于双向 Llama Guard 的网络大闸。"
+        />
 
         {/* Dashboard Panels */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

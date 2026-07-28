@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Sparkles, Zap, Network, Shield, Code, Database, GitBranch, Brain } from "lucide-react"
 import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 
 const mcpArchitecture = [
   {
@@ -186,23 +187,12 @@ export default function MCPEngineeringPage() {
   return (
     <DemoShell demoId="mcp-engineering">
       <main className="space-y-12">
-        <div className="relative overflow-hidden mb-8 border-b border-border/40 pb-6">
-          <div className="absolute top-0 right-0 opacity-[0.03] text-primary select-none pointer-events-none">
-            <Network className="w-96 h-96 -mr-16 -mt-16" />
-          </div>
-          <div className="relative">
-            <div className="flex items-center gap-3">
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <Network className="w-4 h-4" />
-              </span>
-              <span className="text-xs font-mono font-semibold tracking-widest text-primary uppercase">ATLAS NODE #01</span>
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mt-2">MCP Engineering Playroom</h2>
-            <p className="text-muted-foreground text-sm mt-1 max-w-3xl">
-              系统化 Model Context Protocol 工程方法论。通过标准化接口，让 AI 应用安全、可扩展地连接外部工具与数据源。
-            </p>
-          </div>
-        </div>
+        <DemoHero
+          demoId="mcp-engineering"
+          badge="ATLAS NODE #01"
+          title="MCP Engineering Playroom"
+          description="系统化 Model Context Protocol 工程方法论。通过标准化接口，让 AI 应用安全、可扩展地连接外部工具与数据源。"
+        />
 
         {/* Tabs Navigation */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">

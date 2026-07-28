@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Sparkles, Settings, Shield, Layers, GitBranch, CheckCircle, AlertTriangle, Zap, RefreshCw, Users, FileCode, Terminal, Eye } from "lucide-react"
 import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 
 // Harness 核心公式
 const coreFormula = {
@@ -229,6 +230,8 @@ export default function HarnessEngineeringPage() {
   return (
     <DemoShell demoId="harness-engineering">
       <div className="space-y-8">
+        <DemoHero demoId="harness-engineering" />
+
         {/* Core Formula */}
         <Card className="border-2 border-primary/50 bg-primary/5">
           <CardContent className="pt-6">

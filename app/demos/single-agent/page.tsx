@@ -4,9 +4,10 @@ import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, PlayCircle, CheckCircle2 } from "lucide-react"
-import Link from "next/link"
+import { PlayCircle, CheckCircle2 } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 import { AgentCompleteFlow } from "@/components/agent-complete-flow"
 
 const agentLoopSteps = [
@@ -158,31 +159,21 @@ export default function SingleAgentPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <Link href="/">
-            <Button variant="ghost" size="sm" className="mb-3 -ml-3">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              返回首页
-            </Button>
-          </Link>
-          <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
-            <span className="text-4xl">🤖</span>
-            <span className="text-balance">Single Agent: 单一智能体架构</span>
-          </h1>
-          <p className="text-muted-foreground mt-2 text-lg">基于 LLM 的自主决策循环 - 规划、执行、反思</p>
-        </div>
-      </header>
+    <DemoShell demoId="single-agent">
+      <main className="max-w-7xl mx-auto px-6 py-8 space-y-8">
+        <DemoHero
+          demoId="single-agent"
+          title="Single Agent: 单一智能体架构"
+          description="基于 LLM 的自主决策循环 - 规划、执行、反思"
+        />
 
-      <main className="max-w-7xl mx-auto px-6 py-8">
         <Tabs defaultValue="architecture" className="space-y-8">
-          <TabsList className="grid w-full grid-cols-5">
-            <TabsTrigger value="architecture">🏗️ 核心架构</TabsTrigger>
-            <TabsTrigger value="loop">🔄 决策循环</TabsTrigger>
-            <TabsTrigger value="flow">🎬 完整流程</TabsTrigger>
-            <TabsTrigger value="tools">🔧 工具库</TabsTrigger>
-            <TabsTrigger value="memory">🧠 记忆系统</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-5 bg-muted/40 p-1 rounded-xl border border-border/50 h-12">
+            <TabsTrigger value="architecture" className="text-sm">🏗️ 核心架构</TabsTrigger>
+            <TabsTrigger value="loop" className="text-sm">🔄 决策循环</TabsTrigger>
+            <TabsTrigger value="flow" className="text-sm">🎬 完整流程</TabsTrigger>
+            <TabsTrigger value="tools" className="text-sm">🔧 工具库</TabsTrigger>
+            <TabsTrigger value="memory" className="text-sm">🧠 记忆系统</TabsTrigger>
           </TabsList>
 
           {/* Architecture Tab */}
@@ -395,6 +386,6 @@ export default function SingleAgentPage() {
           </TabsContent>
         </Tabs>
       </main>
-    </div>
+    </DemoShell>
   )
 }

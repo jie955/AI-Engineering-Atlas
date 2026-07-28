@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Slider } from "@/components/ui/slider"
 import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 import { useToast } from "@/components/ui/use-toast"
 import {
   Coins,
@@ -158,32 +159,12 @@ export default function FinopsPerformancePage() {
       <div className="space-y-10">
         
         {/* Course Intro */}
-        <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-r from-primary/10 via-background to-background p-6 md:p-8">
-          <div className="absolute right-0 top-0 -mr-6 -mt-6 h-32 w-32 rounded-full bg-primary/10 blur-3xl" />
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-            <div className="space-y-2">
-              <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
-                FinOps & Inferencing Optimization
-              </Badge>
-              <h2 className="text-2xl font-bold tracking-tight">高并发下的降本增效：性能与成本黄金平衡</h2>
-              <p className="text-muted-foreground text-sm max-w-2xl leading-relaxed">
-                企业级 AI 系统上线最痛的两个字是『账单』和『延迟』。本关通过对语义向量缓存（Semantic Cache）、智能路由（vLLM 混合分流）与 Prompt Compression（精简无用熵）的实战模拟，带您解决成本超限危机。
-              </p>
-            </div>
-            <div className="flex items-center gap-4 border-l border-hairline pl-0 md:pl-6 pt-4 md:pt-0 shrink-0">
-              <div className="space-y-1">
-                <div className="text-xs text-muted-foreground">预计掌握时间</div>
-                <div className="text-lg font-bold font-mono text-primary flex items-center gap-1.5">
-                  <Clock className="w-4 h-4" /> 65 分钟
-                </div>
-              </div>
-              <div className="space-y-1 ml-6">
-                <div className="text-xs text-muted-foreground">阶段等级</div>
-                <div className="text-lg font-bold text-primary">Track 4 · 专家</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DemoHero
+          demoId="finops-performance"
+          badge="FinOps & Inferencing Optimization"
+          title="高并发下的降本增效：性能与成本黄金平衡"
+          description="企业级 AI 系统上线最痛的两个字是『账单』和『延迟』。本关通过对语义向量缓存（Semantic Cache）、智能路由（vLLM 混合分流）与 Prompt Compression（精简无用熵）的实战模拟，带您解决成本超限危机。"
+        />
 
         {/* Dashboard Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

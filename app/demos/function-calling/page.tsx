@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useToast } from "@/components/ui/use-toast"
 import {
-  ArrowLeft,
   Sparkles,
   Zap,
   Code,
@@ -18,15 +17,15 @@ import {
   Terminal,
   ArrowRight,
   Database,
-  Cpu,
   RefreshCw,
   HelpCircle,
   BookOpen,
   AlertTriangle,
   ShieldAlert
 } from "lucide-react"
-import Link from "next/link"
 import { motion, AnimatePresence } from "motion/react"
+import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 
 interface ToolDefinition {
   name: string
@@ -409,35 +408,13 @@ if __name__ == "__main__":
 `
 
   return (
-    <div id="function-calling-container" className="min-h-screen bg-background text-foreground pb-12">
-      {/* Header */}
-      <header className="border-b border-border/40 bg-background/80 backdrop-blur-lg sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/roadmap" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            返回路线图 (Roadmap)
-          </Link>
-          <div className="flex items-center gap-2">
-            <Badge variant="outline" className="border-primary/20 bg-primary/5 text-primary">工程化 · Track 1</Badge>
-            <Badge className="bg-emerald-500/10 text-emerald-500 border-emerald-500/20">基础 (Beginner)</Badge>
-          </div>
-        </div>
-      </header>
-
-      <main className="max-w-6xl mx-auto px-6 py-10 space-y-8">
-        {/* Hero Section */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-2">
-            <Cpu className="w-6 h-6 text-primary animate-pulse" />
-            <span className="text-xs font-mono tracking-widest text-primary uppercase font-bold">Track 01 · 觉醒 · 课程 01</span>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight md:text-4xl">
-            原生 Function Calling 闭环原理
-          </h1>
-          <p className="text-muted-foreground max-w-3xl leading-relaxed">
-            抛开三方框架的层层封装，通过最质朴的 Python 代码和原生 SDK。手把手解构大模型与本地系统深度交互的“大循环”运行核心机制，掌握拦截、寻址、执行、喂回的核心闭环。
-          </p>
-        </div>
+    <DemoShell demoId="function-calling">
+      <main className="max-w-7xl mx-auto px-6 py-8 space-y-8">
+        <DemoHero
+          demoId="function-calling"
+          title="原生 Function Calling 闭环原理"
+          description="抛开三方框架的层层封装，通过最质朴的 Python 代码和原生 SDK。手把手解构大模型与本地系统深度交互的“大循环”运行核心机制，掌握拦截、寻址、执行、喂回的核心闭环。"
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left panel - Concept and Scenario selectors */}
@@ -1067,6 +1044,6 @@ if __name__ == "__main__":
           </CardContent>
         </Card>
       </main>
-    </div>
+    </DemoShell>
   )
 }

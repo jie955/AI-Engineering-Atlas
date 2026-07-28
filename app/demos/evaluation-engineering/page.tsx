@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 import { useToast } from "@/components/ui/use-toast"
 import {
   ShieldAlert,
@@ -216,32 +217,12 @@ export default function EvaluationEngineeringPage() {
       <div className="space-y-10">
         
         {/* Course positioning description block */}
-        <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-r from-primary/10 via-background to-background p-6 md:p-8">
-          <div className="absolute right-0 top-0 -mr-6 -mt-6 h-32 w-32 rounded-full bg-primary/10 blur-3xl" />
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-            <div className="space-y-2">
-              <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
-                LLMOps 核心 / Evaluation
-              </Badge>
-              <h2 className="text-2xl font-bold tracking-tight">从经验性调试到自动化黄金标准 (Golden Dataset)</h2>
-              <p className="text-muted-foreground text-sm max-w-2xl leading-relaxed">
-                单步 Prompt 调试在面对复杂的、具有自主运行循环 (Agent Loop) 的非确定性系统时会彻底失效。T4 统御的首要任务，是在 Agent 代码合入主分支前，通过判官模型与断言，构建工业级自动驾驶评估防线。
-              </p>
-            </div>
-            <div className="flex items-center gap-4 border-l border-hairline pl-0 md:pl-6 pt-4 md:pt-0">
-              <div className="space-y-1">
-                <div className="text-xs text-muted-foreground">预计掌握时间</div>
-                <div className="text-lg font-bold font-mono text-primary flex items-center gap-1.5">
-                  <Timer className="w-4 h-4" /> 80 分钟
-                </div>
-              </div>
-              <div className="space-y-1 ml-6">
-                <div className="text-xs text-muted-foreground">阶段等级</div>
-                <div className="text-lg font-bold text-primary">Track 4 · 专家</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DemoHero
+          demoId="evaluation-engineering"
+          badge="LLMOps 核心 / Evaluation"
+          title="从经验性调试到自动化黄金标准 (Golden Dataset)"
+          description="单步 Prompt 调试在面对复杂的、具有自主运行循环 (Agent Loop) 的非确定性系统时会彻底失效。T4 统御的首要任务，是在 Agent 代码合入主分支前，通过判官模型与断言，构建工业级自动驾驶评估防线。"
+        />
 
         {/* Navigation Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">

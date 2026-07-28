@@ -4,9 +4,10 @@ import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, ArrowRight, ShieldAlert, CheckCircle2, AlertTriangle, UserCheck, Play, RefreshCw, Cpu, Layers, Shield, Database, Lock, Eye } from "lucide-react"
-import Link from "next/link"
+import { ArrowRight, ShieldAlert, CheckCircle2, AlertTriangle, UserCheck, Play, RefreshCw, Cpu, Layers, Shield, Database, Lock, Eye } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 
 const agentFlowData = [
   {
@@ -272,30 +273,20 @@ export default function MultiAgentSystemPage() {
   const decision = computeRiskDecision(currentTx)
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <Link href="/">
-            <Button variant="ghost" size="sm" className="mb-3 -ml-3">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              返回首页
-            </Button>
-          </Link>
-          <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
-            <span className="text-4xl">🌐</span>
-            <span className="text-balance">Multi-Agent System: 多智能体协作系统</span>
-          </h1>
-          <p className="text-muted-foreground mt-2 text-lg">复杂任务分解与角色专业化 - 协作大于单打独斗</p>
-        </div>
-      </header>
+    <DemoShell demoId="multi-agent-system">
+      <main className="max-w-7xl mx-auto px-6 py-8 space-y-8">
+        <DemoHero
+          demoId="multi-agent-system"
+          title="Multi-Agent System: 多智能体协作系统"
+          description="复杂任务分解与角色专业化 - 协作大于单打独斗"
+        />
 
-      <main className="max-w-7xl mx-auto px-6 py-8">
         <Tabs defaultValue="compliance-risk" className="space-y-8">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="compliance-risk">🛡️ 合规风控实战</TabsTrigger>
-            <TabsTrigger value="overview">💡 系统概览</TabsTrigger>
-            <TabsTrigger value="flow">🚀 协作流程</TabsTrigger>
-            <TabsTrigger value="patterns">🔀 协作模式</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-4 bg-muted/40 p-1 rounded-xl border border-border/50 h-12">
+            <TabsTrigger value="compliance-risk" className="text-sm">🛡️ 合规风控实战</TabsTrigger>
+            <TabsTrigger value="overview" className="text-sm">💡 系统概览</TabsTrigger>
+            <TabsTrigger value="flow" className="text-sm">🚀 协作流程</TabsTrigger>
+            <TabsTrigger value="patterns" className="text-sm">🔀 协作模式</TabsTrigger>
           </TabsList>
 
           {/* Compliance & Risk Control Tab */}
@@ -970,6 +961,6 @@ export default function MultiAgentSystemPage() {
           </TabsContent>
         </Tabs>
       </main>
-    </div>
+    </DemoShell>
   )
 }

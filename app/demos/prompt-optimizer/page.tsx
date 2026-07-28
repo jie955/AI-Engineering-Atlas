@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Textarea } from "@/components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 import {
   ResponsiveContainer,
   RadarChart,
@@ -400,23 +401,12 @@ ${
 
   return (
     <DemoShell demoId="prompt-optimizer">
-      <div className="relative overflow-hidden mb-8 border-b border-border/40 pb-6">
-        <div className="absolute top-0 right-0 opacity-[0.03] text-primary select-none pointer-events-none">
-          <Terminal className="w-96 h-96 -mr-16 -mt-16" />
-        </div>
-        <div className="relative">
-          <div className="flex items-center gap-3">
-            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <Compass className="w-4 h-4" />
-            </span>
-            <span className="text-xs font-mono font-semibold tracking-widest text-primary uppercase">ATLAS NODE #01</span>
-          </div>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground mt-2">Prompt Engineering Playroom</h2>
-          <p className="text-muted-foreground text-sm mt-1 max-w-3xl">
-            系统化提示词优化方法论。从单点、简陋的硬编码指令，到具备版本化、可预测、强类型及具备自反思能力的生产级大模型核心控制层。
-          </p>
-        </div>
-      </div>
+      <DemoHero
+        demoId="prompt-optimizer"
+        badge="ATLAS NODE #01"
+        title="Prompt Engineering Playroom"
+        description="系统化提示词优化方法论。从单点、简陋的硬编码指令，到具备版本化、可预测、强类型及具备自反思能力的生产级大模型核心控制层。"
+      />
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
         <TabsList className="grid w-full grid-cols-4 bg-muted/40 p-1 rounded-xl border border-border/50 h-12">

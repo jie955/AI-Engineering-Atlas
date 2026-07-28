@@ -58,7 +58,7 @@ export function DemoShell({
                 </span>
                 <span className="font-mono text-sm text-primary">Track {demo.track}</span>
               </div>
-              <h1 className="text-display max-w-3xl text-4xl text-foreground sm:text-5xl">{demo.title}</h1>
+              <h1 className="text-display text-4xl text-foreground sm:text-5xl">{demo.title}</h1>
               <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">{demo.description}</p>
             </>
           )}

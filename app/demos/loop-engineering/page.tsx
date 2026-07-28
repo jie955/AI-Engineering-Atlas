@@ -21,6 +21,7 @@ import {
   Save,
 } from "lucide-react"
 import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 
 // 核心理念
 const coreIdea = {
@@ -211,6 +212,8 @@ export default function LoopEngineeringPage() {
   return (
     <DemoShell demoId="loop-engineering">
       <div className="space-y-8">
+        <DemoHero demoId="loop-engineering" />
+
         {/* Core Idea Card */}
         <Card className="border-2 border-primary/50 bg-primary/5">
           <CardContent className="pt-6 space-y-4">

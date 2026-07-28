@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 import { useToast } from "@/components/ui/use-toast"
 import {
   Activity,
@@ -147,32 +148,12 @@ export default function ObservabilityPage() {
       <div className="space-y-10">
         
         {/* Intro Banner */}
-        <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-r from-primary/10 via-background to-background p-6 md:p-8">
-          <div className="absolute right-0 top-0 -mr-6 -mt-6 h-32 w-32 rounded-full bg-primary/10 blur-3xl" />
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-            <div className="space-y-2">
-              <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
-                LLM Tracing & Metrics
-              </Badge>
-              <h2 className="text-2xl font-bold tracking-tight">可观测性是驯服非确定性系统的缰绳</h2>
-              <p className="text-muted-foreground text-sm max-w-2xl leading-relaxed">
-                在复杂的分布式 Agent 链路中，单次最终返回往往隐藏了 5 个内部 LLM 子链和 3 次工具调用。本关向您展示如何基于 OpenTelemetry 跨度 (Spans) 标准，精准捕获多步决策时序、Token 消耗波峰与首字延迟瓶颈。
-              </p>
-            </div>
-            <div className="flex items-center gap-4 border-l border-hairline pl-0 md:pl-6 pt-4 md:pt-0 shrink-0">
-              <div className="space-y-1">
-                <div className="text-xs text-muted-foreground">预计掌握时间</div>
-                <div className="text-lg font-bold font-mono text-primary flex items-center gap-1.5">
-                  <Clock className="w-4 h-4" /> 70 分钟
-                </div>
-              </div>
-              <div className="space-y-1 ml-6">
-                <div className="text-xs text-muted-foreground">阶段等级</div>
-                <div className="text-lg font-bold text-primary">Track 4 · 专家</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DemoHero
+          demoId="observability"
+          badge="LLM Tracing & Metrics"
+          title="可观测性是驯服非确定性系统的缰绳"
+          description="在复杂的分布式 Agent 链路中，单次最终返回往往隐藏了 5 个内部 LLM 子链和 3 次工具调用。本关向您展示如何基于 OpenTelemetry 跨度 (Spans) 标准，精准捕获多步决策时序、Token 消耗波峰与首字延迟瓶颈。"
+        />
 
         {/* Live Metrics Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">

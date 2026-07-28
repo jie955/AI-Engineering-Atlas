@@ -19,6 +19,8 @@ import {
   Loader2,
 } from "lucide-react"
 import Link from "next/link"
+import { DemoShell } from "@/components/demo-shell"
+import { DemoHero } from "@/components/demo-hero"
 
 type PhaseId = "think" | "plan" | "act" | "observe" | "reflect"
 
@@ -120,37 +122,13 @@ export default function AgentRuntimeLoopPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-lg">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            返回首页
-          </Link>
-          <div className="flex items-center gap-2">
-            <Badge variant="secondary">Agent</Badge>
-            <Badge variant="outline" className="text-xs">
-              中级
-            </Badge>
-          </div>
-        </div>
-      </header>
-
-      <main className="max-w-6xl mx-auto px-6 py-12 space-y-12">
-        {/* Title */}
-        <div className="space-y-4 text-center">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-primary via-chart-2 to-chart-3 bg-clip-text text-transparent">
-            Agent Runtime Loop
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            实时观察智能体的运行时循环：Think → Plan → Act → Observe → Reflect，
-            循环迭代直至目标达成
-          </p>
-        </div>
+    <DemoShell demoId="agent-runtime-loop">
+      <main className="max-w-7xl mx-auto px-6 py-8 space-y-8">
+        <DemoHero
+          demoId="agent-runtime-loop"
+          title="Agent Runtime Loop"
+          description="实时观察智能体的运行时循环：Think → Plan → Act → Observe → Reflect，循环迭代直至目标达成"
+        />
 
         {/* Loop Visualization */}
         <Card className="p-8">
@@ -390,6 +368,6 @@ export default function AgentRuntimeLoopPage() {
           </Button>
         </div>
       </main>
-    </div>
+    </DemoShell>
   )
 }
