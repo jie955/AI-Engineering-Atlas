@@ -17,6 +17,9 @@ yarn-error.log*
 
 # next.js build output
 .next/
+out/
+dist/
+.next-check
 
 # typescript
 *.tsbuildinfo
@@ -24,6 +27,7 @@ next-env.d.ts
 
 # build artifacts / logs
 build.log
+/build
 dev-server*.log
 dev*.log
 npm-install*.log
