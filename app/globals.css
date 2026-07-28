@@ -236,6 +236,53 @@
   .animate-marquee {
     animation: marquee 40s linear infinite;
   }
+
+  /* CTA sheen: a single mirror-light sweep on hover (borrowed from
+     video-shotcraft's cta-sheen, adapted to the warm Atlas palette) */
+  @keyframes cta-sheen {
+    0% {
+      transform: translateX(-130%) skewX(-12deg);
+    }
+    100% {
+      transform: translateX(230%) skewX(-12deg);
+    }
+  }
+
+  .cta-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-sheen::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40%;
+    background: linear-gradient(
+      100deg,
+      transparent,
+      color-mix(in oklch, var(--primary-foreground) 55%, transparent),
+      transparent
+    );
+    transform: translateX(-130%) skewX(-12deg);
+    pointer-events: none;
+  }
+
+  .cta-sheen:hover::after {
+    animation: cta-sheen 0.9s ease forwards;
+  }
+
+  /* Reduced-motion guard: disable non-essential ambient animations */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none;
+    }
+    .cta-sheen::after {
+      display: none;
+    }
+  }
 }
 
 /* Custom CSS hover state to slightly elevate the element and change its opacity */

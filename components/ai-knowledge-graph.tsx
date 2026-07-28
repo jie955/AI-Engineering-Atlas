@@ -34,7 +34,7 @@ const nodes: NodeData[] = [
     label: "Agent",
     position: [2.5, 0, 0],
     color: "#8B3D2A",
-    link: "/demos/multi-agent",
+    link: "/demos/multi-agent-system",
     description: "智能体协作系统",
   },
   {
@@ -75,6 +75,10 @@ export default function AIKnowledgeGraph() {
 
   // Auto rotate when not dragging or hovering
   useEffect(() => {
+    // Respect reduced-motion: keep the graph static for motion-sensitive users
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return
+    }
     let frameId: number
     const tick = () => {
       if (!isDragging && !hoveredNode) {

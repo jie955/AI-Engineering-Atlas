@@ -4,6 +4,7 @@ import { useState } from "react"
 import { demos, categories, type Category } from "@/lib/demos"
 import { tracks } from "@/lib/mock-store"
 import { DemoCard } from "@/components/demo-card"
+import { Reveal } from "@/components/reveal"
 import { cn } from "@/lib/utils"
 
 type Filter = Category | "全部"
@@ -55,7 +56,9 @@ export function DemoBrowser() {
                 </div>
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {trackDemos.map((demo, i) => (
-                    <DemoCard key={demo.id} demo={demo} index={i} />
+                    <Reveal key={demo.id} delay={(i % 3) * 90}>
+                      <DemoCard demo={demo} index={i} />
+                    </Reveal>
                   ))}
                 </div>
               </div>
@@ -68,7 +71,9 @@ export function DemoBrowser() {
           {demos
             .filter((d) => d.category === filter)
             .map((demo, i) => (
-              <DemoCard key={demo.id} demo={demo} index={i} />
+              <Reveal key={demo.id} delay={(i % 3) * 90}>
+                <DemoCard demo={demo} index={i} />
+              </Reveal>
             ))}
         </div>
       )}
