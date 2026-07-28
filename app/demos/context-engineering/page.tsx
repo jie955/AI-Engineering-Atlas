@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowLeft, Sparkles, Loader2, BarChart3, Layers, AlertCircle } from "lucide-react"
-import Link from "next/link"
+import { Sparkles, Loader2, BarChart3, Layers, AlertCircle } from "lucide-react"
+import { DemoShell } from "@/components/demo-shell"
 
 const contextStrategies = [
   {
@@ -165,43 +165,33 @@ ${strategy?.disadvantages.map((d) => `• ${d}`).join("\n")}
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border/40 bg-background/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex flex-col gap-4">
-            <Link href="/">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="transition-all duration-300 hover:bg-accent hover:translate-x-1"
-              >
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                返回首页
-              </Button>
-            </Link>
-            <div className="flex-1">
-              <h1 className="text-2xl sm:text-3xl font-bold text-foreground flex items-center gap-3 mb-2">
-                <Layers className="w-8 h-8 text-primary" />
-                上下文工程
-              </h1>
-              <p className="text-muted-foreground text-base sm:text-lg">
-                通过优化信息结构提升 LLM 输出质量的完整指南
-              </p>
+    <DemoShell demoId="context-engineering">
+      <main className="max-w-7xl mx-auto px-6 py-8 space-y-8">
+        <div className="relative overflow-hidden mb-8 border-b border-border/40 pb-6">
+          <div className="absolute top-0 right-0 opacity-[0.03] text-primary select-none pointer-events-none">
+            <Layers className="w-96 h-96 -mr-16 -mt-16" />
+          </div>
+          <div className="relative">
+            <div className="flex items-center gap-3">
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Layers className="w-4 h-4" />
+              </span>
+              <span className="text-xs font-mono font-semibold tracking-widest text-primary uppercase">ATLAS NODE #01</span>
             </div>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground mt-2">Context Engineering Playroom</h2>
+            <p className="text-muted-foreground text-sm mt-1 max-w-3xl">
+              系统化上下文工程方法论。通过优化提示词之外的信息结构（记忆、检索、工具、状态），让大模型在复杂任务中保持稳定的推理质量。
+            </p>
           </div>
         </div>
-      </header>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
-        <Tabs defaultValue="strategies" className="w-full">
-          <TabsList className="grid w-full grid-cols-5">
-            <TabsTrigger value="strategies">策略对比</TabsTrigger>
-            <TabsTrigger value="dimensions">核心维度</TabsTrigger>
-            <TabsTrigger value="examples">实战案例</TabsTrigger>
-            <TabsTrigger value="playground">交互演练</TabsTrigger>
-            <TabsTrigger value="spec" className="text-primary font-medium">📋 Engineering Spec</TabsTrigger>
+        <Tabs defaultValue="strategies" className="w-full space-y-8">
+          <TabsList className="grid w-full grid-cols-5 bg-muted/40 p-1 rounded-xl border border-border/50 h-12">
+            <TabsTrigger value="strategies" className="text-sm">策略对比</TabsTrigger>
+            <TabsTrigger value="dimensions" className="text-sm">核心维度</TabsTrigger>
+            <TabsTrigger value="examples" className="text-sm">实战案例</TabsTrigger>
+            <TabsTrigger value="playground" className="text-sm">交互演练</TabsTrigger>
+            <TabsTrigger value="spec" className="text-sm text-primary font-medium">📋 Engineering Spec</TabsTrigger>
           </TabsList>
 
           {/* Strategies Tab */}
@@ -819,7 +809,7 @@ export class ContextAssembler {
             </div>
           </TabsContent>
         </Tabs>
-      </div>
-    </div>
+      </main>
+    </DemoShell>
   )
 }

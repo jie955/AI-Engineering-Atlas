@@ -2,11 +2,10 @@
 
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowLeft, Sparkles, Zap, Network, Shield, Code, Database, GitBranch, Brain } from "lucide-react"
-import Link from "next/link"
+import { Sparkles, Zap, Network, Shield, Code, Database, GitBranch, Brain } from "lucide-react"
+import { DemoShell } from "@/components/demo-shell"
 
 const mcpArchitecture = [
   {
@@ -185,39 +184,38 @@ export default function MCPEngineeringPage() {
   const [selectedCapability, setSelectedCapability] = useState(0)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/40">
-        <div className="container max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Link href="/">
-              <Button variant="ghost" size="sm" className="gap-2">
-                <ArrowLeft className="h-4 w-4" />
-                返回
-              </Button>
-            </Link>
-            <div>
-              <h1 className="text-xl font-bold">MCP 工程</h1>
-              <p className="text-xs text-muted-foreground">Model Context Protocol 完整指南</p>
-            </div>
+    <DemoShell demoId="mcp-engineering">
+      <main className="space-y-12">
+        <div className="relative overflow-hidden mb-8 border-b border-border/40 pb-6">
+          <div className="absolute top-0 right-0 opacity-[0.03] text-primary select-none pointer-events-none">
+            <Network className="w-96 h-96 -mr-16 -mt-16" />
           </div>
-          <Badge variant="secondary">中级</Badge>
+          <div className="relative">
+            <div className="flex items-center gap-3">
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Network className="w-4 h-4" />
+              </span>
+              <span className="text-xs font-mono font-semibold tracking-widest text-primary uppercase">ATLAS NODE #01</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground mt-2">MCP Engineering Playroom</h2>
+            <p className="text-muted-foreground text-sm mt-1 max-w-3xl">
+              系统化 Model Context Protocol 工程方法论。通过标准化接口，让 AI 应用安全、可扩展地连接外部工具与数据源。
+            </p>
+          </div>
         </div>
-      </header>
 
-      <main className="container max-w-7xl mx-auto px-4 py-12 space-y-12">
         {/* Tabs Navigation */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 bg-muted/50">
-            <TabsTrigger value="overview">概览</TabsTrigger>
-            <TabsTrigger value="architecture">架构</TabsTrigger>
-            <TabsTrigger value="implementation">实现</TabsTrigger>
-            <TabsTrigger value="usecases">应用场景</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-4 bg-muted/40 p-1 rounded-xl border border-border/50 h-12">
+            <TabsTrigger value="overview" className="text-sm">概览</TabsTrigger>
+            <TabsTrigger value="architecture" className="text-sm">架构</TabsTrigger>
+            <TabsTrigger value="implementation" className="text-sm">实现</TabsTrigger>
+            <TabsTrigger value="usecases" className="text-sm">应用场景</TabsTrigger>
           </TabsList>
 
           {/* Overview Tab */}
           <TabsContent value="overview" className="space-y-6 mt-8">
-            <Card className="border-2">
+            <Card className="border">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Sparkles className="h-5 w-5 text-primary" />
@@ -245,7 +243,7 @@ export default function MCPEngineeringPage() {
             </Card>
 
             {/* Capabilities Overview */}
-            <Card className="border-2">
+            <Card className="border">
               <CardHeader>
                 <CardTitle>MCP 核心能力</CardTitle>
                 <CardDescription>四大核心功能模块</CardDescription>
@@ -255,7 +253,7 @@ export default function MCPEngineeringPage() {
                   {mcpCapabilities.map((cap, idx) => (
                     <div
                       key={idx}
-                      className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                      className={`p-4 rounded-lg border cursor-pointer transition-all ${
                         selectedCapability === idx
                           ? "border-primary bg-primary/10"
                           : "border-border hover:border-primary/50"
@@ -286,7 +284,7 @@ export default function MCPEngineeringPage() {
 
           {/* Architecture Tab */}
           <TabsContent value="architecture" className="space-y-6 mt-8">
-            <Card className="border-2">
+            <Card className="border">
               <CardHeader>
                 <CardTitle>MCP 架构设计</CardTitle>
                 <CardDescription>客户端-服务器通信模型</CardDescription>
@@ -312,7 +310,7 @@ export default function MCPEngineeringPage() {
                   })}
                 </div>
 
-                <div className="mt-8 p-6 bg-muted/50 rounded-lg border-2 border-dashed">
+                <div className="mt-8 p-6 bg-muted/50 rounded-lg border border-dashed">
                   <h3 className="font-semibold mb-4">通信流程</h3>
                   <div className="space-y-4 text-sm">
                     <div className="flex items-start gap-3">
@@ -350,7 +348,7 @@ export default function MCPEngineeringPage() {
 
           {/* Implementation Tab */}
           <TabsContent value="implementation" className="space-y-6 mt-8">
-            <Card className="border-2">
+            <Card className="border">
               <CardHeader>
                 <CardTitle>MCP 服务器实现</CardTitle>
                 <CardDescription>5 个关键步骤，从零到一</CardDescription>
@@ -361,7 +359,7 @@ export default function MCPEngineeringPage() {
                     <button
                       key={step.step}
                       onClick={() => setSelectedImpl(step.step - 1)}
-                      className={`p-3 rounded-lg border-2 text-center transition-all ${
+                      className={`p-3 rounded-lg border text-center transition-all ${
                         selectedImpl === step.step - 1
                           ? "border-primary bg-primary/10"
                           : "border-border hover:border-primary/50"
@@ -415,7 +413,7 @@ export default function MCPEngineeringPage() {
 
           {/* Use Cases Tab */}
           <TabsContent value="usecases" className="space-y-6 mt-8">
-            <Card className="border-2">
+            <Card className="border">
               <CardHeader>
                 <CardTitle>MCP 应用场景</CardTitle>
                 <CardDescription>在不同领域的实际应用</CardDescription>
@@ -489,7 +487,7 @@ export default function MCPEngineeringPage() {
         </Tabs>
 
         {/* Key Takeaways */}
-        <Card className="border-2 bg-primary/5">
+        <Card className="border bg-primary/5">
           <CardHeader>
             <CardTitle>核心要点总结</CardTitle>
           </CardHeader>
@@ -527,6 +525,6 @@ export default function MCPEngineeringPage() {
           </CardContent>
         </Card>
       </main>
-    </div>
+    </DemoShell>
   )
 }
