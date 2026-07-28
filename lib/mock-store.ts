@@ -276,7 +276,7 @@ export const demoMetadata: Record<string, {
   track: number
 }> = {
   "prompt-optimizer": {
-    title: "提示词工程优化",
+    title: "提示工程 (Prompt Engineering)",
     category: "大模型",
     difficulty: "入门",
     estimatedTime: 30,
@@ -285,26 +285,26 @@ export const demoMetadata: Record<string, {
     track: 0,
   },
   "context-engineering": {
-    title: "上下文工程",
+    title: "上下文工程 (Context Engineering)",
     category: "大模型",
-    difficulty: "基础",
+    difficulty: "入门",
     estimatedTime: 45,
     prerequisites: ["prompt-optimizer"],
     skills: ["上下文优化", "信息结构化", "Token 管理"],
     track: 1,
   },
   "structured-outputs": {
-    title: "结构化输出与类型安全",
+    title: "结构化输出与类型安全 (Structured Outputs)",
     category: "大模型",
-    difficulty: "基础",
+    difficulty: "入门",
     estimatedTime: 45,
     prerequisites: ["prompt-optimizer"],
     skills: ["Pydantic 数据验证", "Instructor 强类型约束", "原生 JSON Schema", "优雅降级与自动重试"],
     track: 0,
   },
   "function-calling": {
-    title: "原生 Function Calling 闭环原理",
-    category: "工程化",
+    title: "原生 Function Calling 闭环原理 (Function Calling)",
+    category: "大模型",
     difficulty: "基础",
     estimatedTime: 35,
     prerequisites: ["prompt-optimizer"],
@@ -312,7 +312,7 @@ export const demoMetadata: Record<string, {
     track: 1,
   },
   "mcp-engineering": {
-    title: "MCP 工程",
+    title: "MCP 工程 (Model Context Protocol)",
     category: "工程化",
     difficulty: "基础",
     estimatedTime: 40,
@@ -321,7 +321,7 @@ export const demoMetadata: Record<string, {
     track: 1,
   },
   "skill-engineering": {
-    title: "SKILL 工程",
+    title: "技能工程 (Skill Engineering)",
     category: "工程化",
     difficulty: "中级",
     estimatedTime: 50,
@@ -330,7 +330,7 @@ export const demoMetadata: Record<string, {
     track: 1,
   },
   "single-agent": {
-    title: "单一智能体架构",
+    title: "单一智能体架构 (Single Agent)",
     category: "Agent",
     difficulty: "基础",
     estimatedTime: 60,
@@ -339,7 +339,7 @@ export const demoMetadata: Record<string, {
     track: 2,
   },
   "agent-runtime-loop": {
-    title: "Agent Runtime Loop",
+    title: "智能体运行时循环 (Agent Runtime Loop)",
     category: "Agent",
     difficulty: "中级",
     estimatedTime: 50,
@@ -348,7 +348,7 @@ export const demoMetadata: Record<string, {
     track: 2,
   },
   "rag-decision": {
-    title: "RAG 个性化决策",
+    title: "RAG 个性化决策系统 (RAG Decision)",
     category: "RAG",
     difficulty: "中级",
     estimatedTime: 75,
@@ -357,7 +357,7 @@ export const demoMetadata: Record<string, {
     track: 2,
   },
   "human-in-the-loop": {
-    title: "人机协同",
+    title: "人机协同 (Human-in-the-Loop)",
     category: "Agent",
     difficulty: "中级",
     estimatedTime: 60,
@@ -366,7 +366,7 @@ export const demoMetadata: Record<string, {
     track: 2,
   },
   "multimodal-rag": {
-    title: "多模态 RAG 与高级解析工程",
+    title: "多模态 RAG 与高级解析工程 (Multimodal RAG)",
     category: "RAG",
     difficulty: "高级",
     estimatedTime: 75,
@@ -375,7 +375,7 @@ export const demoMetadata: Record<string, {
     track: 3,
   },
   "graph-rag": {
-    title: "GraphRAG 图检索",
+    title: "图检索增强 (GraphRAG)",
     category: "RAG",
     difficulty: "高级",
     estimatedTime: 90,
@@ -384,7 +384,7 @@ export const demoMetadata: Record<string, {
     track: 3,
   },
   "multi-agent-system": {
-    title: "多智能体协作",
+    title: "多智能体协作系统 (Multi-Agent System)",
     category: "Agent",
     difficulty: "专家",
     estimatedTime: 120,
@@ -393,7 +393,7 @@ export const demoMetadata: Record<string, {
     track: 3,
   },
   "harness-engineering": {
-    title: "Harness Engineering",
+    title: "智能体运行框架工程 (Harness Engineering)",
     category: "工程化",
     difficulty: "专家",
     estimatedTime: 90,
@@ -402,7 +402,7 @@ export const demoMetadata: Record<string, {
     track: 3,
   },
   "loop-engineering": {
-    title: "Loop Engineering",
+    title: "循环工程 (Loop Engineering)",
     category: "工程化",
     difficulty: "专家",
     estimatedTime: 80,
@@ -411,7 +411,7 @@ export const demoMetadata: Record<string, {
     track: 3,
   },
   "evaluation-engineering": {
-    title: "评估工程",
+    title: "评估工程 (Evaluation)",
     category: "工程化",
     difficulty: "专家",
     estimatedTime: 80,
@@ -420,7 +420,7 @@ export const demoMetadata: Record<string, {
     track: 4,
   },
   "observability": {
-    title: "可观测性与链路追踪",
+    title: "可观测性与追踪 (Observability)",
     category: "工程化",
     difficulty: "专家",
     estimatedTime: 70,
@@ -429,7 +429,7 @@ export const demoMetadata: Record<string, {
     track: 4,
   },
   "finops-performance": {
-    title: "性能与成本工程",
+    title: "性能与成本工程 (FinOps)",
     category: "工程化",
     difficulty: "专家",
     estimatedTime: 65,
@@ -438,7 +438,7 @@ export const demoMetadata: Record<string, {
     track: 4,
   },
   "guardrails": {
-    title: "安全防御与护栏工程",
+    title: "安全护栏工程 (Guardrails)",
     category: "工程化",
     difficulty: "专家",
     estimatedTime: 60,
