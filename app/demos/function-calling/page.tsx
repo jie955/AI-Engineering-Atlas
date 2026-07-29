@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { AtlasTechniqueCarrier } from "@/components/atlas-technique-carrier"
+import { PALSandbox } from "@/components/pal-sandbox"
+import { ArtPlayground } from "@/components/art-playground"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -415,6 +418,37 @@ if __name__ == "__main__":
           title="原生 Function Calling 闭环原理"
           description="抛开三方框架的层层封装，通过最质朴的 Python 代码和原生 SDK。手把手解构大模型与本地系统深度交互的“大循环”运行核心机制，掌握拦截、寻址、执行、喂回的核心闭环。"
         />
+
+        {/* 关联《提示工程技术全景》地图 + 扩展技术承载：补齐原空白项 #9 #13 */}
+        <AtlasTechniqueCarrier
+          intro="以下 2 项原为《提示工程技术全景》中的空白项，现作为扩展承载补充至此，对应本节点的工具调用与本地执行能力。"
+          techniques={[
+            {
+              n: "9",
+              name: "ART (自动推理 + 工具)",
+              desc: "在推理过程中自动决定调用外部工具（计算器、检索器、代码执行）获取中间事实，再继续推理，把『推理』与『工具使用』无缝交织。本节点原生 Function Calling 闭环正是 ART 的工程落地：模型决定调哪个工具，我们只在执行兜底。",
+              example:
+                "Thought: 需计算复利 → Action: calculator(rate, years)\nObserve: 结果 1.34x\nThought: 结合检索到的政策 → 继续推理",
+              pros: ["把不可靠的心算/记忆替换为可验证工具结果", "扩展模型能力边界"],
+              cons: ["工具声明与参数拦截需谨慎", "工具失败需自愈兜底"],
+              strong: true,
+            },
+            {
+              n: "13",
+              name: "PAL (程序辅助推理)",
+              desc: "让模型生成可执行程序（如 Python）来表达推理步骤，借助解释器运行得到精确答案，常用于数学/符号计算。本节点的『本地执行』环节即 PAL 思想：模型产出代码，运行时执行并把结果喂回。",
+              example:
+                "def solve():\n    return sum(range(1, 101))\n# 解释器执行 → 5050",
+              pros: ["数值与逻辑精确", "可复用既有代码生态"],
+              cons: ["代码需沙箱执行", "错误处理较复杂"],
+              strong: true,
+            },
+          ]}
+        />
+
+        {/* PAL 真演练场：#13 升级为强覆盖，真实沙箱执行代码 */}
+        <PALSandbox />
+        <ArtPlayground />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left panel - Concept and Scenario selectors */}

@@ -14,6 +14,16 @@ export interface Demo {
 
 export const demos: Demo[] = [
   {
+    id: "prompt-engineering-techniques",
+    title: "提示工程技术全景 (Prompt Engineering Map)",
+    description: "18 项经典提示技术的地图与 Atlas 覆盖度审计 —— 强覆盖、弱覆盖与空白一目了然",
+    category: "大模型",
+    difficulty: "入门",
+    status: "active",
+    estimatedTime: 25,
+    track: 0,
+  },
+  {
     id: "prompt-optimizer",
     title: "提示工程 (Prompt Engineering)",
     description: "从直觉到系统：CoT 推理链与 Few-Shot 范式的设计方法论",

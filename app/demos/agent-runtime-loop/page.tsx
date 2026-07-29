@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef, useCallback } from "react"
 import { Card } from "@/components/ui/card"
+import { AtlasTechniqueCarrier } from "@/components/atlas-technique-carrier"
+import { ToTPlayground } from "@/components/tot-playground"
+import { ReflexionPlayground } from "@/components/reflexion-playground"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -129,6 +132,40 @@ export default function AgentRuntimeLoopPage() {
           title="Agent Runtime Loop"
           description="实时观察智能体的运行时循环：Think → Plan → Act → Observe → Reflect，循环迭代直至目标达成"
         />
+
+        {/* 关联《提示工程技术全景》地图 + 扩展技术承载：补齐 #7 #15 */}
+        <AtlasTechniqueCarrier
+          tone="strong"
+          intro="本节点承载《提示工程技术全景》中 #7 思维树（已配真演练场，见下方真实树搜索）与 #15 Reflexion（已配真演练场，见下方：真实反思闭环 第1轮→评估→反思记忆→第2轮）。"
+          techniques={[
+            {
+              n: "7",
+              name: "思维树 (ToT)",
+              desc: "把线性推理扩展为树状搜索——在关键节点分叉出多个候选『思路』，用启发式评估各分支并剪枝/回溯，最终汇聚最优解。本节点的 Think→Plan→Act→Observe→Reflect 循环是其『单链』特例；要升级为 ToT，只需在 Reflect 阶段引入多候选评估与回溯。",
+              example:
+                "Root → [分支A, 分支B, 分支C]\n评估: A=0.9, B=0.4, C=0.7\n剪枝 B → 从 A/C 继续展开",
+              pros: ["适合需要探索/规划的任务", "避免一条道走到黑"],
+              cons: ["搜索与评估成本高", "需设计分支与打分策略"],
+              strong: true,
+            },
+            {
+              n: "15",
+              name: "Reflexion (反思闭环)",
+              desc: "在任务结束后让智能体对自身轨迹做「反思」，把失败/偏差写成可持久化的经验记忆，下一轮据此调整——把试错变成可累积的学习。本节点的 Reflect 节点正是其落地形态。",
+              example:
+                "第1轮: 行动 → 结果错误\n反思: 『我误判了工具返回格式』\n第2轮: 带上反思记忆重做 → 成功",
+              pros: ["错误可累积为经验", "少样本即可持续变好"],
+              cons: ["反思质量依赖模型自省", "需管理记忆容量与噪声"],
+              strong: true,
+            },
+          ]}
+        />
+
+        {/* #7 升级为强覆盖：ToT 思维树真演练场 */}
+        <ToTPlayground />
+
+        {/* #15 升级为强覆盖：Reflexion 反思闭环真演练场 */}
+        <ReflexionPlayground />
 
         {/* Loop Visualization */}
         <Card className="p-8">

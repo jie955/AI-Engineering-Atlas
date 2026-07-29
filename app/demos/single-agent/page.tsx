@@ -7,6 +7,9 @@ import { Badge } from "@/components/ui/badge"
 import { PlayCircle, CheckCircle2 } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DemoShell } from "@/components/demo-shell"
+import { AtlasTechniqueCarrier } from "@/components/atlas-technique-carrier"
+import { PromptChainingPlayground } from "@/components/prompt-chaining-playground"
+import { ReactPlayground } from "@/components/react-playground"
 import { DemoHero } from "@/components/demo-hero"
 import { AgentCompleteFlow } from "@/components/agent-complete-flow"
 
@@ -385,6 +388,41 @@ export default function SingleAgentPage() {
             </Card>
           </TabsContent>
         </Tabs>
+
+        {/* 关联《提示工程技术全景》地图 + 扩展技术承载：#6 #14 均已配真演练场 */}
+        <AtlasTechniqueCarrier
+          tone="strong"
+          intro="本节点承载《提示工程技术全景》中 #6 Prompt Chaining（已配真演练场，见下方：真实链式管线抽取→归类→格式化）与 #14 ReAct（已配真演练场，见下方：真实 Think-Act-Observe 循环）。"
+          techniques={[
+            {
+              n: "6",
+              name: "Prompt Chaining (提示链)",
+              desc: "把复杂任务拆成有序的多个子提示，上一步输出作为下一步输入，像流水线一样串联——适合可分解、步骤依赖明确的任务。",
+              example:
+                "① 抽取关键实体 → ② 基于实体检索 → ③ 据检索结果生成摘要\n每一步 prompt 独立、可观测、可回退",
+              pros: ["步骤可控、易调试", "单步失败易定位"],
+              cons: ["链路长则延迟累积", "需设计步骤边界与容错"],
+              strong: true,
+            },
+            {
+              n: "14",
+              name: "ReAct (推理 + 行动)",
+              desc: "交替进行推理（Thought）与行动（Action / 工具调用），用观测（Observation）闭环驱动决策——把『想』和『做』交织进同一循环。",
+              example:
+                "Thought: 需查今日股价\nAction: search('AAPL price')\nObservation: $229.8\nThought: 据此作答…",
+              pros: ["可调用外部工具补齐知识", "过程可解释、可干预"],
+              cons: ["循环可能跑偏 / 无限", "需工具可靠性与终止条件"],
+              strong: true,
+            },
+          ]}
+        />
+
+        {/* #6 Prompt Chaining 真演练场（强覆盖）：真实链式管线，逐步执行 */}
+        <PromptChainingPlayground />
+
+        {/* #14 ReAct 真演练场（强覆盖）：真实 Think-Act-Observe 循环，逐步执行 */}
+        <ReactPlayground />
+
       </main>
     </DemoShell>
   )

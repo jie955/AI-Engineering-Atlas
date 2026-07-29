@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { AtlasTechniqueCarrier } from "@/components/atlas-technique-carrier"
+import { ActivePromptPlayground } from "@/components/active-prompt-playground"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -223,6 +225,26 @@ export default function EvaluationEngineeringPage() {
           title="从经验性调试到自动化黄金标准 (Golden Dataset)"
           description="单步 Prompt 调试在面对复杂的、具有自主运行循环 (Agent Loop) 的非确定性系统时会彻底失效。T4 统御的首要任务，是在 Agent 代码合入主分支前，通过判官模型与断言，构建工业级自动驾驶评估防线。"
         />
+
+        {/* 关联《提示工程技术全景》地图 + 扩展技术承载：补齐原空白项 #11 */}
+        <AtlasTechniqueCarrier
+          intro="以下 1 项原为《提示工程技术全景》中的空白项，现作为扩展承载补充至此。本节点的『轨迹评估 / 断言测试』体系正是量化『模型何时不可靠』的基础设施，天然支撑 Active-Prompt 的样本筛选。"
+          techniques={[
+            {
+              n: "11",
+              name: "Active-Prompt（主动提示）",
+              desc: "先让模型对一批问题作答并估计『不确定性』，挑出最不确定的样本交由人类标注，据此构造 Few-Shot 示例——把标注预算花在刀刃上。本节点的评估/断言测试体系量化了『模型何时不可靠』，正是 Active-Prompt 筛选难例的基础设施。",
+              example:
+                "1) 模型对 100 题自答并打分置信度\n2) 取置信度最低的 10 题 → 人工标注\n3) 用这 10 题作为 Few-Shot 示例",
+              pros: ["用更少标注达到更高基线", "聚焦模型真正拿不准的难例"],
+              cons: ["需要不确定性估计机制", "标注闭环带来时延"],
+              strong: true,
+            },
+          ]}
+        />
+
+        {/* #11 升级为强覆盖：Active-Prompt 真演练场 */}
+        <ActivePromptPlayground />
 
         {/* Navigation Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">

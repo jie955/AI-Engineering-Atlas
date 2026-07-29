@@ -60,7 +60,7 @@ export const tracks: Track[] = [
     subtitle: "Preparation",
     description: "打好大模型交互基础，理解提示词与上下文的本质",
     estimatedHours: 3,
-    demos: ["prompt-optimizer", "context-engineering", "structured-outputs"],
+    demos: ["prompt-engineering-techniques", "prompt-optimizer", "context-engineering", "structured-outputs"],
   },
   {
     id: "track-1",
@@ -275,6 +275,15 @@ export const demoMetadata: Record<string, {
   skills: string[]
   track: number
 }> = {
+  "prompt-engineering-techniques": {
+    title: "提示工程技术全景 (Prompt Engineering Map)",
+    category: "大模型",
+    difficulty: "入门",
+    estimatedTime: 25,
+    prerequisites: [],
+    skills: ["18 项提示技术", "覆盖度审计", "技术选型地图"],
+    track: 0,
+  },
   "prompt-optimizer": {
     title: "提示工程 (Prompt Engineering)",
     category: "大模型",

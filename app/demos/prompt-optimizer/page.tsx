@@ -1,7 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { Card } from "@/components/ui/card"
+import { AtlasTechniqueCarrier } from "@/components/atlas-technique-carrier"
+import { SelfConsistencyPlayground } from "@/components/self-consistency-playground"
+import { GeneratedKnowledgePlayground } from "@/components/generated-knowledge-playground"
+import { ApePlayground } from "@/components/ape-playground"
+import { MetaPromptingPlayground } from "@/components/meta-prompting-playground"
+import { DirectionalStimulusPlayground } from "@/components/directional-stimulus-playground"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Textarea } from "@/components/ui/textarea"
@@ -407,6 +414,110 @@ ${
         title="Prompt Engineering Playroom"
         description="系统化提示词优化方法论。从单点、简陋的硬编码指令，到具备版本化、可预测、强类型及具备自反思能力的生产级大模型核心控制层。"
       />
+
+      {/* 关联《提示工程技术全景》地图：反向互链，打破两张皮 */}
+      <div className="p-5 rounded-xl border border-primary/20 bg-primary/5 flex items-start gap-4">
+        <Compass className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+        <div className="space-y-2 flex-1">
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <span className="text-xs font-semibold text-primary uppercase tracking-wider">关联 · 提示工程技术全景</span>
+            <Link href="/demos/prompt-engineering-techniques" className="text-xs font-medium text-primary hover:underline flex items-center gap-1">
+              查看完整技术地图 <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            本节点是 Atlas《提示工程技术全景》中「已覆盖」技术的主承载。下方技术库每一项都已纳入该技术地图的对照审计：
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="outline" className="text-xs border-emerald-500/30 text-emerald-600">#3 思维链 CoT</Badge>
+            <Badge variant="outline" className="text-xs border-emerald-500/30 text-emerald-600">#2 少样本 Few-Shot</Badge>
+            <Badge variant="outline" className="text-xs border-emerald-500/30 text-emerald-600">角色提示 Role</Badge>
+            <Badge variant="outline" className="text-xs border-amber-500/30 text-amber-600">#1 零样本 Zero-Shot（基线）</Badge>
+            <Badge variant="outline" className="text-xs border-amber-500/30 text-amber-600">#4 自我一致性</Badge>
+            <Badge variant="outline" className="text-xs border-amber-500/30 text-amber-600">#5 生成知识</Badge>
+            <Badge variant="outline" className="text-xs border-amber-500/30 text-amber-600">#10 自动提示工程师</Badge>
+            <Badge variant="outline" className="text-xs border-amber-500/30 text-amber-600">#12 方向性刺激</Badge>
+          </div>
+        </div>
+      </div>
+
+      {/* 扩展技术承载：#4 #5 #10 #12 已配真演练场；#1 零样本为思想说明；#18 meta-prompting 已配真演练场（本节点已有反向互链横幅，故仅渲染技术卡片） */}
+      <AtlasTechniqueCarrier
+        showHeader={false}
+        tone="strong"
+        intro="本节点承载《提示工程技术全景》中 #4 自我一致性、#5 生成知识提示、#10 自动提示工程师、#12 方向性刺激提示（已配真演练场，见下方真实执行），以及 #1 零样本（思想说明 + 示例）、#18 meta-prompting（已配真演练场，见下方：设计者 persona × 迭代精炼）。"
+        techniques={[
+          {
+            n: "1",
+            name: "零样本 (Zero-Shot)",
+            desc: "不给任何示例，直接让模型基于指令与自身参数知识完成任务。是少样本 / 思维链的前提基线，考验指令清晰度与模型泛化。",
+            example:
+              "「请把下面句子翻译成英文：今天天气真好。」\n（无任何示例，模型直接输出 The weather is nice today.）",
+            pros: ["零示例成本、最快", "依赖指令而非样本"],
+            cons: ["复杂/长尾任务易跑偏", "对指令措辞敏感"],
+            strong: true,
+          },
+          {
+            n: "4",
+            name: "自我一致性 (Self-Consistency)",
+            desc: "对同一个问题采样多条推理路径（如多次 CoT），再用多数投票汇聚最终答案。把『单次推理』升级为『多条路径 + 聚合』，显著提升复杂推理的稳健性。",
+            example:
+              "Q: 火车时速 60km，行驶 2.5 小时…？\n采样 5 条 CoT → [150, 150, 140, 150, 150]\n投票 → 150 为最终答案",
+            pros: ["显著提升算术/常识推理准确率", "对单条 CoT 的偶发失败鲁棒"],
+            cons: ["多次采样推高推理成本", "需要额外的聚合/投票逻辑"],
+            strong: true,
+          },
+          {
+            n: "5",
+            name: "生成知识提示 (Generated Knowledge)",
+            desc: "先让模型生成与问题相关的背景知识段落，再带着这些知识去回答——把『开卷检索』环节显式化，缓解知识缺失与幻觉。",
+            example:
+              "Step1: 请先写出『光合作用』的关键事实…\nStep2: 基于上述事实，回答『阴天植物为何仍存活』",
+            pros: ["缓解知识缺失与幻觉", "推理过程更可解释"],
+            cons: ["生成的知识本身可能错误", "拉长上下文、增加延迟"],
+            strong: true,
+          },
+          {
+            n: "10",
+            name: "自动提示工程师 (APE)",
+            desc: "用 LLM 自动生成并筛选候选提示词，以目标任务的评分作为搜索目标，把『提示设计』变成可程序化优化的过程。",
+            example:
+              "候选提示 = LLM 基于任务描述生成 N 条\n评估 = 在验证集上打分\n选择 = 最高分提示作为最终模板",
+            pros: ["减少对人工调参的依赖", "可批量探索提示空间"],
+            cons: ["需要可靠的评估器", "搜索与重跑成本高"],
+            strong: true,
+          },
+          {
+            n: "12",
+            name: "方向性刺激提示 (Directional Stimulus)",
+            desc: "在 prompt 中插入一句引导性刺激（如期望的作答方向或关键词），软性地引导解码走向，而非硬编码硬性指令。",
+            example:
+              "生成摘要前加入：\n「请侧重『成本』与『风险』两点」\n模型据此调整输出侧重",
+            pros: ["轻量、即插即用", "可微调风格与信息侧重"],
+            cons: ["引导过强会压制模型判断", "效果随任务波动"],
+            strong: true,
+          },
+          {
+            n: "18",
+            name: "Meta-Prompting (元提示)",
+            desc: "让 LLM 站在「提示设计者」视角，自动产出或迭代优化下游任务的提示词——把提示本身当作可被生成的对象，而非人手写死。",
+            example:
+              "「你是一名提示工程师。请为『邮件分类』任务设计 3 版提示，并说明每版权衡。」\n→ 产出 3 版候选提示，再择优/迭代",
+            pros: ["把提示工程本身自动化", "适合规模化、跨任务"],
+            cons: ["元提示质量依赖基座能力", "迭代成本需评估器约束"],
+            strong: true,
+          },
+        ]}
+      />
+
+      {/* #4 升级为强覆盖：Self-Consistency 真演练场 */}
+      <SelfConsistencyPlayground />
+      <GeneratedKnowledgePlayground />
+      <ApePlayground />
+      <DirectionalStimulusPlayground />
+
+      {/* #18 升级为强覆盖：Meta-Prompting 真演练场 */}
+      <MetaPromptingPlayground />
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
         <TabsList className="grid w-full grid-cols-4 bg-muted/40 p-1 rounded-xl border border-border/50 h-12">

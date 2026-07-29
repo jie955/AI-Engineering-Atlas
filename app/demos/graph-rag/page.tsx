@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { AtlasTechniqueCarrier } from "@/components/atlas-technique-carrier"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
@@ -637,6 +638,25 @@ export default function GraphRAGDemoPage() {
             </Card>
           </TabsContent>
         </Tabs>
+
+        {/* 关联《提示工程技术全景》地图 + 扩展技术承载：补齐弱覆盖项 #17 */}
+        <AtlasTechniqueCarrier
+          tone="strong"
+          intro="本节点承载《提示工程技术全景》中 #17 图提示（思想说明 + 示例）。"
+          techniques={[
+            {
+              n: "17",
+              name: "图提示 (Graph Prompting)",
+              desc: "把知识组织成图（节点 + 边），在 prompt 中显式注入「图结构上下文」（邻居、路径、子图），让模型借助关系推理——比扁平文本更利于多跳与关联问题。",
+              example:
+                "实体: 阿司匹林—治疗→头痛\n提示: 已知『阿司匹林治疗头痛』，问『它还关联哪些症状？』→ 沿边展开推理",
+              pros: ["关系/多跳推理更清晰", "可裁剪相关子图降噪"],
+              cons: ["图构建与抽取成本高", "需设计子图检索策略"],
+              strong: true,
+            },
+          ]}
+        />
+
       </main>
     </div>
   )

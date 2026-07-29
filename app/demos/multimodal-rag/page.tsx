@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { AtlasTechniqueCarrier } from "@/components/atlas-technique-carrier"
 import { motion, AnimatePresence } from "motion/react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -847,6 +848,24 @@ export default function MultimodalRagPage() {
             </div>
           </div>
         </section>
+
+        {/* 关联《提示工程技术全景》地图 + 扩展技术承载：补齐弱覆盖项 #16 */}
+        <AtlasTechniqueCarrier
+          tone="strong"
+          intro="本节点承载《提示工程技术全景》中 #16 多模态思维链（思想说明 + 示例）。"
+          techniques={[
+            {
+              n: "16",
+              name: "多模态思维链 (Multimodal CoT)",
+              desc: "把思维链从纯文本扩展到图文联合：先基于图像 + 文本生成「推理步骤」，再据此产出答案——让视觉证据进入推理链路。",
+              example:
+                "图: 一堆水果 + 文本: 共几个？\nStep1: 图中苹果 3、橘子 2…\nStep2: 3+2=5 → 答案 5",
+              pros: ["视觉证据参与推理", "复杂图文任务更稳"],
+              cons: ["需多模态模型支撑", "图文对齐易出错"],
+              strong: true,
+            },
+          ]}
+        />
 
       </main>
     </div>
