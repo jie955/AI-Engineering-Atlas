@@ -131,7 +131,7 @@ export function SubAgentIsolationPlayground() {
           </div>
         </div>
 
-        <div className="flex items-start gap-2 text-[11px] text-muted-foreground bg-amber-500/5 border border-amber-500/20 rounded-lg p-3 leading-relaxed mt-4">
+        <div className="flex items-start gap-2 text-[11px] bg-amber-950/40 border border-amber-500/30 rounded-lg p-3 leading-relaxed mt-4 text-amber-100">
           <AlertTriangle className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
           <span>
             <strong className="text-foreground">诚实说明：</strong>

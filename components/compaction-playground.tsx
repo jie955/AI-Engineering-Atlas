@@ -173,7 +173,7 @@ export function CompactionPlayground() {
             )}
 
             {done && (
-              <div className="text-[11px] text-slate-300 bg-slate-500/5 border border-slate-500/20 rounded-lg p-3 leading-relaxed">
+              <div className="text-[11px] bg-slate-950/95 border border-slate-700/50 rounded-lg p-3 leading-relaxed text-slate-200">
                 <div className="font-bold text-foreground mb-1">
                   关键事实保真度（{fidelity.filter((f) => f.ok).length}/{fidelity.length}）
                 </div>
@@ -197,7 +197,7 @@ export function CompactionPlayground() {
           </div>
         </div>
 
-        <div className="flex items-start gap-2 text-[11px] text-muted-foreground bg-amber-500/5 border border-amber-500/20 rounded-lg p-3 leading-relaxed mt-4">
+        <div className="flex items-start gap-2 text-[11px] bg-amber-950/40 border border-amber-500/30 rounded-lg p-3 leading-relaxed mt-4 text-amber-100">
           <AlertTriangle className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
           <span>
             <strong className="text-foreground">诚实说明：</strong>

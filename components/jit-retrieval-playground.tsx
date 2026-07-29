@@ -95,7 +95,7 @@ export function JitRetrievalPlayground() {
                 className={`text-left p-3 rounded-lg border-2 transition-all duration-200 text-xs ${
                   qi === i
                     ? "border-orange-500 bg-orange-500/5 text-foreground"
-                    : "border-border/60 bg-muted/10 hover:border-border-muted text-muted-foreground"
+                    : "border-border/60 bg-muted/30 hover:border-border text-foreground"
                 }`}
               >
                 {qq.q}
@@ -194,7 +194,7 @@ export function JitRetrievalPlayground() {
           </div>
         </div>
 
-        <div className="flex items-start gap-2 text-[11px] text-muted-foreground bg-amber-500/5 border border-amber-500/20 rounded-lg p-3 leading-relaxed mt-4">
+        <div className="flex items-start gap-2 text-[11px] bg-amber-950/40 border border-amber-500/30 rounded-lg p-3 leading-relaxed mt-4 text-amber-100">
           <AlertTriangle className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
           <span>
             <strong className="text-foreground">诚实说明：</strong>
