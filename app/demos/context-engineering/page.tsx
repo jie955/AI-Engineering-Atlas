@@ -9,6 +9,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Sparkles, Loader2, BarChart3, Layers, AlertCircle } from "lucide-react"
 import { DemoShell } from "@/components/demo-shell"
 import { DemoHero } from "@/components/demo-hero"
+import { CompactionPlayground } from "@/components/compaction-playground"
+import { JitRetrievalPlayground } from "@/components/jit-retrieval-playground"
+import { AgenticMemoryPlayground } from "@/components/agentic-memory-playground"
+import { SubAgentIsolationPlayground } from "@/components/subagent-isolation-playground"
 
 const contextStrategies = [
   {
@@ -799,6 +803,29 @@ export class ContextAssembler {
             </div>
           </TabsContent>
         </Tabs>
+
+        {/* 长时程上下文工程真演练场（基于 Anthropic《Effective context engineering for AI agents》框架） */}
+        <div className="space-y-2 pt-2">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-sky-500" />
+              长时程上下文工程 · 真演练场
+            </h2>
+            <Badge variant="outline" className="text-xs border-sky-500/30 text-sky-600">
+              基于 Anthropic 2025-09 框架
+            </Badge>
+          </div>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            以下 4 个真演练场对应 Anthropic《Effective context engineering for AI agents》中「长时程上下文」核心：
+            ① Compaction 压缩 ② JIT 检索 / 渐进式披露 ③ 结构化笔记 / Agentic Memory ④ 子智能体隔离。
+            与上方「上下文窗口管理」策略互补——前者管「窗口内怎么组织」，此处管「窗口装不下时怎么办」。
+          </p>
+        </div>
+
+        <CompactionPlayground />
+        <JitRetrievalPlayground />
+        <AgenticMemoryPlayground />
+        <SubAgentIsolationPlayground />
       </main>
     </DemoShell>
   )
