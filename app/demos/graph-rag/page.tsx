@@ -25,6 +25,7 @@ import {
 import { motion, AnimatePresence } from "motion/react"
 import Link from "next/link"
 import { useToast } from "@/components/ui/use-toast"
+import { useDemoProgress } from "@/lib/use-demo-progress"
 
 interface Entity {
   id: string
@@ -84,28 +85,28 @@ const graphRAGSteps = [
     title: "实体识别与抽取",
     icon: Search,
     description: "从查询中识别关键实体，映射到知识图谱中的节点",
-    color: "text-blue-500",
+    color: "text-primary",
   },
   {
     id: "subgraph-retrieval",
     title: "子图检索",
     icon: GitBranch,
     description: "基于实体进行多跳遍历，构建相关子图",
-    color: "text-cyan-500",
+    color: "text-primary",
   },
   {
     id: "reasoning",
     title: "关系推理",
     icon: Network,
     description: "分析实体间的关系路径，进行逻辑推理",
-    color: "text-teal-500",
+    color: "text-primary",
   },
   {
     id: "generation",
     title: "答案生成",
     icon: Sparkles,
     description: "结合子图上下文，生成结构化答案",
-    color: "text-emerald-500",
+    color: "text-primary",
   },
 ]
 
@@ -156,6 +157,11 @@ export default function GraphRAGDemoPage() {
   const [isProcessing, setIsProcessing] = useState(false)
   const [activeStep, setActiveStep] = useState<number>(-1)
   const { toast } = useToast()
+  const { markVisited, markComplete } = useDemoProgress("graph-rag")
+
+  useEffect(() => {
+    markVisited()
+  }, [markVisited])
 
   const handleQuery = async () => {
     if (!query.trim()) return
@@ -177,6 +183,7 @@ export default function GraphRAGDemoPage() {
     const graphResult = simulateGraphRAG(query)
     setResult(graphResult)
     setIsProcessing(false)
+    markComplete()
 
     toast({
       title: "图检索完成",
@@ -368,7 +375,7 @@ export default function GraphRAGDemoPage() {
                                 ? "bg-emerald-500/10 text-emerald-500" 
                                 : isCurrent 
                                   ? "bg-primary/10 text-primary" 
-                                  : "bg-muted text-muted-foreground/60"
+                                  : "bg-muted text-muted-foreground"
                             }`}>
                               <StepIcon className="w-5 h-5" />
                             </div>
@@ -379,7 +386,7 @@ export default function GraphRAGDemoPage() {
                           </div>
 
                           <h4 className={`text-sm font-bold ${
-                            isPending ? "text-muted-foreground/70" : "text-foreground"
+                            isPending ? "text-muted-foreground" : "text-foreground"
                           }`}>
                             {step.title}
                           </h4>
@@ -407,7 +414,7 @@ export default function GraphRAGDemoPage() {
 
                             {isPending && (
                               <div className="mt-3 p-2 border border-dashed border-border/40 rounded-lg flex items-center justify-center h-[52px]">
-                                <span className="text-[10px] text-muted-foreground/40 font-mono">WAITING PIPELINE...</span>
+                                <span className="text-[10px] text-muted-foreground font-mono">WAITING PIPELINE...</span>
                               </div>
                             )}
 
@@ -418,7 +425,7 @@ export default function GraphRAGDemoPage() {
                                     <span className="text-[9px] uppercase font-mono font-bold tracking-wider text-muted-foreground">提取实体:</span>
                                     <div className="flex flex-wrap gap-1">
                                       {result.entities.map((e) => (
-                                        <Badge key={e.id} variant="secondary" className="text-[9px] bg-blue-500/10 text-blue-500 border-blue-500/20 px-1 py-0 rounded">
+                                        <Badge key={e.id} variant="secondary" className="text-[9px] bg-primary/10 text-primary border-primary/20 px-1 py-0 rounded">
                                           {e.name}
                                         </Badge>
                                       ))}
@@ -431,10 +438,10 @@ export default function GraphRAGDemoPage() {
                                     <span className="text-[9px] uppercase font-mono font-bold tracking-wider text-muted-foreground">定位子图:</span>
                                     <div className="space-y-1 text-[10px] text-muted-foreground">
                                       <div className="flex items-center gap-1 font-mono">
-                                        <Database className="w-3 h-3 text-cyan-500" />
+                                        <Database className="w-3 h-3 text-primary" />
                                         <span>拉取 <strong>{result.relationships.length}</strong> 条关联边</span>
                                       </div>
-                                      <div className="truncate text-[9px] text-muted-foreground/80 font-mono">
+                                      <div className="truncate text-[9px] text-muted-foreground font-mono">
                                         {result.relationships.map(r => r.type).join(" • ")}
                                       </div>
                                     </div>
@@ -446,10 +453,10 @@ export default function GraphRAGDemoPage() {
                                     <span className="text-[9px] uppercase font-mono font-bold tracking-wider text-muted-foreground">多跳推理:</span>
                                     <div className="space-y-1 font-mono">
                                       <div className="text-[10px] text-muted-foreground flex items-center gap-1">
-                                        <Cpu className="w-3 h-3 text-teal-500" />
+                                        <Cpu className="w-3 h-3 text-primary" />
                                         <span>构建 <strong>{result.reasoning.length}</strong> 条逻辑推理链</span>
                                       </div>
-                                      <div className="text-[9px] bg-teal-500/5 text-teal-600 dark:text-teal-400 px-1 py-0.5 rounded border border-teal-500/10 truncate animate-pulse">
+                                      <div className="text-[9px] bg-primary/5 text-primary px-1 py-0.5 rounded border border-primary/10 truncate">
                                         {result.reasoning[0]}
                                       </div>
                                     </div>
@@ -475,7 +482,7 @@ export default function GraphRAGDemoPage() {
                         
                         {/* Down Arrow for Mobile Screens, placed below card */}
                         {idx < 3 && (
-                          <div className="flex lg:hidden justify-center my-1 text-muted-foreground/30 pointer-events-none">
+                          <div className="flex lg:hidden justify-center my-1 text-muted-foreground pointer-events-none">
                             <motion.div
                               animate={isCurrent ? { y: [0, 4, 0] } : {}}
                               transition={{ repeat: Infinity, duration: 1.2 }}
@@ -492,6 +499,7 @@ export default function GraphRAGDemoPage() {
             )}
 
             {result && (
+              <div aria-live="polite" aria-atomic="true">
               <Card className="p-6 sm:p-8 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4">
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-primary" />
@@ -504,7 +512,7 @@ export default function GraphRAGDemoPage() {
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Card className="p-4">
                     <h4 className="font-semibold mb-2 flex items-center gap-2">
-                      <Database className="w-4 h-4 text-blue-500" />
+                      <Database className="w-4 h-4 text-primary" />
                       检索到的实体 ({result.entities.length})
                     </h4>
                     <div className="space-y-2">
@@ -521,7 +529,7 @@ export default function GraphRAGDemoPage() {
 
                   <Card className="p-4">
                     <h4 className="font-semibold mb-2 flex items-center gap-2">
-                      <GitBranch className="w-4 h-4 text-cyan-500" />
+                      <GitBranch className="w-4 h-4 text-primary" />
                       关系路径 ({result.relationships.length})
                     </h4>
                     <div className="space-y-2">
@@ -536,6 +544,7 @@ export default function GraphRAGDemoPage() {
                   </Card>
                 </div>
               </Card>
+              </div>
             )}
           </TabsContent>
 
@@ -589,7 +598,7 @@ export default function GraphRAGDemoPage() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div>
                   <h3 className="font-semibold mb-4 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-blue-500" />
+                    <span className="w-2 h-2 rounded-full bg-primary" />
                     实体节点 ({sampleKnowledgeGraph.entities.length})
                   </h3>
                   <div className="space-y-2 max-h-96 overflow-y-auto pr-2">
@@ -613,7 +622,7 @@ export default function GraphRAGDemoPage() {
 
                 <div>
                   <h3 className="font-semibold mb-4 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-cyan-500" />
+                    <span className="w-2 h-2 rounded-full bg-primary" />
                     关系边 ({sampleKnowledgeGraph.relationships.length})
                   </h3>
                   <div className="space-y-2 max-h-96 overflow-y-auto pr-2">

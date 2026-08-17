@@ -12,12 +12,22 @@ import Link from "next/link"
 
 export default function SignInPage() {
   const [email, setEmail] = useState("demo@aiengineering.dev")
+  const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const { signIn } = useMockAuth()
   const router = useRouter()
 
   const handleSignIn = () => {
-    if (!email.trim()) return
+    const value = email.trim()
+    if (!value) {
+      setError("请输入邮箱地址")
+      return
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      setError("邮箱格式不正确，请检查后重试")
+      return
+    }
+    setError("")
     setIsLoading(true)
     signIn(email)
     setTimeout(() => {
@@ -57,17 +67,28 @@ export default function SignInPage() {
                 <Input
                   id="email"
                   type="email"
+                  autoComplete="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value)
+                    if (error) setError("")
+                  }}
                   placeholder="your@email.com"
                   className="h-10"
+                  aria-invalid={!!error}
+                  aria-describedby={error ? "email-error" : undefined}
                   onKeyDown={(e) => e.key === "Enter" && handleSignIn()}
                 />
               </div>
+              {error && (
+                <p id="email-error" role="alert" className="text-sm font-medium text-destructive">
+                  {error}
+                </p>
+              )}
               <Button
                 className="w-full"
                 onClick={handleSignIn}
-                disabled={isLoading || !email.trim()}
+                disabled={isLoading}
               >
                 {isLoading ? "登录中..." : "开始学习"}
               </Button>
@@ -107,6 +128,14 @@ export default function SignInPage() {
         {/* Footer */}
         <p className="text-center text-sm text-muted-foreground">
           这是一个演示平台，数据存储在本地浏览器中
+        </p>
+
+        {/* Switch to Sign Up */}
+        <p className="text-center text-sm text-muted-foreground">
+          还没有账户？{" "}
+          <Link href="/auth/signup" className="font-medium text-primary hover:underline">
+            立即注册
+          </Link>
         </p>
 
         {/* Back to Home */}

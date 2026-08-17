@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -18,6 +18,7 @@ import {
   ArrowRight,
 } from "lucide-react"
 import Link from "next/link"
+import { useDemoProgress } from "@/lib/use-demo-progress"
 
 // 记忆类型分层
 const memoryTypes = [
@@ -141,6 +142,10 @@ const scenarios = [
 ]
 
 export default function MemoryEngineeringPage() {
+  const { markVisited, markComplete } = useDemoProgress("memory-engineering")
+  useEffect(() => {
+    markVisited()
+  }, [])
   const [query, setQuery] = useState("帮我写一段技术文档")
   const [retrieved, setRetrieved] = useState(false)
   const weights = { relevance: 0.5, recency: 0.3, importance: 0.2 }
@@ -311,7 +316,7 @@ export default function MemoryEngineeringPage() {
                   className="flex-1 px-4 py-2 rounded-lg border bg-background text-foreground text-sm"
                   placeholder="输入当前查询..."
                 />
-                <Button onClick={() => setRetrieved(true)}>
+                <Button onClick={() => { setRetrieved(true); markComplete() }}>
                   <Search className="w-4 h-4 mr-2" />
                   执行检索
                 </Button>

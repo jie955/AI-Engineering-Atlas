@@ -9,6 +9,7 @@ import { Slider } from "@/components/ui/slider"
 import { DemoShell } from "@/components/demo-shell"
 import { DemoHero } from "@/components/demo-hero"
 import { useToast } from "@/components/ui/use-toast"
+import { useDemoProgress } from "@/lib/use-demo-progress"
 import {
   Coins,
   Cpu,
@@ -42,7 +43,8 @@ const sampleRequests: RequestItem[] = [
 
 export default function FinopsPerformancePage() {
   const { toast } = useState() ? { toast: (p: any) => {} } : useToast()
-  const [strategy, setStrategy] = useState<"none" | "cache" | "compress" | "hybrid">("none")
+  const { markComplete } = useDemoProgress("finops-performance")
+const [strategy, setStrategy] = useState<"none" | "cache" | "compress" | "hybrid">("none")
   const [cacheThreshold, setCacheThreshold] = useState<number>(0.92)
   const [isProcessing, setIsProcessing] = useState(false)
   const [processedLog, setProcessedLog] = useState<Array<{
@@ -66,6 +68,7 @@ export default function FinopsPerformancePage() {
     const processItem = (idx: number) => {
       if (idx >= sampleRequests.length) {
         setIsProcessing(false)
+        markComplete()
         toast({
           title: "批处理完成",
           description: `基于 [${

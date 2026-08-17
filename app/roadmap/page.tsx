@@ -30,7 +30,29 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { mockStore, tracks, demoMetadata, marketDemand, flashcards, type Track, type UserProgress, type Flashcard } from "@/lib/mock-store"
+import { demos } from "@/lib/demos"
 import { cn } from "@/lib/utils"
+
+// Resilient metadata lookup: prefer demoMetadata, fall back to the canonical
+// `demos` registry. Guarantees the roadmap never renders a blank/undefined
+// title even if a demo is missing from demoMetadata.
+type DemoMeta = (typeof demoMetadata)[keyof typeof demoMetadata]
+
+const resolveMeta = (demoId: string): DemoMeta | undefined => {
+  const fromMeta = demoMetadata[demoId as keyof typeof demoMetadata]
+  if (fromMeta) return fromMeta
+  const d = demos.find((x) => x.id === demoId)
+  if (!d) return undefined
+  return {
+    title: d.title,
+    category: d.category,
+    difficulty: d.difficulty,
+    estimatedTime: d.estimatedTime,
+    prerequisites: [],
+    skills: [],
+    track: d.track,
+  }
+}
 
 export default function RoadmapPage() {
   const [activeTrack, setActiveTrack] = useState(0)
@@ -56,8 +78,8 @@ export default function RoadmapPage() {
     if (progress[demoId]?.completed) return "completed"
     if (progress[demoId]?.progress > 0) return "in-progress"
     
-    const meta = demoMetadata[demoId]
-    if (meta?.prerequisites.length > 0) {
+    const meta = resolveMeta(demoId)
+    if (meta && meta.prerequisites.length > 0) {
       const allPrereqsMet = meta.prerequisites.every((p) => progress[p]?.completed)
       if (!allPrereqsMet) return "locked"
     }
@@ -217,7 +239,7 @@ export default function RoadmapPage() {
                           {/* Demo List */}
                           <div className="space-y-2">
                             {track.demos.map((demoId, idx) => {
-                              const meta = demoMetadata[demoId]
+                              const meta = resolveMeta(demoId)
                               const status = getDemoStatus(demoId)
                               const hasFlashcards = flashcards[demoId]?.length > 0
 
@@ -354,7 +376,7 @@ export default function RoadmapPage() {
                                       key={demoId}
                                       variant={progress[demoId]?.completed ? "default" : "secondary"}
                                     >
-                                      {demoMetadata[demoId]?.title}
+                                      {resolveMeta(demoId)?.title}
                                     </Badge>
                                   ))}
                                 </div>
@@ -472,7 +494,7 @@ export default function RoadmapPage() {
                 </Badge>
               </div>
               <CardDescription>
-                {activeFlashcardDemo && demoMetadata[activeFlashcardDemo]?.title}
+                {activeFlashcardDemo && resolveMeta(activeFlashcardDemo)?.title}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">

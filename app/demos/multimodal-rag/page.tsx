@@ -30,6 +30,7 @@ import {
   ArrowRight
 } from "lucide-react"
 import Link from "next/link"
+import { useDemoProgress } from "@/lib/use-demo-progress"
 
 // --- HIGH-FIDELITY PRESET QA DATA ---
 const presets = [
@@ -107,6 +108,11 @@ export default function MultimodalRagPage() {
   const [searchPhase, setSearchPhase] = useState<0 | 1 | 2 | 3 | 4>(0)
   const [pdfMode, setPdfMode] = useState<"raw" | "layout" | "late-chunking">("layout")
   const [selectedPresetIdx, setSelectedPresetIdx] = useState(0)
+  const { markVisited, markComplete } = useDemoProgress("multimodal-rag")
+
+  useEffect(() => {
+    markVisited()
+  }, [markVisited])
 
   // Trigger search simulation on query selection
   const handlePresetSelect = (idx: number) => {
@@ -127,6 +133,7 @@ export default function MultimodalRagPage() {
     const t4 = setTimeout(() => {
       setIsSearching(false)
       setSearchCompleted(true)
+      markComplete()
       setSearchPhase(0)
     }, 1200)
   }

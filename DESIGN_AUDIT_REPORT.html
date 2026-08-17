@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Engineering Atlas — 设计 / 可用性体检报告</title>
+<style>
+  :root {
+    --bg: #0b0f17;
+    --panel: #121826;
+    --panel-2: #161d2e;
+    --border: #232c40;
+    --text: #e6eaf2;
+    --muted: #9aa6bd;
+    --primary: #a855f7;
+    --ok: #34d399;
+    --warn: #f59e0b;
+    --bad: #f87171;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 40px 24px;
+    background: var(--bg); color: var(--text);
+    font-family: var(--sans); line-height: 1.65;
+    font-size: 15px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 28px; margin: 0 0 6px; letter-spacing: -0.02em; }
+  h2 { font-size: 20px; margin: 40px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 16px; margin: 24px 0 10px; color: #cdd6ea; }
+  .sub { color: var(--muted); font-size: 14px; margin: 0 0 4px; }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+  code, .mono { font-family: var(--mono); font-size: 13px; background: var(--panel-2); padding: 1px 6px; border-radius: 4px; border: 1px solid var(--border); }
+  pre { background: var(--panel-2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; overflow-x: auto; font-family: var(--mono); font-size: 12.5px; line-height: 1.55; color: #d6deef; }
+  pre code { background: none; border: none; padding: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px; }
+  th, td { text-align: left; padding: 9px 11px; border: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--panel-2); color: #cdd6ea; font-weight: 600; }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; border: 1px solid; }
+  .p0 { color: var(--bad); border-color: var(--bad); }
+  .p1 { color: var(--warn); border-color: var(--warn); }
+  .p2 { color: var(--muted); border-color: var(--muted); }
+  .ok { color: var(--ok); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 760px){ .grid2 { grid-template-columns: 1fr; } }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+  .kv { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed var(--border); }
+  .kv:last-child { border-bottom: none; }
+  .bar { height: 8px; border-radius: 4px; background: var(--panel-2); overflow: hidden; margin-top: 4px; }
+  .bar > i { display: block; height: 100%; }
+  .note { color: var(--muted); font-size: 12.5px; margin-top: 6px; }
+  a { color: var(--primary); }
+  ul { margin: 8px 0; padding-left: 20px; }
+  li { margin: 4px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>AI Engineering Atlas — 设计 / 可用性体检报告</h1>
+  <p class="sub">基于 <code>ui-craft</code> 与 <code>uxui-principles-agent-skills</code>（ai-interface-reviewer / interface-auditor / flow-checker / uxui-evaluator / vibe-coding-advisor）准则</p>
+  <p class="meta">生成日期：2026-08-17 · 审计范围：29 个页面（首页 / dashboard / roadmap / profile / auth 登录注册 / 25 个 demo 页）· 方法：静态代码审查 + 准则映射</p>
+
+  <h2>一、执行状态</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3 class="ok">已完成 — 技能安装</h3>
+      <div class="kv"><span>ui-craft</span><span class="ok">34 文件</span></div>
+      <div class="kv"><span>ai-interface-reviewer</span><span class="ok">已装</span></div>
+      <div class="kv"><span>interface-auditor</span><span class="ok">已装</span></div>
+      <div class="kv"><span>flow-checker</span><span class="ok">已装</span></div>
+      <div class="kv"><span>uxui-evaluator</span><span class="ok">已装</span></div>
+      <div class="kv"><span>vibe-coding-advisor</span><span class="ok">已装</span></div>
+      <p class="note">路径：<code>~/.workbuddy/skills/</code>。安全审计结论：ui-craft 为纯设计指引（P2 安全）；5 个 uxui 技能含可选 <code>UXUI_API_KEY</code> 网络调用，默认未配置密钥，保持休眠（P2 默认 / 仅密钥设即时 P1）。</p>
+    </div>
+    <div class="card">
+      <h3 class="ok">已完成 — 设计 / 可用性审计</h3>
+      <p>本报告即审计交付物。覆盖代表性页面：<code>app/page.tsx</code>（landing）、<code>app/dashboard/page.tsx</code>（data-viz + 统计）、<code>app/auth/signin</code>（form）、<code>app/demos/graph-rag</code>（复杂交互 + 可视化）。并对全站 <code>app/**/*.tsx</code> 做了量化 grep 以度量共性问题。</p>
+      <p class="note">说明：上一轮会话在 reduced-motion 核查处被中断，本次已补齐验证并产出报告。</p>
+    </div>
+  </div>
+
+  <h2>二、总体结论（按维度评分）</h2>
+  <p class="sub">评分 0–100，越高越好。依据 ui-craft 与 uxui 准则的硬性要求。</p>
+  <table>
+    <thead><tr><th>维度</th><th>评分</th><th>水位</th><th>主要判据</th></tr></thead>
+    <tbody>
+      <tr><td>Layout / 响应式</td><td>85</td><td class="ok">良好</td><td>移动优先、断点合理、sticky header、网格自适应</td></tr>
+      <tr><td>Typography</td><td>82</td><td class="ok">良好</td><td>层级清晰、text-balance 使用得当；缺 tabular-nums（大数字）</td></tr>
+      <tr><td>Color / Design Tokens</td><td>62</td><td class="p1">需修</td><td>大量硬编码固定色绕过 shadcn token，强调色预算漂移</td></tr>
+      <tr><td>Motion / Reduced-motion</td><td>48</td><td class="p0">缺口</td><td>reduced-motion 仅覆盖 2 个 CSS 类；40+ 处 animate-pulse/spin 与 Framer Motion 主动动画未受保护</td></tr>
+      <tr><td>Accessibility（WCAG AA）</td><td>58</td><td class="p1">需修</td><td>label 关联良好；小字 + 透明度降灰对比度不足；aria-live 缺失</td></tr>
+      <tr><td>Data-viz</td><td>78</td><td class="ok">可用</td><td>Recharts 用 chart token；但 stat 图标四色相、数字缺 tabular-nums</td></tr>
+      <tr><td>Forms</td><td>80</td><td class="ok">良好</td><td>Label/htmlFor 正确、单一强调色；缺 autocomplete、可见错误态</td></tr>
+      <tr><td>Flow / 可用性</td><td>80</td><td class="ok">良好</td><td>demo 交互清晰、状态显式；持续脉冲状态对非敏感用户干扰</td></tr>
+    </tbody>
+  </table>
+  <p class="note">综合：结构与排版基础扎实（landing / form / layout 表现好）；<strong>主要风险集中在「动效降级」与「颜色语义一致性」两项</strong>，均为系统性、可批量修复。</p>
+
+  <h2>三、核心发现（已量化验证）</h2>
+
+  <h3>3.1 动效降级（reduced-motion）缺口 — 最高优先级</h3>
+  <p><code>app/globals.css</code> 第 277–284 行存在 reduced-motion 媒体查询，但<strong>仅</strong>禁用了 <code>.animate-marquee</code> 与 <code>.cta-sheen::after</code> 两个类。全站实际使用的动效远不止于此：</p>
+  <table>
+    <thead><tr><th>动效来源</th><th>是否受 reduced-motion 保护</th><th>量（app 下）</th></tr></thead>
+    <tbody>
+      <tr><td><code>components/reveal.tsx</code>（滚动入场）</td><td class="ok">已保护（JS 检测 matchMedia）</td><td>封装复用</td></tr>
+      <tr><td>Tailwind <code>animate-pulse</code> / <code>animate-spin</code></td><td class="p0">未保护</td><td>40+ 处</td></tr>
+      <tr><td>Framer Motion <code>motion.div</code> / <code>whileHover</code> / <code>animate</code></td><td class="p0">未保护（JS 驱动，CSS 媒体查询无法拦截）</td><td>graph-rag 14 处等</td></tr>
+    </tbody>
+  </table>
+  <p class="note">典型高危：<code>graph-rag</code> 的移动端循环浮动箭头（<code>animate={{y:[0,4,0]}} repeat:Infinity</code>）、各 demo 的持续 <code>animate-pulse</code> 状态徽章、<code>function-calling</code> 37 处密集脉冲。前庭敏感用户在系统开启「减少动态效果」后仍会看到持续运动。</p>
+
+  <h3>3.2 颜色硬编码与强调色预算漂移</h3>
+  <p>项目使用 shadcn 语义 token（<code>primary / secondary / muted / foreground / border</code>）。但多个 demo 直接写入固定色值，<strong>绕过主题 token</strong>：</p>
+  <ul>
+    <li><code>text-blue-500</code> / <code>bg-blue-500</code> / <code>cyan-500</code> / <code>teal-500</code> / <code>emerald-500</code>（graph-rag 流程状态）</li>
+    <li><code>purple-500</code> / <code>rose-400</code> / <code>amber-500</code>（function-calling、context-engineering 状态点）</li>
+    <li>dashboard 四个 stat 图标分别用 green / primary / chart-2 / chart-3 四种色相</li>
+  </ul>
+  <p class="note">风险：在暗色主题下，这些固定色与背景对比度未经统一校验，且偏离品牌主色（primary 紫），造成「每页一种配色」的视觉碎片化。ui-craft 强调单一强调色 + 语义色（绿=完成/成功，neutral=待定）的预算纪律。</p>
+
+  <h3>3.3 对比度风险（小字 + 透明度降灰）</h3>
+  <p>多处 <code>text-[9px]~[11px]</code> 小字叠加 <code>/40</code>、<code>/60</code>、<code>/70</code> 透明度降灰（如 graph-rag 第 378/389/417/485 行），在暗色背景上易低于 WCAG AA 正文 4.5:1 阈值。属高概率不达标项，建议抽样用对比度工具复核。</p>
+
+  <h3>3.4 可访问性语义缺口</h3>
+  <ul>
+    <li>动态结果区（graph-rag 的 <code>result</code> 卡片）与流水线状态变化<strong>无 <code>aria-live</code></strong>，屏幕阅读器用户收不到「检索完成」通知。</li>
+    <li>auth 表单无 <code>autocomplete="email"</code>，无可见错误态（仅有 placeholder 提示）。</li>
+    <li>大数字（dashboard 统计、graph-rag 计数）缺 <code>tabular-nums</code>，数字宽度跳动。</li>
+  </ul>
+
+  <h2>四、优先级问题清单</h2>
+  <table>
+    <thead><tr><th>优先级</th><th>位置</th><th>问题</th><th>依据</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag p0">P0</span></td><td>全站 <code>animate-pulse</code>/<code>spin</code> + Framer Motion 主动动画</td><td>reduced-motion 用户仍见持续运动</td><td>WCAG 2.3.3 / ui-craft motion</td></tr>
+      <tr><td><span class="tag p1">P1</span></td><td>graph-rag / function-calling / dashboard</td><td>固定色绕过 token，强调色预算漂移</td><td>ui-craft color / design tokens</td></tr>
+      <tr><td><span class="tag p1">P1</span></td><td>graph-rag 小字 <code>/40</code>/<code>/60</code></td><td>对比度或低于 4.5:1</td><td>WCAG AA 1.4.3</td></tr>
+      <tr><td><span class="tag p1">P1</span></td><td>graph-rag <code>result</code> 卡片、状态徽章</td><td>缺 <code>aria-live</code>，SR 用户无通知</td><td>WCAG 4.1.3</td></tr>
+      <tr><td><span class="tag p2">P2</span></td><td>dashboard / graph-rag 数字</td><td>缺 <code>tabular-nums</code></td><td>ui-craft typography</td></tr>
+      <tr><td><span class="tag p2">P2</span></td><td>auth 表单</td><td>缺 <code>autocomplete</code> 与可见错误态</td><td>ui-craft forms</td></tr>
+    </tbody>
+  </table>
+
+  <h2>五、修复方案与代码示例</h2>
+
+  <h3>5.1 扩展 globals.css 的 reduced-motion（覆盖 Tailwind 内置动画）</h3>
+  <pre><code>/* app/globals.css — 扩展 reduced-motion 保护 */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
+  .cta-sheen::after { display: none; }
+  /* 新增：禁用 Tailwind 内置无限/脉冲动画 */
+  .animate-pulse,
+  .animate-spin,
+  .animate-bounce,
+  .animate-ping { animation: none !important; }
+  * { scroll-behavior: auto !important; }
+}</code></pre>
+  <p class="note">这能一次性覆盖 40+ 处 Tailwind 动画。但<strong>无法</strong>拦截 Framer Motion 的 JS 驱动动画——需配合 5.2。</p>
+
+  <h3>5.2 Framer Motion 用 useReducedMotion 拦截</h3>
+  <pre><code>// 在 graph-rag 等使用 motion.* 的组件中
+import { useReducedMotion } from "motion/react";
+
+const reduce = useReducedMotion();
+// 循环中浮动箭头：reduced 时静态显示
+&lt;motion.div
+  animate={reduce ? {} : (isCurrent ? { y: [0, 4, 0] } : {})}
+  transition={{ repeat: Infinity, duration: 1.2 }}
+/&gt;
+// whileHover 同理：reduce 时关闭位移
+whileHover={reduce ? {} : { y: isPending ? 0 : -2 }}</code></pre>
+
+  <h3>5.3 用语义 token 替换硬编码色</h3>
+  <pre><code>// 之前（graph-rag 流程状态）
+className="bg-blue-500/10 text-blue-500 ..."   // 硬编码
+// 之后：用 primary（进行中）+ emerald（完成）+ muted（待定）
+className="bg-primary/10 text-primary ..."      // 进行中
+className="bg-emerald-500/10 text-emerald-500"   // 完成（语义绿，保留）
+className="bg-muted text-muted-foreground"       // 待定</code></pre>
+  <p class="note">原则：品牌强调色统一用 <code>primary</code>；「完成 / 成功」语义允许保留 <code>emerald</code>（语义色，非装饰）；删除 blue/cyan/teal/purple/rose/amber 等纯装饰色相。</p>
+
+  <h3>5.4 为动态结果区加 aria-live</h3>
+  <pre><code>{/* graph-rag result 卡片 */}
+&lt;div aria-live="polite" aria-atomic="true"&gt;
+  {result && ( /* 检索结果内容 */ )}
+&lt;/div&gt;</code></pre>
+
+  <h2>六、覆盖页面清单</h2>
+  <p class="mono">app/page.tsx · app/dashboard/page.tsx · app/roadmap/page.tsx · app/profile/page.tsx · app/auth/signin · app/auth/signup · app/demos/{graph-rag, function-calling, context-engineering, multi-agent-system, human-in-the-loop, evaluation-engineering, rag-decision, structured-outputs, prompt-optimizer, guardrails, agent-runtime-loop, 共 25 个 demo} · components/reveal.tsx · app/globals.css</p>
+
+  <h2>七、建议的下一步</h2>
+  <ul>
+    <li><strong>P0（必做）</strong>：落地 5.1 + 5.2，使全站动效真正尊重 reduced-motion。</li>
+    <li><strong>P1（应做）</strong>：以 graph-rag / function-calling 为样板，批量将硬编码色替换为语义 token；为动态结果区补 aria-live；抽样复核小字对比度。</li>
+    <li><strong>P2（可选）</strong>：补 tabular-nums、表单 autocomplete 与错误态。</li>
+    <li>可借助已安装的 <code>interface-auditor</code> / <code>ai-interface-reviewer</code> 在每轮改动后做回归核查。</li>
+  </ul>
+
+  <h2>八、修复状态（2026-08-17 已执行）</h2>
+  <table>
+    <thead><tr><th>优先级</th><th>修复动作</th><th>验证</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag p0">P0</span></td><td>新增 <code>components/reduced-motion-provider.tsx</code>（MotionConfig <code>reducedMotion="user"</code>），在 <code>app/layout.tsx</code> 接入，全局降级 Framer Motion 主动动画（含 graph-rag 循环浮动箭头、whileHover 位移等）</td><td class="ok">已落地</td></tr>
+      <tr><td><span class="tag p0">P0</span></td><td><code>app/globals.css</code> reduced-motion 块扩展：禁用 Tailwind 内置 <code>animate-pulse / spin / bounce / ping</code> + <code>#function-calling-container</code> 自定义 hover 变换 + 平滑滚动</td><td class="ok">已落地</td></tr>
+      <tr><td><span class="tag p1">P1</span></td><td><code>graph-rag</code>：流程/图标/色点硬编码色（blue/cyan/teal）统一为 <code>primary</code>，语义绿保留；result 卡片加 <code>aria-live="polite"</code>；<code>/30</code>~<code>/80</code> 低透明度小字提升为 <code>text-muted-foreground</code></td><td class="ok">已落地</td></tr>
+      <tr><td><span class="tag p1">P1</span></td><td><code>dashboard</code> 四统计卡四色相（green/chart-2/chart-3）收敛为 <code>primary</code> + 语义 <code>emerald</code>；<code>function-calling</code> 状态色经评估为语义状态色（计时/异常/反思/重试/完成）保留不替换</td><td class="ok">已落地</td></tr>
+      <tr><td>验证</td><td>运行 <code>tsc --noEmit</code> 校验全部改动类型</td><td class="ok">EXIT 0</td></tr>
+      <tr><td><span class="tag p2">P2</span></td><td><code>dashboard</code>：4 个统计大数字与动画百分比 span 加 <code>tabular-nums</code>，数字等宽对齐、避免跳动</td><td class="ok">已落地</td></tr>
+      <tr><td><span class="tag p2">P2</span></td><td><code>auth/signin</code>：邮箱输入加 <code>autoComplete="email"</code>；新增 <code>error</code> 状态 + zod 式邮箱格式校验；校验失败时显示 <code>role="alert"</code> 红色错误文本，输入框加 <code>aria-invalid</code> 与 <code>aria-describedby</code>；按钮改为仅 <code>isLoading</code> 时禁用以使错误态可达</td><td class="ok">已落地</td></tr>
+      <tr><td><span class="tag p2">P2</span></td><td><code>auth/signup</code>：用户名加 <code>autoComplete="username"</code>、邮箱加 <code>autoComplete="email"</code>；新增 <code>errors</code> 逐字段状态（用户名必填 / 邮箱必填且格式校验）；失败时显示 <code>role="alert"</code> 错误文本，输入框加 <code>aria-invalid</code> + <code>aria-describedby</code>，输入时清除对应错误；移除失效的 <code>canSubmit</code></td><td class="ok">已落地</td></tr>
+      <tr><td>验证</td><td>P2 后再次运行 <code>tsc --noEmit</code></td><td class="ok">EXIT 0</td></tr>
+    </tbody>
+  </table>
+  <p class="note">说明：reduced-motion 的浏览器实测（系统开启「减少动态效果」后逐项验证动画停止）建议在本地浏览器完成；本环境已通过类型检查与代码审查确认逻辑落地。P0/P1/P2 全部修复后 <code>tsc --noEmit</code> 退出码 0。</p>
+
+</div>
+</body>
+</html>

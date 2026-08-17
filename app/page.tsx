@@ -83,6 +83,9 @@ export default function HomePage() {
               <Button size="lg" variant="outline" className="bg-transparent text-base" asChild>
                 <Link href="#demos">浏览知识领域 (Domains)</Link>
               </Button>
+              <Button size="lg" variant="ghost" className="text-base" asChild>
+                <Link href="/auth/signup">免费注册</Link>
+              </Button>
             </div>
           </Reveal>
 
@@ -127,6 +130,9 @@ export default function HomePage() {
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               按 Atlas 轨道组织，从基础到专家逐级进阶。每个节点都包含一个交互式 Playground 与生产级部署工程规范 (Engineering Spec)。
             </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground/80">
+              除轨道节点外，页面底部还有一个平行的「组件库」(◈) —— 它聚合跨多个节点复用的工程小模式，<span className="text-foreground/90">不计入 T0–T3 阶梯</span>，是「正式知识点」之外的可复用构件层。
+            </p>
           </div>
         </Reveal>
         <DemoBrowser />
@@ -167,8 +173,8 @@ export default function HomePage() {
                 “到 2028 年，33% 的企业软件将包含 AI Agent 组件” — Gartner 2026
               </p>
               <Button size="lg" className="cta-sheen group shrink-0" asChild>
-                <Link href="/roadmap">
-                  立即开始
+                <Link href="/auth/signup">
+                  免费注册并开始
                   <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </Button>

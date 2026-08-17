@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
@@ -12,6 +12,7 @@ import { USER_ID } from "@/lib/rag-data"
 import { simulateRetrieval, generateRecommendation } from "@/lib/rag-logic"
 import type { RagState } from "@/types/rag"
 import { useToast } from "@/components/ui/use-toast"
+import { useDemoProgress } from "@/lib/use-demo-progress"
 import Link from "next/link"
 
 export default function RagDecisionDemoPage() {
@@ -20,6 +21,11 @@ export default function RagDecisionDemoPage() {
   const [activeStep, setActiveStep] = useState<string>("B1")
   const [isProcessing, setIsProcessing] = useState(false)
   const { toast } = useToast()
+  const { markVisited, markComplete } = useDemoProgress("rag-decision")
+
+  useEffect(() => {
+    markVisited()
+  }, [markVisited])
 
   const handleStartDecision = async () => {
     if (!query.trim()) {
@@ -41,6 +47,7 @@ export default function RagDecisionDemoPage() {
     })
 
     setIsProcessing(false)
+    markComplete()
   }
 
   const handleFeedback = (isPositive: boolean) => {

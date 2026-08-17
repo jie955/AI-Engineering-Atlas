@@ -23,6 +23,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { mockStore, demoMetadata, type Bookmark, type UserProgress } from "@/lib/mock-store"
+import { demos } from "@/lib/demos"
 
 function AnimatedProgress({
   value,
@@ -76,7 +77,7 @@ function AnimatedPercentage({ value, delay = 100 }: { value: number; delay?: num
     return () => clearTimeout(timer)
   }, [value, delay])
 
-  return <span>{displayValue}%</span>
+  return <span className="tabular-nums">{displayValue}%</span>
 }
 
 export default function DashboardPage() {
@@ -124,12 +125,15 @@ export default function DashboardPage() {
   }
 
   const progressList = Object.entries(progress).map(([demoId, p]) => ({
-    title: demoMetadata[demoId as keyof typeof demoMetadata]?.title || demoId,
+    title:
+      demos.find((d) => d.id === demoId)?.title ||
+      demoMetadata[demoId as keyof typeof demoMetadata]?.title ||
+      demoId,
     ...p,
     demoId,
   }))
 
-  const totalDemosCount = Object.keys(demoMetadata).length || 1
+  const totalDemosCount = demos.length || 1
   const overallCompletionPercentage = Math.min(
     100,
     Math.round((stats.totalCompleted / totalDemosCount) * 100)
@@ -204,8 +208,8 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-2">
-                <Award className="h-5 w-5 text-green-500" />
-                <span className="text-3xl font-bold">{stats.totalCompleted}</span>
+                <Award className="h-5 w-5 text-emerald-500" />
+                <span className="text-3xl font-bold tabular-nums">{stats.totalCompleted}</span>
               </div>
             </CardContent>
           </Card>
@@ -217,7 +221,7 @@ export default function DashboardPage() {
             <CardContent>
               <div className="flex items-center gap-2">
                 <BookmarkIcon className="h-5 w-5 text-primary" />
-                <span className="text-3xl font-bold">{stats.totalBookmarks}</span>
+                <span className="text-3xl font-bold tabular-nums">{stats.totalBookmarks}</span>
               </div>
             </CardContent>
           </Card>
@@ -228,8 +232,8 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-chart-2" />
-                <span className="text-3xl font-bold">{stats.totalInProgress}</span>
+                <TrendingUp className="h-5 w-5 text-primary" />
+                <span className="text-3xl font-bold tabular-nums">{stats.totalInProgress}</span>
               </div>
             </CardContent>
           </Card>
@@ -240,8 +244,8 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-2">
-                <Clock className="h-5 w-5 text-chart-3" />
-                <span className="text-3xl font-bold">{stats.totalTimeSpent}</span>
+                <Clock className="h-5 w-5 text-primary" />
+                <span className="text-3xl font-bold tabular-nums">{stats.totalTimeSpent}</span>
                 <span className="text-sm text-muted-foreground">分钟</span>
               </div>
             </CardContent>

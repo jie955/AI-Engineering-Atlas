@@ -282,6 +282,21 @@
     .cta-sheen::after {
       display: none;
     }
+    /* Tailwind built-in keyframe utilities (used across all demo pages) */
+    .animate-pulse,
+    .animate-spin,
+    .animate-bounce,
+    .animate-ping {
+      animation: none !important;
+    }
+    /* Custom hover-translate transforms in #function-calling-container */
+    #function-calling-container .font-bold.text-primary:hover {
+      transform: none !important;
+      opacity: 1 !important;
+    }
+    html {
+      scroll-behavior: auto !important;
+    }
   }
 }
 

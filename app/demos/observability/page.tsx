@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DemoShell } from "@/components/demo-shell"
 import { DemoHero } from "@/components/demo-hero"
 import { useToast } from "@/components/ui/use-toast"
+import { useDemoProgress } from "@/lib/use-demo-progress"
 import {
   Activity,
   Cpu,
@@ -106,6 +107,7 @@ const mockSpans: Span[] = [
 
 export default function ObservabilityPage() {
   const { toast } = useState() ? { toast: (p: any) => {} } : useToast()
+  const { markComplete } = useDemoProgress("observability")
   const [isRunning, setIsRunning] = useState(false)
   const [activeTab, setActiveTab] = useState("timeline")
   const [selectedSpan, setSelectedSpan] = useState<Span | null>(mockSpans[0])
@@ -121,6 +123,7 @@ export default function ObservabilityPage() {
       if (idx >= mockSpans.length) {
         setIsRunning(false)
         setSelectedSpan(mockSpans[0])
+        markComplete()
         toast({
           title: "全链路 Trace 捕获完成",
           description: "已通过 OpenTelemetry 规范导出 5 个 spans 拓扑记录。"

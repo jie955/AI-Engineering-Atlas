@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Toaster } from "@/components/ui/toaster"
 import { MockAuthProvider } from "@/lib/mock-auth"
+import { ReducedMotionProvider } from "@/components/reduced-motion-provider"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -23,8 +24,10 @@ export default function RootLayout({
     <html lang="zh-CN">
       <body className={`font-sans antialiased`}>
         <MockAuthProvider>
-          {children}
-          <Toaster />
+          <ReducedMotionProvider>
+            {children}
+            <Toaster />
+          </ReducedMotionProvider>
         </MockAuthProvider>
       </body>
     </html>

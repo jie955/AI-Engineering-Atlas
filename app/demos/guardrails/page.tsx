@@ -8,6 +8,7 @@ import { Switch } from "@/components/ui/switch"
 import { DemoShell } from "@/components/demo-shell"
 import { DemoHero } from "@/components/demo-hero"
 import { useToast } from "@/components/ui/use-toast"
+import { useDemoProgress } from "@/lib/use-demo-progress"
 import {
   ShieldAlert,
   ShieldCheck,
@@ -60,7 +61,8 @@ const attackTemplates: AttackTemplate[] = [
 
 export default function GuardrailsPage() {
   const { toast } = useState() ? { toast: (p: any) => {} } : useToast()
-  
+  const { markComplete } = useDemoProgress("guardrails")
+
   // Guardrail Configuration Switches
   const [injectionGuardActive, setInjectionGuardActive] = useState(true)
   const [piiGuardActive, setPiiGuardActive] = useState(true)
@@ -104,6 +106,7 @@ export default function GuardrailsPage() {
           setPipelineSteps([...steps])
           setFinalOutput("【安全卫士拦截】您的请求已被系统拒绝。检测到潜在的系统提示词注入攻击，调用高风险数据库导出工具的行为已被系统自动拦截并报告。")
           setIsProcessing(false)
+          markComplete()
           toast({
             title: "高危指令拦截成功",
             description: "System Guard 已熔断高风险工具调用注入行为。",
@@ -171,6 +174,7 @@ export default function GuardrailsPage() {
           setPipelineSteps([...steps])
           setFinalOutput("【看门狗拦截】由于检测到未经脱敏的 PII 隐私身份证等绝密内容输出尝试，大模型网关安全锁（Llama Guard）强制中断了本次数据同步。")
           setIsProcessing(false)
+          markComplete()
           return
         } else {
           steps.push({
@@ -205,6 +209,7 @@ export default function GuardrailsPage() {
       }
       setFinalOutput(output)
       setIsProcessing(false)
+      markComplete()
 
       toast({
         title: "安全流程完全放行",

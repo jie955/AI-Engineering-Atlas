@@ -356,6 +356,15 @@ export const demoMetadata: Record<string, {
     skills: ["运行时循环", "状态管理", "迭代收敛", "执行轨迹"],
     track: 2,
   },
+  "memory-engineering": {
+    title: "记忆工程 (Memory Engineering)",
+    category: "Agent",
+    difficulty: "中级",
+    estimatedTime: 55,
+    prerequisites: ["agent-runtime-loop"],
+    skills: ["记忆分层架构", "写入与检索", "遗忘机制", "相关性打分"],
+    track: 2,
+  },
   "rag-decision": {
     title: "RAG 个性化决策系统 (RAG Decision)",
     category: "RAG",
@@ -463,6 +472,15 @@ export const demoMetadata: Record<string, {
     prerequisites: ["loop-engineering"],
     skills: ["提示词注入 (Prompt Injection) 防御", "PII 数据脱敏", "Llama Guard 拦截", "动态对抗与输入输出治理"],
     track: 4,
+  },
+  "component-library": {
+    title: "组件库 (Component Library)",
+    category: "Components",
+    difficulty: "入门",
+    estimatedTime: 20,
+    prerequisites: [],
+    skills: ["可复用工程组件", "跨 Playground 复用", "通用交互模式"],
+    track: -1,
   },
 }
 

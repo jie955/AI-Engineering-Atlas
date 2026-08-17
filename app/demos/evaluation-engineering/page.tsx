@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DemoShell } from "@/components/demo-shell"
 import { DemoHero } from "@/components/demo-hero"
 import { useToast } from "@/components/ui/use-toast"
+import { useDemoProgress } from "@/lib/use-demo-progress"
 import {
   ShieldAlert,
   CheckCircle,
@@ -86,6 +87,7 @@ const judgeCriteria = [
 export default function EvaluationEngineeringPage() {
   const [activeTab, setActiveTab] = useState("judge")
   const { toast } = useToast()
+  const { markComplete } = useDemoProgress("evaluation-engineering")
 
   // Tab 1: LLM-as-a-Judge States
   const [selectedTrajectory, setSelectedTrajectory] = useState(sampleTrajectories[0])
@@ -157,6 +159,7 @@ export default function EvaluationEngineeringPage() {
 
       setEvaluationResult({ score, justification, status })
       setIsEvaluating(false)
+      markComplete()
       toast({
         title: "判官评估完成",
         description: `指标 [${judgeCriteria.find(c => c.id === selectedMetric)?.name}] 已打分: ${score}`
@@ -207,6 +210,7 @@ export default function EvaluationEngineeringPage() {
 
     await sleep(600)
     setCiStatus("passed")
+    markComplete()
     setCiLogs(prev => [...prev, "🏆 [Success] 自动化测试套件通过率 100%！允许合并当前分支代码并部署至 Cloud Run。"])
     toast({
       title: "CI 回归检测成功！",

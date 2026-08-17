@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -23,6 +23,7 @@ import {
   History
 } from "lucide-react"
 import Link from "next/link"
+import { useDemoProgress } from "@/lib/use-demo-progress"
 
 interface PipelineStep {
   id: string
@@ -71,6 +72,10 @@ const initialSteps: PipelineStep[] = [
 ]
 
 export default function HumanInTheLoopPage() {
+  const { markVisited, markComplete } = useDemoProgress("human-in-the-loop")
+  useEffect(() => {
+    markVisited()
+  }, [])
   const [steps, setSteps] = useState<PipelineStep[]>(initialSteps)
   const [currentStepIndex, setCurrentStepIndex] = useState<number>(-1)
   const [isSimulating, setIsSimulating] = useState(false)
@@ -164,6 +169,7 @@ export default function HumanInTheLoopPage() {
   const handleApprove = async () => {
     if (currentStepIndex === -1 || steps[currentStepIndex].id !== "human-approval") return
 
+    markComplete()
     setIsSimulating(true)
     const newSteps = [...steps]
     newSteps[currentStepIndex].status = "success"
@@ -186,6 +192,7 @@ export default function HumanInTheLoopPage() {
   const handleReject = async () => {
     if (currentStepIndex === -1 || steps[currentStepIndex].id !== "human-approval") return
 
+    markComplete()
     setIsSimulating(true)
     const newSteps = [...steps]
     newSteps[currentStepIndex].status = "failed"

@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Brain } from "lucide-react"
 import { tracks } from "@/lib/mock-store"
+import { demos } from "@/lib/demos"
 
 export function SiteFooter() {
   return (
@@ -68,7 +69,7 @@ export function SiteFooter() {
           <div>
             <h3 className="text-eyebrow mb-4 text-xs text-muted-foreground">关于</h3>
             <ul className="flex flex-col gap-2.5">
-              <li className="text-sm text-muted-foreground">20 个工程案例</li>
+              <li className="text-sm text-muted-foreground">{demos.length} 个工程案例</li>
               <li className="text-sm text-muted-foreground">5 条学习轨道</li>
               <li className="text-sm text-muted-foreground">交互式演示</li>
             </ul>

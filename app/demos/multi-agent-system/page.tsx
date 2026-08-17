@@ -9,6 +9,7 @@ import { ArrowRight, ShieldAlert, CheckCircle2, AlertTriangle, UserCheck, Play, 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DemoShell } from "@/components/demo-shell"
 import { DemoHero } from "@/components/demo-hero"
+import { useDemoProgress } from "@/lib/use-demo-progress"
 
 const agentFlowData = [
   {
@@ -176,6 +177,7 @@ export default function MultiAgentSystemPage() {
   // 风控模拟器 state
   const [selectedTxId, setSelectedTxId] = useState<string>("tx-aml-high-002")
   const [isEvaluating, setIsEvaluating] = useState<boolean>(false)
+  const { markComplete } = useDemoProgress("multi-agent-system")
   const [evalStep, setEvalStep] = useState<number>(0)
   const [humanApproved, setHumanApproved] = useState<boolean | null>(null)
   const [officerNote, setOfficerNote] = useState<string>("")
@@ -192,6 +194,7 @@ export default function MultiAgentSystemPage() {
     setTimeout(() => {
       setEvalStep(3)
       setIsEvaluating(false)
+      markComplete()
     }, 1200)
   }
 

@@ -12,7 +12,7 @@ export interface MockUser {
 interface MockAuthContextType {
   user: MockUser | null
   status: "loading" | "authenticated" | "unauthenticated"
-  signIn: (email: string) => void
+  signIn: (email: string, name?: string) => void
   signOut: () => void
 }
 
@@ -40,10 +40,10 @@ export function MockAuthProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
-  const signIn = (email: string) => {
+  const signIn = (email: string, name?: string) => {
     const newUser: MockUser = {
       id: `user-${Date.now()}`,
-      name: email.split("@")[0],
+      name: name?.trim() || email.split("@")[0],
       email,
       image: null,
     }
