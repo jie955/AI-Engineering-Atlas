@@ -27,10 +27,12 @@ import {
   RotateCcw,
   ChevronDown,
   ChevronUp,
+  ExternalLink,
 } from "lucide-react"
 import Link from "next/link"
 import { mockStore, tracks, demoMetadata, marketDemand, flashcards, type Track, type UserProgress, type Flashcard } from "@/lib/mock-store"
 import { demos } from "@/lib/demos"
+import { jobs, jobsLastUpdated, jobsStats, jobFocus } from "@/lib/jobs"
 import { cn } from "@/lib/utils"
 
 // Resilient metadata lookup: prefer demoMetadata, fall back to the canonical
@@ -63,6 +65,7 @@ export default function RoadmapPage() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0)
   const [showAnswer, setShowAnswer] = useState(false)
   const [activeFlashcardDemo, setActiveFlashcardDemo] = useState<string | null>(null)
+  const [showAllJobs, setShowAllJobs] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -425,34 +428,66 @@ export default function RoadmapPage() {
               </CardContent>
             </Card>
 
-            {/* Companies Hiring */}
+            {/* 实时职位（每日自动更新） */}
             <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg">
-                  <Building2 className="w-5 h-5" />
-                  正在招聘
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {marketDemand.companies.map((company) => (
-                    <div key={company.name} className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
-                      <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-xs font-bold">
-                        {company.name.slice(0, 2)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="font-medium text-sm">{company.name}</div>
-                        <div className="flex flex-wrap gap-1 mt-1">
-                          {company.roles.map((role) => (
-                            <Badge key={role} variant="secondary" className="text-xs">
-                              {role}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="flex items-center gap-2 text-lg">
+                    <Building2 className="w-5 h-5" />
+                    正在招聘
+                  </CardTitle>
+                  <Badge variant="secondary" className="text-[10px]">
+                    每日更新
+                  </Badge>
                 </div>
+                <CardDescription className="text-xs">
+                  {jobFocus.label} · 需求同比 {jobsStats.demandGrowth} · 更新于 {jobsLastUpdated}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {jobs.slice(0, showAllJobs ? jobs.length : 8).map((job) => (
+                  <a
+                    key={`${job.company}-${job.title}`}
+                    href={job.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block p-3 rounded-lg hover:bg-muted/50 transition-colors"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="font-medium text-sm">{job.title}</div>
+                      <ExternalLink className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" />
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-0.5">
+                      {job.company} · {job.location}
+                    </div>
+                    <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
+                      <Badge variant="outline" className="text-[10px]">{job.salary}</Badge>
+                      <Badge variant="outline" className="text-[10px]">{job.seniority}</Badge>
+                      <Badge variant="secondary" className="text-[10px]">学历 {job.education}</Badge>
+                      <span className="text-[10px] text-muted-foreground">via {job.source}</span>
+                    </div>
+                  </a>
+                ))}
+                {jobs.length > 8 && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="w-full mt-1"
+                    onClick={() => setShowAllJobs(!showAllJobs)}
+                  >
+                    {showAllJobs ? (
+                      <>
+                        <ChevronUp className="w-4 h-4 mr-1" />
+                        收起
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown className="w-4 h-4 mr-1" />
+                        查看全部 {jobs.length} 条
+                      </>
+                    )}
+                  </Button>
+                )}
               </CardContent>
             </Card>
 

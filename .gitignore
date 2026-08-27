@@ -32,3 +32,6 @@ dev-server*.log
 dev*.log
 npm-install*.log
 output.html
+
+# workbuddy local project data (memory / logs — not for git)
+.workbuddy/
