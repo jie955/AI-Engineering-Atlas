@@ -95,7 +95,7 @@ export const tracks: Track[] = [
     subtitle: "Expedition",
     description: "挑战生产级架构：图检索、多智能体协作与 Agent 系统工程",
     estimatedHours: 17,
-    demos: ["agent-orchestration", "multimodal-rag", "graph-rag", "multi-agent-system", "harness-engineering", "loop-engineering"],
+    demos: ["agent-orchestration", "multimodal-rag", "graph-rag", "multi-agent-system", "harness-engineering", "deepseek-harness", "loop-engineering"],
     capstone: {
       title: "企业级 AI 系统",
       description: "设计并实现一个完整的多 Agent + GraphRAG 企业解决方案",
@@ -170,6 +170,12 @@ export const flashcards: Record<string, Flashcard[]> = {
     { id: "he-2", front: "Harness 的 6 大核心组件是什么?", back: "上下文工程、工具编排、状态与记忆、验证与安全、人机协作、生命周期管理。", difficulty: "medium" },
     { id: "he-3", front: "什么是上下文腐烂 (Context Rot)?", back: "长时间运行的任务中，上下文积累噪音，模型无法识别当前重要信息，导致重复解决问题或丢失目标。", difficulty: "medium" },
     { id: "he-4", front: "验证循环 (Verification Loops) 的作用是什么?", back: "在 Agent 输出到达真实世界前进行检查，是投入产出比最高的 Harness 组件，可将任务完成率从 83% 提升到 96%。", difficulty: "hard" },
+  ],
+  "deepseek-harness": [
+    { id: "dh-1", front: "DeepSeek Harness 的核心设计口号是什么?", back: "Everything is a Plugin（一切皆插件）。把 LLM 调用、工具执行、会话管理、授权、沙箱等能力解耦为独立插件，让开发者灵活组合扩展，而非修改核心。", difficulty: "easy" },
+    { id: "dh-2", front: "什么是「能力接缝」(Capability Seams)?", back: "在架构中预设的能力边界，用于解耦不同能力模块，使某一能力（如模型后端）可被替换而无需改动其他部分，是 ADR-0009 的核心。", difficulty: "medium" },
+    { id: "dh-3", front: "「双 LLM 适配器」(Twin LLM Adapters) 解决什么问题?", back: "支持多种模型后端并存。通过两个适配器接缝，让 Agent 循环与具体模型供应商解耦，可无缝切换 DeepSeek / Claude / GPT 等后端。", difficulty: "medium" },
+    { id: "dh-4", front: "deepseek-harness 的会话如何持久化?", back: "基于 SQLite 持久化会话，并叠加「会话投影缓存」机制，支持跨会话引用与持久化 PTY 会话，让长时间任务可中断续跑。", difficulty: "hard" },
   ],
   "loop-engineering": [
     { id: "le-1", front: "Loop Engineering 的核心思想是什么?", back: "你不再逐条 prompt Agent，而是设计一个能自我发现工作、派发、验证、记录并决定下一步的循环系统，让它去 prompt Agent。", difficulty: "easy" },
@@ -426,6 +432,15 @@ export const demoMetadata: Record<string, {
     estimatedTime: 90,
     prerequisites: ["single-agent", "multi-agent-system"],
     skills: ["上下文工程", "验证循环", "状态管理", "生命周期管理"],
+    track: 3,
+  },
+  "deepseek-harness": {
+    title: "DeepSeek Harness 源码拆解 (Everything is a Plugin)",
+    category: "工程化",
+    difficulty: "专家",
+    estimatedTime: 90,
+    prerequisites: ["harness-engineering"],
+    skills: ["插件化架构 (Plugin Architecture)", "能力接缝 (Capability Seams)", "双 LLM 适配器", "会话持久化 (SQLite)", "本地沙箱执行"],
     track: 3,
   },
   "loop-engineering": {

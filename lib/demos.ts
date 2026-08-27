@@ -184,6 +184,16 @@ export const demos: Demo[] = [
     track: 3,
   },
   {
+    id: "deepseek-harness",
+    title: "DeepSeek Harness 源码拆解 (Everything is a Plugin)",
+    description: "开源 Agent Harness 参考实现深度拆解 —— 插件化运行时、能力接缝与工程规范",
+    category: "工程化",
+    difficulty: "专家",
+    status: "active",
+    estimatedTime: 90,
+    track: 3,
+  },
+  {
     id: "loop-engineering",
     title: "循环工程 (Loop Engineering)",
     description: "自驱动 Agent 循环设计 - 6 大组件、流程编排与风险边界控制",
