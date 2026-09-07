@@ -2,9 +2,13 @@
 // 数据来源：公开招聘平台搜索聚合（Boss直聘 / 猎聘 / 官方招聘官网 / 聚合站等）
 // 注意：仅基于公开搜索结果，薪资为平台公开区间或「面议」，非全量实时数据。
 
+// 细分方向（与「单独成列」对应，便于前端按方向筛选）
+export type JobDirection = "AI Agent" | "大模型算法" | "RAG" | "多模态" | "Agent Infra"
+
 export interface Job {
   company: string
   title: string
+  direction: JobDirection
   location: string
   salary: string
   seniority: string
@@ -48,6 +52,7 @@ export const jobs: Job[] = [
   {
     company: "字节跳动",
     title: "AI Agent算法和策略工程师-扣子",
+    direction: "AI Agent",
     location: "北京",
     salary: "面议",
     seniority: "不限",
@@ -59,6 +64,7 @@ export const jobs: Job[] = [
   {
     company: "字节跳动",
     title: "AI Agent算法专家/工程师-抖音研发",
+    direction: "AI Agent",
     location: "北京",
     salary: "面议",
     seniority: "不限",
@@ -70,6 +76,7 @@ export const jobs: Job[] = [
   {
     company: "腾讯",
     title: "AI协作工具- AI Agent研发工程师",
+    direction: "AI Agent",
     location: "深圳",
     salary: "面议",
     seniority: "不限",
@@ -81,6 +88,7 @@ export const jobs: Job[] = [
   {
     company: "腾讯",
     title: "AI应用开发工程师-Agent方向",
+    direction: "AI Agent",
     location: "深圳",
     salary: "面议",
     seniority: "1 年+",
@@ -92,6 +100,7 @@ export const jobs: Job[] = [
   {
     company: "深度求索 DeepSeek",
     title: "Agent Harness 研发工程师",
+    direction: "Agent Infra",
     location: "北京 / 杭州",
     salary: "面议",
     seniority: "不限",
@@ -103,6 +112,7 @@ export const jobs: Job[] = [
   {
     company: "MiniMax",
     title: "AI Agent 平台研发工程师",
+    direction: "Agent Infra",
     location: "北京",
     salary: "30-60K/月",
     seniority: "不限",
@@ -114,6 +124,7 @@ export const jobs: Job[] = [
   {
     company: "月之暗面 Moonshot",
     title: "资深 Agent 研发工程师",
+    direction: "AI Agent",
     location: "北京 / 上海",
     salary: "面议",
     seniority: "不限",
@@ -125,6 +136,7 @@ export const jobs: Job[] = [
   {
     company: "智谱 AI",
     title: "26届校招-agent算法工程师",
+    direction: "AI Agent",
     location: "北京",
     salary: "面议",
     seniority: "校招",
@@ -136,6 +148,7 @@ export const jobs: Job[] = [
   {
     company: "智谱 AI",
     title: "【智谱星】26届校招-强化学习算法工程师",
+    direction: "大模型算法",
     location: "北京",
     salary: "面议",
     seniority: "校招",
@@ -147,6 +160,7 @@ export const jobs: Job[] = [
   {
     company: "阶跃星辰 StepFun",
     title: "全栈工程师（AI Coding Agent 方向）",
+    direction: "AI Agent",
     location: "北京",
     salary: "50-80K/月",
     seniority: "不限",
@@ -158,6 +172,7 @@ export const jobs: Job[] = [
   {
     company: "百川智能",
     title: "大模型算法工程师（后训练）",
+    direction: "大模型算法",
     location: "北京",
     salary: "面议",
     seniority: "不限",
@@ -169,6 +184,7 @@ export const jobs: Job[] = [
   {
     company: "零一万物",
     title: "AI算法工程师（智能体）",
+    direction: "AI Agent",
     location: "北京",
     salary: "27-45K·14薪",
     seniority: "3 年+",
@@ -180,6 +196,7 @@ export const jobs: Job[] = [
   {
     company: "面壁智能",
     title: "大模型 Agent 应用开发工程师",
+    direction: "AI Agent",
     location: "北京",
     salary: "30-50K/月",
     seniority: "不限",
@@ -191,6 +208,7 @@ export const jobs: Job[] = [
   {
     company: "阿里巴巴",
     title: "千问事业部-大模型应用算法工程师(Agent 方向)",
+    direction: "AI Agent",
     location: "北京",
     salary: "面议",
     seniority: "1 年+",
@@ -202,6 +220,7 @@ export const jobs: Job[] = [
   {
     company: "阿里巴巴",
     title: "千问事业部-MOS 实验室-AI Agent 算法专家(任务助理方向)",
+    direction: "AI Agent",
     location: "北京 / 杭州 / 广州",
     salary: "面议",
     seniority: "2 年+",
@@ -213,6 +232,7 @@ export const jobs: Job[] = [
   {
     company: "百度",
     title: "大模型算法工程师（J104493）",
+    direction: "大模型算法",
     location: "北京",
     salary: "面议",
     seniority: "不限",
@@ -224,6 +244,7 @@ export const jobs: Job[] = [
   {
     company: "美团",
     title: "搜索大模型算法工程师",
+    direction: "大模型算法",
     location: "北京",
     salary: "面议",
     seniority: "2 年+",
@@ -235,6 +256,7 @@ export const jobs: Job[] = [
   {
     company: "美团",
     title: "大模型应用算法工程师（Agent 方向）",
+    direction: "AI Agent",
     location: "北京",
     salary: "面议",
     seniority: "3 年+",
@@ -246,6 +268,7 @@ export const jobs: Job[] = [
   {
     company: "快手",
     title: "【快Star】AI Agent算法专家-智能创作-【可灵AI专项】",
+    direction: "多模态",
     location: "北京",
     salary: "面议",
     seniority: "校招",
@@ -257,6 +280,7 @@ export const jobs: Job[] = [
   {
     company: "小红书",
     title: "AI Agent算法工程师(企业智能)",
+    direction: "AI Agent",
     location: "北京 / 上海",
     salary: "面议",
     seniority: "1-3 年",
@@ -268,6 +292,7 @@ export const jobs: Job[] = [
   {
     company: "小红书",
     title: "【REDstar】AI Agent算法工程师",
+    direction: "AI Agent",
     location: "北京 / 上海",
     salary: "面议",
     seniority: "校招",
@@ -279,6 +304,7 @@ export const jobs: Job[] = [
   {
     company: "蚂蚁集团",
     title: "大模型智能体优化算法",
+    direction: "AI Agent",
     location: "北京 / 上海 / 杭州",
     salary: "面议",
     seniority: "校招",
@@ -290,6 +316,7 @@ export const jobs: Job[] = [
   {
     company: "华为",
     title: "agent算法工程师/研究员",
+    direction: "AI Agent",
     location: "上海",
     salary: "30-60K·14薪",
     seniority: "应届",
@@ -301,6 +328,7 @@ export const jobs: Job[] = [
   {
     company: "小米",
     title: "顶尖应届-Agent Harness算法工程师-大模型",
+    direction: "Agent Infra",
     location: "北京",
     salary: "15-30K·14薪",
     seniority: "应届",
@@ -312,6 +340,7 @@ export const jobs: Job[] = [
   {
     company: "小米",
     title: "顶尖应届-垂域Agentic大模型算法工程师-AI实验室",
+    direction: "大模型算法",
     location: "北京",
     salary: "15-30K·15薪",
     seniority: "应届",
