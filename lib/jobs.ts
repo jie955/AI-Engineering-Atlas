@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-09-13"
+export const jobsLastUpdated = "2026-09-15"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,31 +47,31 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，后续由定时任务覆盖更新）
-// 抓取日期：2026-09-13，覆盖 18 家目标公司，共 24 条公开在招岗位
+// 抓取日期：2026-09-15，覆盖 18 家目标公司，共 24 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
-    title: "LLM应用 / Agent / AI平台研发工程师-Data",
+    title: "AI Agent产品研发工程师-扣子",
     direction: "AI Agent",
-    location: "上海",
+    location: "北京",
     salary: "面议",
-    seniority: "不限",
+    seniority: "3 年+",
     education: "本科+",
     source: "字节跳动招聘",
-    link: "https://jobs.bytedance.com/experienced/position/7634456497736534325/detail",
-    skills: ["Agent 编排与决策链路", "Prompt 组织", "大模型工程化落地", "AI Coding", "可观测与降本"],
+    link: "https://jobs.bytedance.com/experienced/position/7536123221750958343/detail",
+    skills: ["AI Coding", "Agent 系统", "Prompt/Tool/Memory/Workflow", "Harness", "上下文管理", "自动修复与评测"],
   },
   {
     company: "字节跳动",
-    title: "AI Agent研发工程师-开发者服务",
+    title: "Agent技术研发工程师-火山方舟大模型平台",
     direction: "Agent Infra",
-    location: "深圳",
+    location: "北京",
     salary: "面议",
     seniority: "不限",
     education: "本科+",
     source: "字节跳动招聘",
-    link: "https://jobs.bytedance.com/experienced/position/7428873140916554010/detail",
-    skills: ["Agent Harness", "RAG 优化", "MCP 与工具开发", "上下文工程", "研发全流程 Agent 化"],
+    link: "https://jobs.bytedance.com/experienced/position/7486005250659338504/detail",
+    skills: ["Agent 运行时", "执行引擎", "云原生", "分布式系统", "任务调度", "可观测性"],
   },
   {
     company: "腾讯",
@@ -87,15 +87,15 @@ export const jobs: Job[] = [
   },
   {
     company: "腾讯",
-    title: "元宝搜索部-Agent算法工程师（VLM）",
-    direction: "多模态",
-    location: "北京",
+    title: "企业微信-大模型算法工程师-Agent应用（广州/北京）",
+    direction: "AI Agent",
+    location: "广州 / 北京",
     salary: "面议",
     seniority: "3 年+",
     education: "硕士+",
     source: "腾讯招聘",
-    link: "https://careers.tencent.com/jobdesc.html?postId=2066829103750889472",
-    skills: ["VLM Agent", "多模态理解", "工具调用", "记忆机制", "RL 视觉推理"],
+    link: "https://careers.tencent.com/jobdesc.html?postId=1976549654753599488",
+    skills: ["多智能体系统", "ReAct/Plan-and-Act/CodeAct", "上下文工程", "Post-training(SFT/RL)", "复杂任务 Agent"],
   },
   {
     company: "阿里巴巴",
@@ -183,15 +183,15 @@ export const jobs: Job[] = [
   },
   {
     company: "小红书",
-    title: "AI Agent 工程师(C端 运行时)",
-    direction: "Agent Infra",
-    location: "上海 / 北京",
+    title: "【REDstar】AI Agent算法工程师（C端 点点）",
+    direction: "AI Agent",
+    location: "北京 / 上海",
     salary: "面议",
-    seniority: "2 年+",
+    seniority: "校招",
     education: "本科+",
     source: "小红书官网",
-    link: "https://jobs.niuqizp.com/job-vmy55CnaC.html",
-    skills: ["端云协同 Agentic Runtime", "端侧 LLM 推理引擎", "Agentloop", "Tool Use", "模型量化编译"],
+    link: "https://campus.niuqizp.com/job-vsm5aNNMn.html",
+    skills: ["Agentic 后训练", "Memory 与个性化", "Context 优化", "AI 搜索", "Agentic RL"],
   },
   {
     company: "蚂蚁集团",
@@ -231,15 +231,15 @@ export const jobs: Job[] = [
   },
   {
     company: "小米",
-    title: "Agent Harness 研发工程师",
+    title: "顶尖应届-Agent Harness算法工程师-大模型",
     direction: "Agent Infra",
-    location: "武汉 / 北京",
-    salary: "面议",
-    seniority: "校招",
-    education: "本科+",
-    source: "小米集团招聘",
-    link: "https://xiaomi.jobs.f.mioffice.cn/campus/position/7671284471720020243/detail",
-    skills: ["自研 Harness 框架", "Agent Loop", "工具系统", "上下文管理", "记忆与状态管理"],
+    location: "北京",
+    salary: "15-30K·14薪",
+    seniority: "应届",
+    education: "硕士+",
+    source: "猎聘",
+    link: "https://m.liepin.com/lptjob/85239407",
+    skills: ["可进化 Harness", "Agentic Memory", "Agentic RL", "MCTS 工作流搜索", "多智能体协同"],
   },
   {
     company: "深度求索 DeepSeek",
@@ -274,7 +274,7 @@ export const jobs: Job[] = [
     seniority: "不限",
     education: "本科+",
     source: "月之暗面招聘",
-    link: "https://app.mokahr.com/apply/moonshot/148506",
+    link: "https://careers.kimi.com/",
     skills: ["Coding Agent 执行循环", "工具系统", "上下文工程", "失败分析/评测", "MCP/Subagent"],
   },
   {
@@ -327,14 +327,14 @@ export const jobs: Job[] = [
   },
   {
     company: "面壁智能",
-    title: "大模型算法工程师(AI Agent)",
+    title: "大模型算法工程师-智能体方向",
     direction: "AI Agent",
     location: "北京",
-    salary: "面议",
-    seniority: "3-5 年",
-    education: "硕士+",
-    source: "面壁智能招聘",
-    link: "https://m.liepin.com/company/13461757/",
+    salary: "25-50K·15薪",
+    seniority: "1-3 年",
+    education: "本科+",
+    source: "BOSS直聘",
+    link: "https://www.zhipin.com/zhaopin/211ac00b63c60ad51Xx409u4/",
     skills: ["Agent 框架搭建", "RAG 全流程优化", "工具调用", "复杂任务规划", "模型微调"],
   },
 ]
