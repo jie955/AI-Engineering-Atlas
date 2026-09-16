@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-09-15"
+export const jobsLastUpdated = "2026-09-16"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，后续由定时任务覆盖更新）
-// 抓取日期：2026-09-15，覆盖 18 家目标公司，共 24 条公开在招岗位
+// 抓取日期：2026-09-16，覆盖 18 家目标公司，共 24 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -87,15 +87,15 @@ export const jobs: Job[] = [
   },
   {
     company: "腾讯",
-    title: "企业微信-大模型算法工程师-Agent应用（广州/北京）",
-    direction: "AI Agent",
-    location: "广州 / 北京",
+    title: "元宝搜索部-Agent算法工程师（VLM Agent）",
+    direction: "多模态",
+    location: "北京",
     salary: "面议",
     seniority: "3 年+",
     education: "硕士+",
     source: "腾讯招聘",
-    link: "https://careers.tencent.com/jobdesc.html?postId=1976549654753599488",
-    skills: ["多智能体系统", "ReAct/Plan-and-Act/CodeAct", "上下文工程", "Post-training(SFT/RL)", "复杂任务 Agent"],
+    link: "https://careers.tencent.com/jobdesc.html?postId=2066829103750889472",
+    skills: ["VLM Agent", "多模态理解", "自主规划", "工具调用", "记忆机制", "强化学习(视觉推理)"],
   },
   {
     company: "阿里巴巴",
@@ -231,15 +231,15 @@ export const jobs: Job[] = [
   },
   {
     company: "小米",
-    title: "顶尖应届-Agent Harness算法工程师-大模型",
+    title: "顶尖应届-大模型agent算法工程师",
     direction: "Agent Infra",
     location: "北京",
-    salary: "15-30K·14薪",
-    seniority: "应届",
+    salary: "面议",
+    seniority: "校招",
     education: "硕士+",
-    source: "猎聘",
-    link: "https://m.liepin.com/lptjob/85239407",
-    skills: ["可进化 Harness", "Agentic Memory", "Agentic RL", "MCTS 工作流搜索", "多智能体协同"],
+    source: "牛客",
+    link: "https://www.nowcoder.com/jobs/detail/459543",
+    skills: ["Agent Harness 研究", "Agent Memory", "Agent Search", "Agentic RL", "端云分层记忆"],
   },
   {
     company: "深度求索 DeepSeek",
