@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-09-16"
+export const jobsLastUpdated = "2026-09-17"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，后续由定时任务覆盖更新）
-// 抓取日期：2026-09-16，覆盖 18 家目标公司，共 24 条公开在招岗位
+// 抓取日期：2026-09-17，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -82,20 +82,20 @@ export const jobs: Job[] = [
     seniority: "3 年+",
     education: "本科+",
     source: "腾讯招聘",
-    link: "https://careers.tencent.com/jobdesc.html?postId=2079104781984645120",
+    link: "https://jobs.niuqizp.com/job-vmk5NtNza.html",
     skills: ["智能体编排", "工具调用与记忆管理", "多智能体协作", "Harness Engineering", "RAG / Text2SQL"],
   },
   {
     company: "腾讯",
-    title: "元宝搜索部-Agent算法工程师（VLM Agent）",
-    direction: "多模态",
-    location: "北京",
+    title: "混元Agent 后训练算法工程师（Red Team方向）",
+    direction: "AI Agent",
+    location: "北京 / 上海 / 深圳",
     salary: "面议",
-    seniority: "3 年+",
-    education: "硕士+",
+    seniority: "1 年+",
+    education: "本科+",
     source: "腾讯招聘",
-    link: "https://careers.tencent.com/jobdesc.html?postId=2066829103750889472",
-    skills: ["VLM Agent", "多模态理解", "自主规划", "工具调用", "记忆机制", "强化学习(视觉推理)"],
+    link: "https://careers.tencent.com/jobdesc.html?postId=2092600084561838080",
+    skills: ["Agent 基模训练数据质检", "SFT 训练流水线", "数据实验", "工具链建设", "红队对抗测试", "评测分析"],
   },
   {
     company: "阿里巴巴",
@@ -103,8 +103,8 @@ export const jobs: Job[] = [
     direction: "AI Agent",
     location: "北京",
     salary: "面议",
-    seniority: "1 年+",
-    education: "本科+",
+    seniority: "3 年+",
+    education: "硕士+",
     source: "夸克招聘",
     link: "https://talent.quark.cn/off-campus/position-detail?lang=zh&positionId=7000011004",
     skills: ["广告 Agent", "Skills 进化", "Agentic RL", "Harness", "RAG"],
@@ -141,8 +141,8 @@ export const jobs: Job[] = [
     salary: "面议",
     seniority: "应届",
     education: "本科+",
-    source: "美团招聘",
-    link: "https://zhaopin.meituan.com/web/position/detail?highlightType=campus&jobUnionId=4697304732",
+    source: "美团官网",
+    link: "https://campus.niuqizp.com/job-vyr5aLzCZ.html",
     skills: ["大模型智能体", "推理与规划", "复杂指令遵循", "知识注入", "偏好对齐"],
   },
   {
@@ -159,31 +159,19 @@ export const jobs: Job[] = [
   },
   {
     company: "快手",
-    title: "【快Star】AI Agent大模型算法工程师",
+    title: "【快Star】AI Agent算法专家-智能创作-【可灵AI专项】",
     direction: "AI Agent",
     location: "北京",
-    salary: "4-6 万·16薪",
-    seniority: "不限",
+    salary: "面议",
+    seniority: "应届可投",
     education: "硕士+",
     source: "全职招聘网",
-    link: "https://m.quanzhi.com/job/detail/6a1f906b1433e769ad6235ae",
-    skills: ["Planning/Reasoning", "Tool Use", "Memory", "RAG", "Multi-Agent"],
+    link: "https://www.quanzhi.com/job/6a8a63d2c24b0728e63f3ed9",
+    skills: ["智能创作 Agent", "AIGC 图像/视频生成", "Agentic RL", "多Agent 协作", "Workflow 编排", "RAG"],
   },
   {
     company: "小红书",
-    title: "AI Agent & LLM Engineering",
-    direction: "Agent Infra",
-    location: "上海 / 北京 / 杭州",
-    salary: "面议",
-    seniority: "3 年+",
-    education: "本科+",
-    source: "小红书官网",
-    link: "https://jobs.niuqizp.com/job-vwl55tCLa.html",
-    skills: ["AI 编码智能体", "LLMOps", "RAG", "Skills", "端智能"],
-  },
-  {
-    company: "小红书",
-    title: "【REDstar】AI Agent算法工程师（C端 点点）",
+    title: "【REDstar】AI Agent算法工程师（点点）",
     direction: "AI Agent",
     location: "北京 / 上海",
     salary: "面议",
@@ -192,6 +180,18 @@ export const jobs: Job[] = [
     source: "小红书官网",
     link: "https://campus.niuqizp.com/job-vsm5aNNMn.html",
     skills: ["Agentic 后训练", "Memory 与个性化", "Context 优化", "AI 搜索", "Agentic RL"],
+  },
+  {
+    company: "小红书",
+    title: "【Dots】基模Agent算法工程师-Agentic Intelligence",
+    direction: "Agent Infra",
+    location: "北京 / 上海 / 杭州",
+    salary: "面议",
+    seniority: "全职",
+    education: "本科+",
+    source: "小红书官网",
+    link: "https://jobs.niuqizp.com/job-vsy55zCnN.html",
+    skills: ["Post-Training", "强化学习(RL Scaling)", "多智能体协作", "长程记忆", "Agent 训练环境", "评测体系"],
   },
   {
     company: "蚂蚁集团",
@@ -206,8 +206,20 @@ export const jobs: Job[] = [
     skills: ["生成式推荐", "LLM Query 理解", "智能体(Agent)体系", "RAG", "策略自动调优"],
   },
   {
+    company: "蚂蚁集团",
+    title: "网商银行-Agent开发工程师-智能服务方向",
+    direction: "Agent Infra",
+    location: "杭州",
+    salary: "面议",
+    seniority: "3 年+",
+    education: "本科+",
+    source: "蚂蚁集团招聘",
+    link: "https://talent.antgroup.com/off-campus-position?positionId=26040709455640",
+    skills: ["Harness 架构", "MultiModel", "Context", "SkillOps", "Evaluation", "金融AI系统"],
+  },
+  {
     company: "华为",
-    title: "Agent算法工程师/研究员",
+    title: "agent算法工程师/研究员",
     direction: "AI Agent",
     location: "上海",
     salary: "30-60K·14薪",
@@ -267,15 +279,15 @@ export const jobs: Job[] = [
   },
   {
     company: "月之暗面 Moonshot",
-    title: "Coding Agent研发工程师(Kimi Code)",
+    title: "资深Agent研发工程师(Kimi)",
     direction: "AI Agent",
     location: "北京 / 上海",
     salary: "面议",
     seniority: "不限",
     education: "本科+",
     source: "月之暗面招聘",
-    link: "https://careers.kimi.com/",
-    skills: ["Coding Agent 执行循环", "工具系统", "上下文工程", "失败分析/评测", "MCP/Subagent"],
+    link: "https://jobspring.pro/job/j3957053/agent-moonshot",
+    skills: ["Agent 内核框架", "任务执行", "工具生态(Skills/MCP/Sandbox)", "工程基座", "CI/CD & DevOps"],
   },
   {
     company: "智谱 AI",
