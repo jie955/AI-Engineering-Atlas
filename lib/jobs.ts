@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-09-18"
+export const jobsLastUpdated = "2026-09-19"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -46,8 +46,8 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
   { role: "RAG 工程师", monthly: "18-50K", annual: "22-60 万" },
 ]
 
-// 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，后续由定时任务覆盖更新）
-// 抓取日期：2026-09-18，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
+// 抓取日期：2026-09-19，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -63,15 +63,15 @@ export const jobs: Job[] = [
   },
   {
     company: "字节跳动",
-    title: "Agent技术研发工程师-火山方舟大模型平台",
-    direction: "Agent Infra",
-    location: "杭州",
+    title: "Agent技术研发工程师-豆包",
+    direction: "AI Agent",
+    location: "北京",
     salary: "面议",
     seniority: "不限",
     education: "本科+",
-    source: "字节跳动招聘",
-    link: "https://jobs.bytedance.com/experienced/position/7654959567977466165/detail",
-    skills: ["Agent 运行时", "执行引擎", "云原生", "分布式系统", "任务调度", "可观测性"],
+    source: "BOSS直聘",
+    link: "https://www.zhipin.com/job_detail/e27090680bd4f48b03F92du-FFFY.html",
+    skills: ["Multi-Agent 框架", "评测机制", "Agent 范式", "Agent 评估体系", "开发套件工具", "创意场景"],
   },
   {
     company: "腾讯",
@@ -111,15 +111,15 @@ export const jobs: Job[] = [
   },
   {
     company: "阿里巴巴",
-    title: "千问事业部-多模态检索与agent算法专家",
-    direction: "多模态",
-    location: "杭州 / 北京",
+    title: "千问事业部-Agent Harness 技术专家（广州/杭州）",
+    direction: "Agent Infra",
+    location: "广州 / 杭州",
     salary: "面议",
-    seniority: "2 年+",
-    education: "硕士+",
-    source: "夸克招聘",
-    link: "https://talent.quark.cn/off-campus/position-detail?lang=zh&positionId=100025920004",
-    skills: ["多模态检索", "VLM", "Agentic Search", "多模态 RAG", "语义匹配", "任务执行"],
+    seniority: "3 年+",
+    education: "本科+",
+    source: "猎聘",
+    link: "https://m.liepin.com/job/1985646225.shtml",
+    skills: ["多 Agent 编排", "幻觉治理", "上下文管理", "长期记忆", "工具调用", "Skills 风险检测"],
   },
   {
     company: "百度",
@@ -159,15 +159,15 @@ export const jobs: Job[] = [
   },
   {
     company: "美团",
-    title: "【北斗】大模型算法工程师 SFT/RL/Agent方向",
-    direction: "AI Agent",
-    location: "北京",
-    salary: "面议",
-    seniority: "校招",
+    title: "大模型推理服务专家（AI Agent 核心架构）",
+    direction: "Agent Infra",
+    location: "上海 / 北京",
+    salary: "35-45k·15薪",
+    seniority: "5 年+",
     education: "本科+",
-    source: "美团招聘",
-    link: "https://campus.niuqizp.com/job-vyr5zMnaC.html",
-    skills: ["决策智能体", "SFT/DPO/GRPO/PPO", "RLVR", "Harness 设计", "离线评测", "AutoResearch"],
+    source: "猎聘",
+    link: "https://m.liepin.com/job/1984853073.shtml",
+    skills: ["AI Agent 核心架构", "多智能体协作", "DeepResearch", "分布式系统", "LLM/RAG 集成", "高可用低延时"],
   },
   {
     company: "快手",
@@ -207,27 +207,27 @@ export const jobs: Job[] = [
   },
   {
     company: "蚂蚁集团",
-    title: "网商银行-Agent开发工程师-智能服务方向",
-    direction: "Agent Infra",
+    title: "风控策略智能体研发工程师(AI Agent方向)-杭州",
+    direction: "AI Agent",
     location: "杭州",
-    salary: "面议",
-    seniority: "3 年+",
+    salary: "30-60k",
+    seniority: "3-5 年",
     education: "本科+",
-    source: "蚂蚁集团招聘",
-    link: "https://talent.antgroup.com/off-campus-position?positionId=26040709455640",
-    skills: ["Harness 架构", "MultiModel", "Context", "SkillOps", "Evaluation", "金融AI系统"],
+    source: "猎聘",
+    link: "https://www.liepin.com/zpmyznkgcyfx0ufe2u/",
+    skills: ["风控策略智能体", "Agent 架构", "工具调用", "多 Agent 协作", "金融 AI 系统", "策略引擎"],
   },
   {
     company: "蚂蚁集团",
-    title: "Agent工程师（上海/杭州）",
+    title: "AI agent开发工程师-芝麻信用",
     direction: "AI Agent",
     location: "上海 / 杭州",
     salary: "面议",
     seniority: "2 年+",
     education: "本科+",
-    source: "全职招聘网",
-    link: "https://www.quanzhi.com/job/6a3441ec1abb5eec1ea9d73f",
-    skills: ["用户反馈驱动 Agent 进化", "复杂工具管理", "模型后训练(RL/SFT)", "多 Agent 协作", "工具编排", "GRPO"],
+    source: "面试马",
+    link: "https://www.mianshima.com/job/5/260914012056021",
+    skills: ["AI Native 思维", "复杂 Agent 设计", "效果闭环", "系统架构", "AI Coding", "工程交付"],
   },
   {
     company: "华为",
@@ -243,27 +243,27 @@ export const jobs: Job[] = [
   },
   {
     company: "小米",
-    title: "顶尖应届-Agent infra Engineer-MiMo",
+    title: "大模型网关服务端工程师-MiMo",
     direction: "Agent Infra",
     location: "北京",
-    salary: "面议",
-    seniority: "校招",
+    salary: "20-50k·16薪",
+    seniority: "3-5 年",
     education: "本科+",
-    source: "小米集团招聘",
-    link: "https://xiaomi.jobs.f.mioffice.cn/toptalent/position/7646708188821752083/detail",
-    skills: ["Agent Harness", "Agent Runtime", "Reasoning/Planning/Tool/Memory", "推理优化", "MiMoCode", "开源社区"],
+    source: "猎聘",
+    link: "https://m.liepin.com/job/1985463947.shtml",
+    skills: ["大模型网关架构", "多模型协议转换", "动态权重路由", "故障熔断降级", "可观测性", "高并发低延迟"],
   },
   {
     company: "小米",
-    title: "AI基础设施研发工程师(Sandbox/容器化)-MiMo",
+    title: "AI基础架构工程师(OpenClaw)-MiMo",
     direction: "Agent Infra",
     location: "北京",
-    salary: "面议",
-    seniority: "社招",
+    salary: "30-60k·16薪",
+    seniority: "5-10 年",
     education: "本科+",
-    source: "面试马",
-    link: "https://www.mianshima.com/job/8/7638549613247727926",
-    skills: ["Sandbox 隔离执行", "Kubernetes", "容器化调度", "资源隔离", "RL 训练 Infra", "安全边界"],
+    source: "猎聘",
+    link: "https://m.liepin.com/job/1982506911.shtml",
+    skills: ["OpenClaw 核心系统", "Agent 智能体引擎", "Skills 技能系统", "RAG/向量数据库", "多智能体协作", "云原生"],
   },
   {
     company: "深度求索 DeepSeek",
@@ -315,6 +315,18 @@ export const jobs: Job[] = [
   },
   {
     company: "阶跃星辰 StepFun",
+    title: "Agent Infra开发工程师/架构师",
+    direction: "Agent Infra",
+    location: "上海",
+    salary: "30-60k·16薪",
+    seniority: "3-5 年",
+    education: "本科+",
+    source: "猎聘",
+    link: "https://www.liepin.com/city-sh/zpjjkfgcs1m2u/",
+    skills: ["Agent Infra", "Agent 运行时", "执行引擎", "沙箱隔离", "分布式调度", "可观测性"],
+  },
+  {
+    company: "阶跃星辰 StepFun",
     title: "大模型应用算法工程师（Agent / 多模态）",
     direction: "AI Agent",
     location: "北京 / 上海",
@@ -334,7 +346,7 @@ export const jobs: Job[] = [
     seniority: "应届",
     education: "本科+",
     source: "百川智能招聘",
-    link: "https://campus.niuqizp.com/job-vml5aznta.html",
+    link: "https://careers.baichuan-inc.com/origin-program",
     skills: ["Agent 核心算法", "工具调用", "记忆", "Agent Loop", "Harness", "多智能体协作"],
   },
   {
