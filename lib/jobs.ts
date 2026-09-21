@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-09-20"
+export const jobsLastUpdated = "2026-09-21"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -195,15 +195,15 @@ export const jobs: Job[] = [
   },
   {
     company: "小红书",
-    title: "【Dots】大模型post train算法工程师-Frontier Research",
-    direction: "大模型算法",
+    title: "【REDstar】大模型 Agent 开发工程师(AI Coding方向)",
+    direction: "Agent Infra",
     location: "北京 / 上海",
     salary: "面议",
     seniority: "全职",
     education: "本科+",
-    source: "面试马",
-    link: "https://www.mianshima.com/job/15/13029",
-    skills: ["Post-Training", "RL 训练", "Reward Hacking 治理", "Training Stability", "长程信用分配", "评测体系"],
+    source: "小红书官网",
+    link: "https://campus.niuqizp.com/job-vrr5aZnLZ.html",
+    skills: ["Coding Harness", "Agent 编排", "Loop Engine", "工程级上下文", "执行与验证闭环", "代码质量评测"],
   },
   {
     company: "蚂蚁集团",
