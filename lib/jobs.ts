@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-09-21"
+export const jobsLastUpdated = "2026-09-22"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,31 +47,31 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-09-20，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-09-22，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
-    title: "豆包大模型Agent算法工程师(MaaS)-火山方舟",
+    title: "Agent技术研发工程师-豆包",
     direction: "AI Agent",
-    location: "北京 / 上海 / 杭州",
-    salary: "面议",
-    seniority: "校招",
-    education: "本科+",
-    source: "面试马",
-    link: "https://www.mianshima.com/job/2/7670459389480716597",
-    skills: ["Agent Harness", "LLM API", "Reasoning", "ToolUse", "Skills", "ReAct", "Multi-Agent", "MCP", "A2A"],
-  },
-  {
-    company: "字节跳动",
-    title: "大模型算法工程师(Agent方向)-火山引擎",
-    direction: "AI Agent",
-    location: "上海 / 深圳",
+    location: "北京",
     salary: "面议",
     seniority: "3-5 年",
     education: "本科+",
-    source: "牛客网",
-    link: "https://www.nowcoder.com/enterprise/665",
-    skills: ["Agent 系统", "大模型研发", "Forward Deployed Engineer", "AI 全系产品", "算法方向", "Agent 范式"],
+    source: "BOSS直聘",
+    link: "https://www.zhipin.com/job_detail/e27090680bd4f48b03F92du-FFFY.html",
+    skills: ["Multi-Agent 框架", "Agent 评测", "Agent 范式", "Agent 开发套件", "创意场景", "大模型应用"],
+  },
+  {
+    company: "字节跳动",
+    title: "AIGC模型应用算法工程师-Seed(校招)",
+    direction: "AI Agent",
+    location: "北京 / 上海 / 深圳 / 杭州",
+    salary: "面议",
+    seniority: "校招",
+    education: "本科+",
+    source: "BOSS直聘",
+    link: "https://m.zhipin.com/job_detail/fb12f1929285e3080nF50t-9FlZU.html",
+    skills: ["AIGC 基础模型", "Agent 模型", "图像模型", "豆包 AI 创作", "Seed 研究", "多模态"],
   },
   {
     company: "腾讯",
@@ -111,15 +111,15 @@ export const jobs: Job[] = [
   },
   {
     company: "阿里巴巴",
-    title: "千问事业部-主动服务Agent应用研发专家",
+    title: "千问事业部-数据Agent技术专家-北京",
     direction: "AI Agent",
-    location: "杭州",
+    location: "北京",
     salary: "面议",
-    seniority: "3 年+",
+    seniority: "5 年+",
     education: "本科+",
-    source: "夸克招聘",
-    link: "https://talent.quark.cn/off-campus/position-detail?lang=zh&positionId=100016380002",
-    skills: ["AI Agent 应用研发", "Debug 与 Trace", "规划/记忆/工具调用", "ReAct", "RAG", "MCP"],
+    source: "猎聘",
+    link: "https://m.liepin.com/job/1985707803.shtml",
+    skills: ["LLM Harness Engineering", "Text-to-SQL", "语义层", "数据 Agent", "指标/元数据治理", "评测驱动迭代"],
   },
   {
     company: "百度",
@@ -158,18 +158,6 @@ export const jobs: Job[] = [
     skills: ["Agent 系统全链路", "多模态感知", "工具调用", "协作推理", "搜索/旅行/餐饮智能体", "多智能体系统"],
   },
   {
-    company: "美团",
-    title: "Agent 开发工程师(全栈)",
-    direction: "Agent Infra",
-    location: "北京",
-    salary: "面议",
-    seniority: "2 年+",
-    education: "本科+",
-    source: "美团招聘",
-    link: "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4647373928",
-    skills: ["Agent 架构设计", "工具调用", "多 Agent 编排", "Skill 运行时", "执行引擎", "状态持久化/断点续跑"],
-  },
-  {
     company: "快手",
     title: "【快Star】AI Agent算法专家-智能创作-【可灵AI专项】",
     direction: "AI Agent",
@@ -183,15 +171,15 @@ export const jobs: Job[] = [
   },
   {
     company: "小红书",
-    title: "【REDstar】AI Agent算法工程师（点点）",
+    title: "【REDstar】智能客服算法工程师(LLM Agent方向)",
     direction: "AI Agent",
-    location: "北京 / 上海",
+    location: "北京 / 上海 / 杭州",
     salary: "面议",
-    seniority: "校招",
+    seniority: "全职",
     education: "本科+",
     source: "小红书官网",
-    link: "https://campus.niuqizp.com/job-vsm5aNNMn.html",
-    skills: ["Agentic 后训练", "Memory 与个性化", "Context 优化", "AI 搜索", "Agentic RL", "mid-training"],
+    link: "https://campus.niuqizp.com/job-vUl5aNt5t.html",
+    skills: ["意图理解", "多轮对话状态跟踪", "Function Calling/Tool Use", "RAG", "ReAct/Plan-and-Execute", "Multi-Agent 协作"],
   },
   {
     company: "小红书",
@@ -219,15 +207,15 @@ export const jobs: Job[] = [
   },
   {
     company: "蚂蚁集团",
-    title: "Agent 评测研发工程师-健康事业群",
+    title: "蚂蚁消金-AI应用工程师-重庆",
     direction: "AI Agent",
-    location: "上海 / 杭州",
-    salary: "面议",
+    location: "重庆",
+    salary: "19-35k·16薪",
     seniority: "3 年+",
     education: "本科+",
-    source: "面试马",
-    link: "https://www.mianshima.com/job/5/260807011295469",
-    skills: ["大模型评测", "后训练", "A/B 实验", "Agent/RAG 失败模式", "lm-evaluation-harness", "统计推断"],
+    source: "猎聘",
+    link: "https://m.liepin.com/a/78964811.shtml",
+    skills: ["生产级 Agent 开发", "Prompt/RAG/工具调用", "上下文管理", "Token 经济性优化", "Tracing/Logging/Eval", "Agent 安全护栏"],
   },
   {
     company: "华为",
@@ -324,18 +312,6 @@ export const jobs: Job[] = [
     source: "猎聘",
     link: "https://www.liepin.com/city-sh/zpjjkfgcs1m2u/",
     skills: ["Agent Infra", "Agent 运行时", "执行引擎", "沙箱隔离", "分布式调度", "可观测性"],
-  },
-  {
-    company: "阶跃星辰 StepFun",
-    title: "StepStar顶尖人才计划-大模型/Agent方向（校招）",
-    direction: "AI Agent",
-    location: "上海 / 北京",
-    salary: "面议",
-    seniority: "校招",
-    education: "硕士/博士",
-    source: "阶跃星辰招聘",
-    link: "https://career.bnu.edu.cn/f/recruitmentinfo/show?recruitmentId=25c18042b1f743fea7f6801df6b7cd8d",
-    skills: ["大语言模型", "多模态", "Agent", "语音", "端侧", "Infra"],
   },
   {
     company: "百川智能",
