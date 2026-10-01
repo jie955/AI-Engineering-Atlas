@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-09-30"
+export const jobsLastUpdated = "2026-10-01"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-09-30，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-01，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -227,7 +227,7 @@ export const jobs: Job[] = [
     education: "硕士+",
     source: "全职招聘网",
     link: "https://www.quanzhi.com/job/6a8a63d2c24b0728e63f3ed9",
-    skills: ["智能创作 Agent", "多模态/视觉生成模型", "RAG 增强", "多 Agent 协作", "Workflow 编排", "Agentic RL"],
+    skills: ["智能创作 Agent", "多模态/视觉生成模型", "通用 Agent 企业生产力", "RAG 增强", "多 Agent 协作", "Workflow 编排"],
   },
   {
     company: "华为",
@@ -251,7 +251,7 @@ export const jobs: Job[] = [
     education: "硕士+",
     source: "BOSS直聘",
     link: "https://m.zhipin.com/job_detail/064fc647beace57b0nV-292-EFNT.html",
-    skills: ["Agentic RL", "Agentic Memory", "Agent Workflow", "Task Decomposition", "MARL", "Reward Model 系统性学习"],
+    skills: ["Agentic RL", "Agentic Memory", "Agent Workflow", "Task Decomposition", "MARL", "MiMo-V2.6 长程任务"],
   },
   {
     company: "深度求索 DeepSeek",
@@ -263,7 +263,7 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "DeepSeek 官网",
     link: "http://talent.deepseek.com/",
-    skills: ["Agent 弹性计算", "DSec", "沙箱隔离", "系统栈调优", "RPC/分布式", "下一代模型迭代"],
+    skills: ["Agent 弹性计算", "DSec 沙箱基础设施", "libdsec SDK", "沙箱隔离/资源超售", "系统栈调优", "RPC/分布式"],
   },
   {
     company: "月之暗面 Moonshot",
@@ -275,7 +275,7 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "月之暗面招聘",
     link: "https://jobspring.pro/job/j3957053/agent/",
-    skills: ["Agent 内核框架", "任务执行", "工具生态 Skills/MCP/Sandbox", "工程基座", "CI/CD & DevOps", "Go 微服务"],
+    skills: ["Agent 内核框架", "Hosted Agents 运行底座", "企业交付 FDE", "工具生态 Skills/MCP/Sandbox", "工程基座", "Go 微服务"],
   },
   {
     company: "MiniMax",
@@ -299,7 +299,7 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "BOSS直聘",
     link: "https://m.zhipin.com/job_detail/e1ccd146e810ca8403J83t28F1RV.html",
-    skills: ["Coding Agent 场景优化", "大规模数据合成与强化学习", "评测方案设计", "真实场景 Coding 能力", "GLM 团队", "后训练"],
+    skills: ["Coding Agent 场景优化", "GLM-5.3 agentic coding", "大规模数据合成与强化学习", "长程任务规划", "评测方案设计", "后训练"],
   },
   {
     company: "阶跃星辰 StepFun",
