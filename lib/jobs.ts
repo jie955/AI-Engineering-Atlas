@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-01"
+export const jobsLastUpdated = "2026-10-02"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-01，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-02，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -71,7 +71,7 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "面试马",
     link: "https://www.mianshima.com/job/2/7683834156116347141",
-    skills: ["LLM Agent 架构", "任务规划/对话管理", "RAG/Workflow", "多模态交互", "记忆管理", "Multi-Agent 协作"],
+    skills: ["LLM Agent 架构", "任务规划/对话管理", "RAG/Workflow", "多模态交互", "记忆管理", "Multi-Agent 协作", "秋招新增 AI Agent 方向"],
   },
   {
     company: "腾讯",
@@ -227,7 +227,7 @@ export const jobs: Job[] = [
     education: "硕士+",
     source: "全职招聘网",
     link: "https://www.quanzhi.com/job/6a8a63d2c24b0728e63f3ed9",
-    skills: ["智能创作 Agent", "多模态/视觉生成模型", "通用 Agent 企业生产力", "RAG 增强", "多 Agent 协作", "Workflow 编排"],
+    skills: ["智能创作 Agent", "多模态/视觉生成模型", "通用 Agent 企业生产力", "RAG 增强", "多 Agent 协作", "Workflow 编排", "企业 AI 生产力虚拟组织(9/30 成立)"],
   },
   {
     company: "华为",
