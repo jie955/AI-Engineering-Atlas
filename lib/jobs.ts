@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-04"
+export const jobsLastUpdated = "2026-10-05"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-04，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-05，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -87,15 +87,15 @@ export const jobs: Job[] = [
   },
   {
     company: "腾讯",
-    title: "混元AI Agent Harness Engineer（北京/深圳）",
+    title: "WorkBuddy-Agent Harness 研发工程师",
     direction: "Agent Infra",
-    location: "北京 / 深圳",
+    location: "深圳",
     salary: "面议",
-    seniority: "2 年+",
+    seniority: "经验不限",
     education: "本科+",
     source: "腾讯招聘",
-    link: "https://careers.tencent.com/jobdesc.html?postId=2052685072754196480",
-    skills: ["Agent 全链路 Tracing & Observability", "自动化 eval pipeline", "Agent Debugging 工具", "标注/SBS 评测/数据管道", "Agentic Coding", "大模型与 Agent 协同工程化"],
+    link: "https://careers.tencent.com/jobdesc.html?postId=2098252452842352640",
+    skills: ["Harness Self-Evolution 自进化", "Context Engineering 上下文编排", "Multi-Agent Coordination 集群协作", "Long-term Memory 长期记忆", "Long-Horizon 长链路决策", "Evaluation 评测体系与基准"],
   },
   {
     company: "阿里巴巴",
@@ -135,15 +135,15 @@ export const jobs: Job[] = [
   },
   {
     company: "百度",
-    title: "大模型算法工程师(智能体系统全链路) J104493",
+    title: "智能体策略研发工程师 J91825",
     direction: "AI Agent",
     location: "北京",
     salary: "面议",
     seniority: "经验不限",
     education: "本科+",
     source: "百度招聘",
-    link: "https://talent.baidu.com/jobs/detail/SOCIAL/57595856-2688-42e3-b21d-6e2ea6b27a22",
-    skills: ["智能体(Agent)系统全链路", "意图理解/多步任务规划/工具调用/长短期记忆/多智能体协同", "多维度智能体评估体系", "LLM/VLM 预训练后训练(SFT/RLHF)", "RAG/CoT/Plan-and-Execute", "强化学习"],
+    link: "https://talent.baidu.com/jobs/detail/SOCIAL/3be84d76-38d2-40ff-ac4f-9aaef403179e",
+    skills: ["智能体与大模型技术研发", "交互策略设计", "RAG 与大模型后训练", "富媒体内容理解", "文心智能体分发优化", "硕士/博士优先"],
   },
   {
     company: "美团",
@@ -188,7 +188,7 @@ export const jobs: Job[] = [
     location: "上海 / 杭州",
     salary: "面议",
     seniority: "3 年+",
-    education: "本科+",
+    education: "硕士/博士",
     source: "蚂蚁集团招聘",
     link: "https://talent.antgroup.com/off-campus-position?positionId=260609010393083",
     skills: ["医学 RAG 系统", "医学 Auto Research(自主研究闭环)", "医学世界模型", "LLM/多模态大模型/世界模型", "Agentic 训练/Harness 架构", "Agent 架构/工具编排/反思自我纠错"],
@@ -219,15 +219,15 @@ export const jobs: Job[] = [
   },
   {
     company: "小红书",
-    title: "【REDstar】AI agent算法工程师(企业智能)",
+    title: "【REDstar】AI Agent算法工程师",
     direction: "AI Agent",
     location: "北京 / 上海 / 杭州",
     salary: "面议",
     seniority: "校招",
     education: "本科+",
     source: "牛企直聘",
-    link: "https://campus.niuqizp.com/job-vyr5aZn5a.html",
-    skills: ["AI-Native 产品设计与落地", "Agentic Workflow(任务拆解/工具调用/上下文/记忆/多轮交互)", "企业级 Context Layer", "大模型应用评测与 AI Trainer", "Badcase 分析与 Validation 闭环", "AI Workflow FDE"],
+    link: "https://campus.niuqizp.com/job-vsm5aNNMn.html",
+    skills: ["agentic 后训练", "memory 与个性化", "context 优化", "AI 搜索", "mid-training/distillation", "Agentic Search/Agentic RL/Code Agent"],
   },
   {
     company: "快手",
@@ -239,7 +239,7 @@ export const jobs: Job[] = [
     education: "硕士+",
     source: "智联招聘",
     link: "https://m.zhaopin.com/jobs/CC264657880J40871708701.htm",
-    skills: ["多模态大模型 Caption/表征/改写", "多模态大模型基座能力提升", "LLM/VLM 大模型训练", "AIGC 技术超越闭源模型", "多模态理解与生成", "算法研究与落地"],
+    skills: ["多模态大模型 Caption/表征/改写", "Agentic PE 指令改写", "Reward model 生成效果评估", "可灵 AIGC 技术指标超越闭源", "多模态理解与生成", "算法研究与落地"],
   },
   {
     company: "华为",
@@ -263,7 +263,7 @@ export const jobs: Job[] = [
     education: "硕士+",
     source: "小米招聘",
     link: "https://xiaomi.jobs.f.mioffice.cn/index/position/7621370608794077467/detail",
-    skills: ["AI Agent(数据合成/Code/Search/Tool Use)", "高级 Agent 系统(多智能体/长时记忆)", "LLM Reasoning(强化学习/推理)", "可扩展对齐(RLHF)", "AI 安全与价值观", "PyTorch/Verl/Megatron/SGLang/vLLM"],
+    skills: ["AI Agent(数据合成/Code/Search/Tool Use)", "高级 Agent 系统(多智能体/长时记忆)", "LLM Reasoning(强化学习/推理)", "可扩展对齐(RLHF)", "MiMo-V2.5 agentic/long-horizon", "PyTorch/Verl/Megatron/SGLang/vLLM"],
   },
   {
     company: "深度求索 DeepSeek",
@@ -275,7 +275,7 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "DeepSeek 官网",
     link: "http://talent.deepseek.com/",
-    skills: ["Agent 弹性计算", "DSec 沙箱基础设施", "libdsec SDK", "沙箱隔离/资源超售", "系统栈调优", "RPC/分布式"],
+    skills: ["Agent 弹性计算", "DSec 沙箱基础设施(每天300万沙箱/38万并发)", "libdsec SDK", "沙箱隔离/资源超售", "系统栈调优", "RPC/分布式"],
   },
   {
     company: "月之暗面 Moonshot",
@@ -299,7 +299,7 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "MiniMax 招聘",
     link: "https://hiringcafe.com/job/ai-agent-minimax-shanghai-shanghai-fdoycblmivq2u2m1",
-    skills: ["MiniMax Agent/AI App 服务端研发", "Agent 系统架构/任务调度/上下文管理/工具调用/数据链路", "高并发/分布式/存储/缓存", "复杂系统设计", "LLM/Agent/AI App", "与算法产品前端协作"],
+    skills: ["MiniMax Agent/AI App 服务端研发", "Agent 系统架构/任务调度/上下文管理/工具调用/数据链路", "高并发/分布式/存储/缓存", "复杂系统设计", "多模态 Agent 矩阵", "LLM/Agent/AI App"],
   },
   {
     company: "智谱 AI",
@@ -311,7 +311,7 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "BOSS直聘",
     link: "https://m.zhipin.com/job_detail/e1ccd146e810ca8403J83t28F1RV.html",
-    skills: ["Coding Agent 场景优化", "大规模数据合成和强化学习", "评测方案设计(真实场景 Coding Agent)", "GLM 模型", "代码生成框架", "后训练"],
+    skills: ["Coding Agent 场景优化", "大规模数据合成和强化学习", "评测方案设计(真实场景 Coding Agent)", "GLM 模型/GLM-5.3 agentic coding", "RLVR 代码验证", "后训练"],
   },
   {
     company: "百川智能",
@@ -323,7 +323,7 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "百川智能招聘",
     link: "https://campus.niuqizp.com/job-vml5aznta.html",
-    skills: ["大模型 Agent 核心算法", "规划与推理/工具调用/记忆/Agent Loop/Harness", "Agent 架构/训练与强化学习", "多智能体协作/长程任务/自学习", "通用与领域 Agent", "Prompt/第一性原理"],
+    skills: ["大模型 Agent 核心算法", "规划与推理/工具调用/记忆/Agent Loop/Harness", "Agent 架构/训练与强化学习", "多智能体协作/长程任务/自学习", "通用与领域 Agent", "Prompt/第一性原理/Loop Engineer"],
   },
   {
     company: "零一万物",
@@ -347,6 +347,6 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "面壁智能校招",
     link: "https://miaoruzhi.com/recruitment/6ee7c25a-bb70-4497-b496-a75ad0ca6661",
-    skills: ["SFT/RL", "Agent/Multi-Agent", "RAG", "文本与多模态大模型", "行业应用落地", "MiniCPM 端侧模型"],
+    skills: ["SFT/RL", "Agent/Multi-Agent", "RAG", "文本与多模态大模型", "行业应用落地", "MiniCPM 端侧模型/前进四/智能体OS/具身智能"],
   },
 ]
