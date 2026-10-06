@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-05"
+export const jobsLastUpdated = "2026-10-06"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-05，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-06，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -83,7 +83,7 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "腾讯招聘",
     link: "https://careers.tencent.com/jobdesc.html?postId=2098252336337170432",
-    skills: ["Agent Harness 全栈", "执行轨迹回放", "上下文编排器", "工具注册中心", "评测数据后台", "Sandbox/可观测性/Token Efficiency"],
+    skills: ["WorkBuddy Managed Agents 全栈", "执行轨迹回放", "上下文编排器", "工具注册中心", "评测数据后台", "Sandbox/可观测性/Token Efficiency"],
   },
   {
     company: "腾讯",
@@ -195,15 +195,15 @@ export const jobs: Job[] = [
   },
   {
     company: "阶跃星辰 StepFun",
-    title: "Agent基建工程师",
+    title: "Agent Runtime开发工程师",
     direction: "Agent Infra",
-    location: "北京",
-    salary: "40-70K·16薪",
-    seniority: "3-5 年",
+    location: "北京 / 上海",
+    salary: "50-80K·16薪",
+    seniority: "5-10 年",
     education: "本科+",
     source: "猎聘/阶跃星辰",
-    link: "https://m.liepin.com/job/1985414813.shtml",
-    skills: ["Agent 训推框架维护", "Agent 执行沙箱(隔离/可靠)", "Agent 实验平台(数据流水线/评测)", "Agent RL 训练链路", "terminal-use/browser-use", "轨迹采集与数据基建"],
+    link: "https://m.liepin.com/job/1985933783.shtml",
+    skills: ["Agent Runtime 核心运行时", "循环调度/会话状态管理/工具执行环境", "Agent Loop 运行时/子代理编排调度", "代码运行沙箱(隔离/安全)", "可观测性与稳定性", "gVisor/Firecracker/Sandbox 沙箱技术"],
   },
   {
     company: "阶跃星辰 StepFun",
@@ -263,7 +263,7 @@ export const jobs: Job[] = [
     education: "硕士+",
     source: "小米招聘",
     link: "https://xiaomi.jobs.f.mioffice.cn/index/position/7621370608794077467/detail",
-    skills: ["AI Agent(数据合成/Code/Search/Tool Use)", "高级 Agent 系统(多智能体/长时记忆)", "LLM Reasoning(强化学习/推理)", "可扩展对齐(RLHF)", "MiMo-V2.5 agentic/long-horizon", "PyTorch/Verl/Megatron/SGLang/vLLM"],
+    skills: ["AI Agent(数据合成/Code/Search/Tool Use)", "高级 Agent 系统(多智能体/长时记忆)", "LLM Reasoning(强化学习/推理)", "可扩展对齐(RLHF)", "MiMo-V2.6 agentic/long-horizon", "PyTorch/Verl/Megatron/SGLang/vLLM"],
   },
   {
     company: "深度求索 DeepSeek",
