@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-06"
+export const jobsLastUpdated = "2026-10-07"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-06，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-07，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -75,15 +75,15 @@ export const jobs: Job[] = [
   },
   {
     company: "腾讯",
-    title: "智能体-Agent Harness 全栈工程师-WorkBuddy/CodeBuddy",
+    title: "Agent Harness研发工程师(循环引擎/上下文工程)",
     direction: "Agent Infra",
-    location: "深圳",
-    salary: "面议",
-    seniority: "5 年+",
-    education: "本科+",
-    source: "腾讯招聘",
-    link: "https://careers.tencent.com/jobdesc.html?postId=2098252336337170432",
-    skills: ["WorkBuddy Managed Agents 全栈", "执行轨迹回放", "上下文编排器", "工具注册中心", "评测数据后台", "Sandbox/可观测性/Token Efficiency"],
+    location: "北京",
+    salary: "75-100K·16薪",
+    seniority: "5-10 年",
+    education: "学历不限",
+    source: "猎聘",
+    link: "https://www.liepin.com/a/80366915.shtml",
+    skills: ["Agent 循环引擎 / 上下文工程", "上下文组装 / 系统提示词管理 / 历史窗口裁剪", "多轮 Agent 迭代循环逻辑", "长会话多轮任务上下文性能 / token 开销优化", "记忆模块 / 子代理编排", "Agent 评测链路建设 / 可输出 Harness 组件"],
   },
   {
     company: "腾讯",
@@ -159,15 +159,15 @@ export const jobs: Job[] = [
   },
   {
     company: "美团",
-    title: "智能体算法工程师(商业智能方向)",
-    direction: "AI Agent",
-    location: "北京 / 上海",
-    salary: "面议",
-    seniority: "经验不限",
-    education: "本科+",
-    source: "美团招聘",
-    link: "https://zhaopin.meituan.com/web/position/detail?highlightType=social&jobUnionId=4521454594",
-    skills: ["自主智能体操盘营销预算", "Skill 体系构建与自进化", "智能体框架(架构/推理成本/长期记忆)", "模型全链路训练与调优", "SFT/RL 效果评测", "AI-Native 工作范式"],
+    title: "Agent 开发工程师(全栈)",
+    direction: "Agent Infra",
+    location: "北京",
+    salary: "25-40K·15薪",
+    seniority: "1-3 年",
+    education: "本科",
+    source: "猎聘",
+    link: "https://www.liepin.com/zpqzkfzm27t/",
+    skills: ["Agent 系统全栈开发（前端+后端）", "任务调度 / 上下文管理 / 工具调用", "高并发 / 分布式服务架构", "LLM Agent 应用落地", "复杂系统设计与工程闭环", "代码质量 / 线上稳定性 / 灰度发布"],
   },
   {
     company: "蚂蚁集团",
@@ -180,18 +180,6 @@ export const jobs: Job[] = [
     source: "蚂蚁集团招聘",
     link: "https://talent.antgroup.com/off-campus-position?positionId=26010708281301",
     skills: ["垂类后训练 SFT/对齐", "Reward 模型", "Agentic-RL 仿真环境", "API 对接/多轮决策", "金融事实性/合规", "PyTorch/Megatron/vLLM"],
-  },
-  {
-    company: "蚂蚁集团",
-    title: "医学AGI与世界模型-健康事业群",
-    direction: "AI Agent",
-    location: "上海 / 杭州",
-    salary: "面议",
-    seniority: "3 年+",
-    education: "硕士/博士",
-    source: "蚂蚁集团招聘",
-    link: "https://talent.antgroup.com/off-campus-position?positionId=260609010393083",
-    skills: ["医学 RAG 系统", "医学 Auto Research(自主研究闭环)", "医学世界模型", "LLM/多模态大模型/世界模型", "Agentic 训练/Harness 架构", "Agent 架构/工具编排/反思自我纠错"],
   },
   {
     company: "阶跃星辰 StepFun",
@@ -219,15 +207,27 @@ export const jobs: Job[] = [
   },
   {
     company: "小红书",
-    title: "【REDstar】AI Agent算法工程师",
+    title: "【REDstar】智能客服算法工程师(LLM Agent方向)",
     direction: "AI Agent",
-    location: "北京 / 上海 / 杭州",
+    location: "北京",
     salary: "面议",
-    seniority: "校招",
+    seniority: "经验不限",
     education: "本科+",
-    source: "牛企直聘",
-    link: "https://campus.niuqizp.com/job-vsm5aNNMn.html",
-    skills: ["agentic 后训练", "memory 与个性化", "context 优化", "AI 搜索", "mid-training/distillation", "Agentic Search/Agentic RL/Code Agent"],
+    source: "小红书招聘(Alion)",
+    link: "https://alion.io/job/iaohongshu-redstarzhinengkefusuanfagongchengshillm-gentfangxiang",
+    skills: ["智能客服 Agent 化核心算法（意图理解/多轮对话状态跟踪）", "任务规划与工具调用（Function Calling / Tool Use）", "检索增强生成（RAG）/ 精排与回复生成", "模型微调（SFT / 蒸馏 / RLHF / RLAIF / GRPO）", "Agent 架构（ReAct / Plan-and-Execute / Multi-Agent）", "离线评估体系（Rubric / LLM-as-Judge）/ AB 测试"],
+  },
+  {
+    company: "小红书",
+    title: "【REDstar】Agent/大模型算法工程师-rednote国际化",
+    direction: "AI Agent",
+    location: "北京",
+    salary: "面议",
+    seniority: "经验不限",
+    education: "本科+",
+    source: "小红书招聘(Alion)",
+    link: "https://alion.io/job/iaohongshu-redstaragentomoxingsuanfagongchengshi-rednoteguojihua",
+    skills: ["Rednote 国际化内容风险识别与处置（VLM/Agent）", "内容特征体系与分级系统", "Agent 系统端到端研发（ReAct / Tool Use / Multi-Agent）", "上下文管理 / 编排策略 / Agentic RL Post-Training", "LLM/VLM 预训练 / SFT / RL 全链路", "多模态内容理解 / 编辑 / 生成"],
   },
   {
     company: "快手",
