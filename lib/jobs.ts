@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-08"
+export const jobsLastUpdated = "2026-10-11"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-08，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-11，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -183,15 +183,15 @@ export const jobs: Job[] = [
   },
   {
     company: "蚂蚁集团",
-    title: "大模型智能体优化算法(校招)",
+    title: "AI Agent工程师-蚂蚁保",
     direction: "AI Agent",
-    location: "北京 / 上海 / 杭州",
-    salary: "面议",
-    seniority: "校招",
+    location: "上海",
+    salary: "45-75K·15薪",
+    seniority: "5-10 年",
     education: "本科+",
-    source: "蚂蚁集团招聘",
-    link: "https://talent.antgroup.com/campus-full-list?depts=86970",
-    skills: ["大模型智能体优化", "智能体与大模型应用工程", "模型基准和评估", "大模型安全与对齐", "Agent 后训练与强化学习", "金融 AI 场景落地"],
+    source: "猎聘",
+    link: "https://www.liepin.com/job/1985978853.shtml",
+    skills: ["保险 AI 应用技术范式", "Agentic 应用核心链路(多智能体协同/混合检索)", "上下文工程与工具编排", "结果可信/引用追溯/幻觉控制", "LLM-as-Judge 评测体系", "C 端保险场景(快查/保障解释/投保判断)"],
   },
   {
     company: "阶跃星辰 StepFun",
@@ -255,15 +255,15 @@ export const jobs: Job[] = [
   },
   {
     company: "小米",
-    title: "MiMo算法研究员-后训练",
-    direction: "AI Agent",
+    title: "座舱AI-多模态大模型算法专家/高级工程师",
+    direction: "多模态",
     location: "北京",
-    salary: "面议",
-    seniority: "经验不限",
+    salary: "70-100K·18薪",
+    seniority: "2-6 年",
     education: "硕士+",
-    source: "小米招聘",
-    link: "https://xiaomi.jobs.f.mioffice.cn/index/position/7621370608794077467/detail",
-    skills: ["AI Agent(数据合成/Code/Search/Tool Use)", "高级 Agent 系统(多智能体/长时记忆)", "LLM Reasoning(强化学习/推理)", "可扩展对齐(RLHF)", "MiMo-V2.6 agentic/long-horizon", "PyTorch/Verl/Megatron/SGLang/vLLM"],
+    source: "猎聘",
+    link: "https://m.liepin.com/job/1985710619.shtml",
+    skills: ["智能座舱多模态统一建模", "大模型后训练与大小模型协同", "推理加速/模型压缩/端侧量化部署", "端云协同与 Agent 落地(感知-理解-推理-决策-执行)", "多模态数据采集/清洗/合成/闭环评测", "MiMo-V2.6 / 主动交互 / 个性化服务"],
   },
   {
     company: "深度求索 DeepSeek",
@@ -275,7 +275,7 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "DeepSeek 官网",
     link: "http://talent.deepseek.com/",
-    skills: ["Agent 弹性计算", "DSec 沙箱基础设施(每天300万沙箱/38万并发)", "libdsec SDK", "沙箱隔离/资源超售", "系统栈调优", "RPC/分布式"],
+    skills: ["Agent 弹性计算", "DSec 沙箱基础设施(日均300万沙箱/38万并发)", "libdsec SDK", "沙箱隔离/资源超售", "系统栈调优", "RPC/分布式"],
   },
   {
     company: "月之暗面 Moonshot",
@@ -311,7 +311,7 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "BOSS直聘",
     link: "https://m.zhipin.com/job_detail/e1ccd146e810ca8403J83t28F1RV.html",
-    skills: ["Coding Agent 场景优化", "大规模数据合成和强化学习", "评测方案设计(真实场景 Coding Agent)", "GLM 模型/GLM-4.5 agentic", "RLVR 代码验证", "后训练"],
+    skills: ["Coding Agent 场景优化", "大规模数据合成和强化学习", "评测方案设计(真实场景 Coding Agent)", "GLM 模型/GLM-5.2 agentic coding", "RLVR 代码验证", "后训练"],
   },
   {
     company: "百川智能",
@@ -347,6 +347,6 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "面壁智能校招",
     link: "https://miaoruzhi.com/recruitment/6ee7c25a-bb70-4497-b496-a75ad0ca6661",
-    skills: ["SFT/RL", "Agent/Multi-Agent", "RAG", "文本与多模态大模型", "行业应用落地", "MiniCPM 端侧模型/前进四/智能体OS/具身智能"],
+    skills: ["SFT/RL", "Agent/Multi-Agent", "RAG", "文本与多模态大模型", "行业应用落地", "MiniCPM 端侧模型/PilotDeck 智能体OS/具身智能"],
   },
 ]
