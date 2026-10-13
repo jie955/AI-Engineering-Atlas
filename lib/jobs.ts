@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-11"
+export const jobsLastUpdated = "2026-10-13"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,19 +47,19 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-11，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-13，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
-    title: "LLM应用/Agent/AI平台研发工程师-Data",
+    title: "知识引擎Agent研发工程师【北/上/杭/深】",
     direction: "AI Agent",
     location: "上海",
-    salary: "面议",
+    salary: "30-60K",
     seniority: "经验不限",
     education: "本科+",
-    source: "字节跳动招聘",
-    link: "https://jobs.bytedance.com/experienced/position/7634456497736534325/detail?sourceJobId=7623421136101099829",
-    skills: ["大模型与 Agent 应用核心链路", "Prompt 组织与 Agent 编排", "错例归因与回归验证", "可观测与感知基础设施", "AI 决策降本提效", "效果/成本/性能权衡"],
+    source: "猎聘",
+    link: "https://www.liepin.com/job/1985150463.shtml",
+    skills: ["知识引擎 Agent 研发", "企业级知识库问答 / Agent", "RAG 与检索增强", "工具调用 / 多轮对话编排", "大模型应用落地", "效果与成本权衡"],
   },
   {
     company: "字节跳动",
@@ -171,15 +171,15 @@ export const jobs: Job[] = [
   },
   {
     company: "蚂蚁集团",
-    title: "垂类模型后训练科学家-【AGI专项】",
+    title: "Agent工程（蚂蚁全球大模型平台）",
     direction: "AI Agent",
-    location: "北京 / 上海 / 杭州",
-    salary: "面议",
-    seniority: "3 年+",
+    location: "杭州",
+    salary: "30-60K",
+    seniority: "经验不限",
     education: "本科+",
-    source: "蚂蚁集团招聘",
-    link: "https://talent.antgroup.com/off-campus-position?positionId=26010708281301",
-    skills: ["垂类后训练 SFT/对齐", "Reward 模型", "Agentic-RL 仿真环境", "API 对接/多轮决策", "金融事实性/合规", "PyTorch/Megatron/vLLM"],
+    source: "猎聘",
+    link: "https://www.liepin.com/a/80426167.shtml",
+    skills: ["Agent 工程核心链路", "多智能体协同 / 混合检索", "上下文工程与工具编排", "结果可信 / 引用追溯 / 幻觉控制", "LLM-as-Judge 评测体系", "大模型平台 Agent 能力落地"],
   },
   {
     company: "蚂蚁集团",
@@ -207,15 +207,15 @@ export const jobs: Job[] = [
   },
   {
     company: "阶跃星辰 StepFun",
-    title: "Agent Infra开发工程师/架构师",
+    title: "Agent Infra开发工程师",
     direction: "Agent Infra",
-    location: "上海 / 北京",
-    salary: "30-60K·16薪",
+    location: "上海",
+    salary: "30-50K",
     seniority: "3-5 年",
     education: "本科+",
-    source: "阶跃星辰",
-    link: "https://bebee.com/cn/jobs/agent-infra--techmap_cn_85414793",
-    skills: ["Agent Harness 架构", "模型调用/工具执行", "上下文管理与权限控制", "Agent Loop 与 Graph Engineering", "多 Agent 协同", "可观测与评测"],
+    source: "马士兵教育",
+    link: "https://mashibing.com/job/6578",
+    skills: ["Agent Infra 架构", "模型调用/工具执行", "上下文管理与权限控制", "Agent Loop 与 Graph Engineering", "多 Agent 协同", "可观测与评测"],
   },
   {
     company: "小红书",
