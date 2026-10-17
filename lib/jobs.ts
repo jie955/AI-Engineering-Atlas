@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-16"
+export const jobsLastUpdated = "2026-10-17"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,19 +47,19 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-16，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-17，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
-    title: "大模型算法工程师(Agent方向)-火山引擎",
+    title: "AI Agent研发工程师(火山引擎)",
     direction: "AI Agent",
-    location: "上海 / 北京 / 深圳",
-    salary: "23-50K·15薪",
-    seniority: "3 年以上",
+    location: "北京 / 上海",
+    salary: "40-70K",
+    seniority: "3-5 年",
     education: "本科+",
     source: "猎聘",
-    link: "https://m.liepin.com/job/1984842235.shtml",
-    skills: ["客服/营销 Agent 与语音 Agent", "Agent Search/Coding/Interpreter/Tool Use/GUI", "Multi-Agent / Prompt / Context Engineering", "数据建设与模型优化", "RL/SFT 后训练", "Agent 应用竞争力提升"],
+    link: "https://m.liepin.com/job/1984608717.shtml",
+    skills: ["多模态(语音/视觉)大模型智能体应用开发", "Agent Search/Coding/Interpreter/Tool Use/GUI", "SFT/RAG/Agent/PE 应用算法", "LangChain/Dify 框架", "云原生开发", "模块级服务开发与性能优化"],
   },
   {
     company: "字节跳动",
@@ -75,19 +75,19 @@ export const jobs: Job[] = [
   },
   {
     company: "腾讯",
-    title: "Agent Harness研发工程师(循环引擎/上下文工程)",
+    title: "企业微信-AI Agent Harness 全栈工程师",
     direction: "Agent Infra",
-    location: "北京",
-    salary: "75-100K·16薪",
-    seniority: "5-10 年",
-    education: "学历不限",
-    source: "猎聘",
-    link: "https://www.liepin.com/a/80366915.shtml",
-    skills: ["Agent 循环引擎 / 上下文工程", "上下文组装 / 系统提示词管理 / 历史窗口裁剪", "多轮 Agent 迭代循环逻辑", "长会话多轮任务上下文性能 / token 开销优化", "记忆模块 / 子代理编排", "Agent 评测链路建设 / 可输出 Harness 组件"],
+    location: "成都",
+    salary: "面议",
+    seniority: "5 年以上",
+    education: "本科+",
+    source: "腾讯招聘",
+    link: "https://careers.tencent.com/zh-cn/jobdesc.html?postId=2039169824982204416",
+    skills: ["AgentLoop/推理-行动循环", "工具编排/指令调度/运行环境", "Context Engineering/多轮对话压缩/Skill 体系/Long-term Memory", "Harness 开发者工具与可视化平台", "Agent 评测体系(运行 Trace/用户反馈)", "沙箱执行/可观测性/多租户高并发"],
   },
   {
     company: "腾讯",
-    title: "WorkBuddy-Managed Agents 全栈开发工程师",
+    title: "智能体全栈开发工程师(WorkBuddy Managed Agents)",
     direction: "AI Agent",
     location: "北京 / 上海 / 深圳",
     salary: "40-70K·15薪",
@@ -123,15 +123,15 @@ export const jobs: Job[] = [
   },
   {
     company: "百度",
-    title: "AI Agent 算法工程师(J99071)",
+    title: "代码智能体算法工程师(J105895)",
     direction: "AI Agent",
     location: "北京",
-    salary: "面议",
-    seniority: "经验不限",
+    salary: "40-65K·16薪",
+    seniority: "1-3 年",
     education: "本科+",
-    source: "百度招聘",
-    link: "https://talent.baidu.com/jobs/detail/SOCIAL/c8821b51-c061-4652-8fad-61d8a49b9f52",
-    skills: ["办公场景 AI 智能体搭建", "Agent 框架适配与落地", "LLM/VLM/AIGC 微调全流程", "任务规划/工具调用/记忆/反思", "多模态交互", "OpenClaw/LangChain/AutoGPT"],
+    source: "猎聘",
+    link: "https://m.liepin.com/job/1986086513.shtml",
+    skills: ["代码智能体策略设计与效果优化", "模型调优(SFT/拒绝采样/偏好优化/RL)", "评测体系建设(数据集与指标)", "执行轨迹与生成代码质量审查", "上下文工程/工具调用/多轮规划/失败归因", "Vibe Coding / AI 辅助编程"],
   },
   {
     company: "百度",
@@ -159,27 +159,15 @@ export const jobs: Job[] = [
   },
   {
     company: "美团",
-    title: "高级 Agent 开发工程师(全栈)",
-    direction: "AI Agent",
+    title: "小团 Harness 工程师",
+    direction: "Agent Infra",
     location: "北京",
     salary: "面议",
-    seniority: "5 年以上",
+    seniority: "3 年以上",
     education: "本科+",
-    source: "牛企直聘",
-    link: "https://jobs.niuqizp.com/job-v8l5NttzN.html",
-    skills: ["服务千亿真实业务的 Agent 生产系统", "ReAct / Plan-and-Execute / 多 Agent 协作 / MCP", "模型可控性工程(输出约束/一致性校验)", "数据工程(SQL/Hive/Spark/数仓)", "可靠性/成本/性能权衡", "Agent 能力资产化闭环(Trace 驱动提升)"],
-  },
-  {
-    company: "蚂蚁集团",
-    title: "大模型算法专家(垂类后训练 Agentic-RL)",
-    direction: "AI Agent",
-    location: "杭州",
-    salary: "面议",
-    seniority: "5-10 年",
-    education: "硕士+",
-    source: "BOSS直聘",
-    link: "https://m.zhipin.com/job_detail/d23f15ca3de633c003Zy3NW5FlZR.html",
-    skills: ["垂类大模型后训练(Post-training)", "SFT/RLHF(PPO/DPO/GRPO)与对齐", "金融场景 Reward Model 系统", "Agentic-RL 金融数据仿真环境与 API 对接", "多轮决策轨迹合成", "Tool Use / 专业对话 / 合规风控"],
+    source: "美团招聘",
+    link: "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4837694717",
+    skills: ["美团 App 亿级用户 AI Agent 产品「小团」核心链路", "推理与执行框架(任务规划/工具调用/记忆与反思)", "Harness 体系(业务约束→可执行规则/任务状态→过程制品/结果质量→反馈信号)", "数据驱动评测与迭代闭环(badcase 归因/回归)", "性能/成本/稳定性权衡", "从 AI 搜索到本地生活 AI 管家演进"],
   },
   {
     company: "蚂蚁集团",
@@ -190,8 +178,20 @@ export const jobs: Job[] = [
     seniority: "5-10 年",
     education: "本科+",
     source: "猎聘",
-    link: "https://www.liepin.com/job/1985978853.shtml",
+    link: "https://m.liepin.com/job/1985978853.shtml",
     skills: ["保险 AI 应用技术范式", "Agentic 应用核心链路(多智能体协同/混合检索)", "上下文工程与工具编排", "结果可信/引用追溯/幻觉控制", "LLM-as-Judge 评测体系", "C 端保险场景(快查/保障解释/投保判断)"],
+  },
+  {
+    company: "蚂蚁集团",
+    title: "Agent Memory 高级算法工程师/专家",
+    direction: "AI Agent",
+    location: "杭州 / 上海",
+    salary: "面议",
+    seniority: "经验不限",
+    education: "硕士+",
+    source: "面试马",
+    link: "https://www.mianshima.com/job/5/260921012164749",
+    skills: ["大模型与 LLM Agent", "RAG/信息检索/推荐系统", "多轮对话与用户个性化建模", "长上下文与任务状态管理", "持续学习/在线学习/强化学习", "Embedding/向量检索/Reranker"],
   },
   {
     company: "阶跃星辰 StepFun",
@@ -218,6 +218,18 @@ export const jobs: Job[] = [
     skills: ["Agent Infra 架构", "模型调用/工具执行", "上下文管理与权限控制", "Agent Loop 与 Graph Engineering", "多 Agent 协同", "可观测与评测"],
   },
   {
+    company: "快手",
+    title: "【快手】Data Agent智能体研发工程师",
+    direction: "AI Agent",
+    location: "北京",
+    salary: "面议",
+    seniority: "3 年以上",
+    education: "本科+",
+    source: "面试马",
+    link: "https://www.mianshima.com/job/12/30878",
+    skills: ["Java 多线程/JVM 原理", "AI Agent 核心架构(Tool/Skill 注册编排/多轮状态管理/任务规划)", "RAG(向量库/Embedding/混合检索/RAG-Fusion/Query Rewrite)", "Prompt 工程(CoT/ToT/Few-shot/防注入)", "Redis/Kafka 高并发", "分布式系统/大数据生态(Hive/Spark/Flink/ClickHouse)"],
+  },
+  {
     company: "小红书",
     title: "【REDstar】AI Agent算法工程师",
     direction: "AI Agent",
@@ -228,18 +240,6 @@ export const jobs: Job[] = [
     source: "小红书招聘(Alion)",
     link: "https://alion.io/job/iaohongshu-redstarai-gentsuanfagongchengshi",
     skills: ["站内 C 端 Agent 点点算法研发", "Agentic 后训练 / Memory 与个性化", "Context 优化 / AI 搜索", "mid-training / distillation", "Agentic RL / Code Agent", "SFT/RL/DPO/PPO/GRPO 后训练栈"],
-  },
-  {
-    company: "快手",
-    title: "【快Star】Agent智能创作算法研究员-【可灵AI】",
-    direction: "AI Agent",
-    location: "北京 / 深圳",
-    salary: "面议",
-    seniority: "经验不限",
-    education: "硕士+",
-    source: "智联招聘",
-    link: "https://m.zhaopin.com/jobs/CC264657880J40871708701.htm",
-    skills: ["多模态大模型 Caption/表征/改写", "Agentic PE 指令改写", "Reward model 生成效果评估", "可灵 AIGC 技术指标超越闭源", "多模态理解与生成", "算法研究与落地"],
   },
   {
     company: "华为",
