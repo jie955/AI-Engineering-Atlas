@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-17"
+export const jobsLastUpdated = "2026-10-19"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-17，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-19，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -66,10 +66,10 @@ export const jobs: Job[] = [
     title: "Agent技术研发工程师-火山方舟大模型平台",
     direction: "Agent Infra",
     location: "杭州",
-    salary: "面议",
-    seniority: "经验不限",
+    salary: "50-80K·15薪",
+    seniority: "1-3 年",
     education: "本科+",
-    source: "字节跳动招聘",
+    source: "字节跳动招聘 / BOSS直聘",
     link: "https://jobs.bytedance.com/experienced/position/7654959567977466165/detail",
     skills: ["Agent 核心系统研发", "面向复杂任务的通用 Agent 基础设施", "Agent 运行时与执行引擎", "工具调用/上下文管理/长程执行", "云原生/分布式/任务调度/可观测性", "资源隔离/网络访问控制"],
   },
@@ -87,15 +87,15 @@ export const jobs: Job[] = [
   },
   {
     company: "腾讯",
-    title: "智能体全栈开发工程师(WorkBuddy Managed Agents)",
-    direction: "AI Agent",
-    location: "北京 / 上海 / 深圳",
-    salary: "40-70K·15薪",
-    seniority: "3 年以上",
+    title: "混元AI Agent Harness Engineer",
+    direction: "Agent Infra",
+    location: "北京 / 深圳",
+    salary: "面议",
+    seniority: "2 年以上",
     education: "本科+",
-    source: "猎聘",
-    link: "https://www.liepin.com/a/80633145.shtml",
-    skills: ["WorkBuddy Managed Agents 全链路研发", "Agent 使用/编排/运行/治理/评测", "企业专属部署架构(多租户隔离)", "Spec-driven / Context Engineering / Harness 方法论", "代码生成/测试/评测/发布自动化 Harness", "Node.js / Go 服务端技术栈"],
+    source: "腾讯招聘",
+    link: "https://careers.tencent.com/jobdesc.html?postId=2052685072754196480",
+    skills: ["Agent 执行全链路 tracing & observability", "Agent 质量评估体系(A/B testing/regression detection)", "Agent debugging 工具", "标注/SBS 评测/数据管道核心平台", "大模型与 Agent 协同进化工程化", "agentic coding 工作流"],
   },
   {
     company: "阿里巴巴",
@@ -159,15 +159,15 @@ export const jobs: Job[] = [
   },
   {
     company: "美团",
-    title: "小团 Harness 工程师",
+    title: "Agent 平台工程专家(Auto-research Harness 方向)",
     direction: "Agent Infra",
-    location: "北京",
-    salary: "面议",
-    seniority: "3 年以上",
+    location: "上海",
+    salary: "50-80K·15薪",
+    seniority: "3-5 年",
     education: "本科+",
-    source: "美团招聘",
-    link: "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4837694717",
-    skills: ["美团 App 亿级用户 AI Agent 产品「小团」核心链路", "推理与执行框架(任务规划/工具调用/记忆与反思)", "Harness 体系(业务约束→可执行规则/任务状态→过程制品/结果质量→反馈信号)", "数据驱动评测与迭代闭环(badcase 归因/回归)", "性能/成本/稳定性权衡", "从 AI 搜索到本地生活 AI 管家演进"],
+    source: "猎聘",
+    link: "https://m.liepin.com/job/1985919335.shtml",
+    skills: ["Auto-research 工程基建", "Agent Harness 框架", "沙箱化集群", "工具/协议层(CLI/API)设计", "长程 Agent 任务状态持久化/失败重试/任务编排/监控告警", "评测体系与知识库"],
   },
   {
     company: "蚂蚁集团",
