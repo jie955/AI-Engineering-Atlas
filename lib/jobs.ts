@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-19"
+export const jobsLastUpdated = "2026-10-20"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,19 +47,19 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-19，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-20，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
-    title: "AI Agent研发工程师(火山引擎)",
+    title: "火山方舟 AI Agent研发专家",
     direction: "AI Agent",
-    location: "北京 / 上海",
-    salary: "40-70K",
-    seniority: "3-5 年",
+    location: "上海",
+    salary: "60-90K·15薪",
+    seniority: "5 年以上",
     education: "本科+",
     source: "猎聘",
-    link: "https://m.liepin.com/job/1984608717.shtml",
-    skills: ["多模态(语音/视觉)大模型智能体应用开发", "Agent Search/Coding/Interpreter/Tool Use/GUI", "SFT/RAG/Agent/PE 应用算法", "LangChain/Dify 框架", "云原生开发", "模块级服务开发与性能优化"],
+    link: "https://m.liepin.com/job/1984719487.shtml",
+    skills: ["Agent 应用架构设计与核心研发", "意图识别/工具调用/记忆/多Agent协作", "高并发低延迟服务架构(SSE/WebSocket/长任务调度)", "Agent 开发框架/Prompt/工具集/Eval 与线上监控", "LangGraph/AutoGen/MCP/A2A 框架深度理解", "云原生/分布式系统端到端 owner"],
   },
   {
     company: "字节跳动",
@@ -75,18 +75,6 @@ export const jobs: Job[] = [
   },
   {
     company: "腾讯",
-    title: "企业微信-AI Agent Harness 全栈工程师",
-    direction: "Agent Infra",
-    location: "成都",
-    salary: "面议",
-    seniority: "5 年以上",
-    education: "本科+",
-    source: "腾讯招聘",
-    link: "https://careers.tencent.com/zh-cn/jobdesc.html?postId=2039169824982204416",
-    skills: ["AgentLoop/推理-行动循环", "工具编排/指令调度/运行环境", "Context Engineering/多轮对话压缩/Skill 体系/Long-term Memory", "Harness 开发者工具与可视化平台", "Agent 评测体系(运行 Trace/用户反馈)", "沙箱执行/可观测性/多租户高并发"],
-  },
-  {
-    company: "腾讯",
     title: "混元AI Agent Harness Engineer",
     direction: "Agent Infra",
     location: "北京 / 深圳",
@@ -96,6 +84,18 @@ export const jobs: Job[] = [
     source: "腾讯招聘",
     link: "https://careers.tencent.com/jobdesc.html?postId=2052685072754196480",
     skills: ["Agent 执行全链路 tracing & observability", "Agent 质量评估体系(A/B testing/regression detection)", "Agent debugging 工具", "标注/SBS 评测/数据管道核心平台", "大模型与 Agent 协同进化工程化", "agentic coding 工作流"],
+  },
+  {
+    company: "腾讯",
+    title: "Agent Harness 工程师",
+    direction: "Agent Infra",
+    location: "深圳",
+    salary: "50-80K·15薪",
+    seniority: "3-5 年",
+    education: "本科+",
+    source: "腾讯招聘 / BOSS直聘",
+    link: "https://careers.tencent.com/jobdesc.html?postId=2039169824982204416",
+    skills: ["AI Agent Harness(智能体脚手架)设计与研发", "承载 LLM Agent 稳定运行与高效迭代的工程平台", "Context Engineering/工具编排/运行环境", "Harness 开发者工具与可视化平台", "Agent 评测体系(运行 Trace/用户反馈)", "沙箱执行/可观测性/多租户高并发"],
   },
   {
     company: "阿里巴巴",
@@ -147,33 +147,33 @@ export const jobs: Job[] = [
   },
   {
     company: "美团",
-    title: "AI Agent 工程师(营销业务应用开发方向)",
+    title: "AI Agent开发工程师(CatPaw Managed Agent 平台)",
     direction: "AI Agent",
-    location: "成都",
-    salary: "面议",
-    seniority: "1 年+",
-    education: "本科+",
-    source: "美团招聘",
-    link: "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4762803011",
-    skills: ["面向餐饮商家/消费者的 B端C端 Agent 应用", "复杂业务流程拆解为可自动化 Agent 任务", "可复用 Agent 工程底座(编排/工具注册/校验)", "Agent 与业务系统/数据平台/知识库集成", "Prompt 版本管理/效果评测/链路追踪", "成本控制与稳定性保障"],
-  },
-  {
-    company: "美团",
-    title: "Agent 平台工程专家(Auto-research Harness 方向)",
-    direction: "Agent Infra",
     location: "上海",
-    salary: "50-80K·15薪",
+    salary: "25-50K·15薪",
     seniority: "3-5 年",
     education: "本科+",
     source: "猎聘",
-    link: "https://m.liepin.com/job/1985919335.shtml",
-    skills: ["Auto-research 工程基建", "Agent Harness 框架", "沙箱化集群", "工具/协议层(CLI/API)设计", "长程 Agent 任务状态持久化/失败重试/任务编排/监控告警", "评测体系与知识库"],
+    link: "https://m.liepin.com/job/1985995263.shtml",
+    skills: ["CatPaw Managed Agent 平台核心能力研发", "智能体调度引擎/上下文管理/任务规划与多步执行", "工具调用(Function Call / MCP)/Skill 体系与工具生态", "多智能体编排(SubAgent 生命周期/Workflow 确定性编排)", "自动化与定时任务(调度/RRULE/断点续跑/可观测性)", "长上下文/记忆机制/多智能体协作技术预研"],
+  },
+  {
+    company: "美团",
+    title: "AIDE Agent 开发工程师",
+    direction: "AI Agent",
+    location: "北京",
+    salary: "30-45K·15薪",
+    seniority: "经验不限",
+    education: "硕士+",
+    source: "猎聘",
+    link: "https://m.liepin.com/job/1985340559.shtml",
+    skills: ["企业级 AIDE Agent 系统设计与落地", "Agent 在复杂业务场景的工程化", "Prompt 工程/工具调用/多轮规划", "RAG/Workflow/上下文管理", "Agent 评测与效果迭代", "分布式系统/微服务/API 设计"],
   },
   {
     company: "蚂蚁集团",
     title: "AI Agent工程师-蚂蚁保",
     direction: "AI Agent",
-    location: "上海",
+    location: "上海 / 杭州",
     salary: "45-75K·15薪",
     seniority: "5-10 年",
     education: "本科+",
@@ -267,15 +267,15 @@ export const jobs: Job[] = [
   },
   {
     company: "深度求索 DeepSeek",
-    title: "Agent弹性计算研发工程师（弹性计算 DSec）",
+    title: "Agent弹性计算研发工程师（DSec 沙箱基础设施）",
     direction: "Agent Infra",
     location: "北京 / 杭州",
-    salary: "面议",
-    seniority: "2-10 年",
-    education: "本科+",
-    source: "DeepSeek 官网",
-    link: "http://talent.deepseek.com/",
-    skills: ["Agent 弹性计算", "DSec 沙箱基础设施(日均300万沙箱/38万并发)", "libdsec SDK", "沙箱隔离/资源超售", "系统栈调优", "RPC/分布式"],
+    salary: "100-110K",
+    seniority: "1-3 年",
+    education: "不限",
+    source: "猎聘 / DeepSeek 官网",
+    link: "https://www.liepin.com/a/80597537.shtml",
+    skills: ["Agent 弹性计算 DSec 沙箱基础设施", "DSec 为 Agent 量身定制的云平台(成千上万沙箱)", "虚拟化/容器化加固隔离与逃逸面收缩", "大规模虚拟网络/混合云架构/可观测性", "系统栈调优(OS→VM→网络→存储→调度管控)", "RPC/分布式/资源超售"],
   },
   {
     company: "月之暗面 Moonshot",
