@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-20"
+export const jobsLastUpdated = "2026-10-23"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-20，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-23，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -87,15 +87,15 @@ export const jobs: Job[] = [
   },
   {
     company: "腾讯",
-    title: "Agent Harness 工程师",
+    title: "企业微信-AI Agent Harness 全栈工程师",
     direction: "Agent Infra",
-    location: "深圳",
-    salary: "50-80K·15薪",
-    seniority: "3-5 年",
+    location: "成都",
+    salary: "面议",
+    seniority: "5 年以上",
     education: "本科+",
-    source: "腾讯招聘 / BOSS直聘",
-    link: "https://careers.tencent.com/jobdesc.html?postId=2039169824982204416",
-    skills: ["AI Agent Harness(智能体脚手架)设计与研发", "承载 LLM Agent 稳定运行与高效迭代的工程平台", "Context Engineering/工具编排/运行环境", "Harness 开发者工具与可视化平台", "Agent 评测体系(运行 Trace/用户反馈)", "沙箱执行/可观测性/多租户高并发"],
+    source: "腾讯招聘",
+    link: "https://careers.tencent.com/zh-cn/jobdesc.html?postId=2039169824982204416",
+    skills: ["AgentLoop(推理-行动循环)/工具编排/指令调度", "Context Engineering/多轮对话压缩/Skill 体系", "跨会话 Long-term Memory/长任务状态快照", "Harness 开发者工具与可视化平台(轨迹回放/工具注册)", "Agent 评测体系(运行 Trace/用户反馈)", "沙箱执行/可观测性/多租户高并发"],
   },
   {
     company: "阿里巴巴",
@@ -183,15 +183,15 @@ export const jobs: Job[] = [
   },
   {
     company: "蚂蚁集团",
-    title: "Agent Memory 高级算法工程师/专家",
+    title: "大模型研发工程师-多Agent系统",
     direction: "AI Agent",
-    location: "杭州 / 上海",
+    location: "上海",
     salary: "面议",
-    seniority: "经验不限",
+    seniority: "3-5 年",
     education: "硕士+",
-    source: "面试马",
-    link: "https://www.mianshima.com/job/5/260921012164749",
-    skills: ["大模型与 LLM Agent", "RAG/信息检索/推荐系统", "多轮对话与用户个性化建模", "长上下文与任务状态管理", "持续学习/在线学习/强化学习", "Embedding/向量检索/Reranker"],
+    source: "BOSS直聘",
+    link: "https://www.zhipin.com/job_detail/24a102705f3392120nR_2Ny4FFBS.html",
+    skills: ["多 Agent 系统研发(工具调用/记忆/多Agent协作/长任务编排)", "数字员工平台端到端落地", "Agent 应用与业务系统深度集成", "AI coding 能力促进与团队技术演进", "产品化落地与用户体验优化", "大模型与智能体前沿技术跟踪"],
   },
   {
     company: "阶跃星辰 StepFun",
@@ -243,15 +243,15 @@ export const jobs: Job[] = [
   },
   {
     company: "华为",
-    title: "语言大模型高级研究员(Agent系统)",
+    title: "大模型工程技术专家-AI Agent",
     direction: "Agent Infra",
-    location: "深圳",
-    salary: "面议",
-    seniority: "3 年以上",
-    education: "硕士+",
-    source: "华为招聘",
-    link: "https://career.huawei.com/cn/job-details?advertisementId=34551",
-    skills: ["大模型 Agent 系统与算法", "复杂任务分解/多Agent协同/自我探索演进", "长轨迹数据合成/评估/学习", "Harness 与 LLM 联合优化", "终端助手高价值场景落地", "端到端系统构建(数据→训练→评测)"],
+    location: "北京",
+    salary: "50-70K",
+    seniority: "经验不限",
+    education: "本科+",
+    source: "猎聘",
+    link: "https://m.liepin.com/job/1984714237.shtml",
+    skills: ["企业领域模型持续预训练(CPT)技术规划", "领域数据构建与筛选/私域知识融合", "领域能力评估与对比基准", "企业多业务线模型能力模块化复用", "模型能力提升与资源投入平衡", "IT 技术战略与治理落地"],
   },
   {
     company: "小米",
