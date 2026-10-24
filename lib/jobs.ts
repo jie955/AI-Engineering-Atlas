@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-23"
+export const jobsLastUpdated = "2026-10-24"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-23，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-24，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -87,15 +87,15 @@ export const jobs: Job[] = [
   },
   {
     company: "腾讯",
-    title: "企业微信-AI Agent Harness 全栈工程师",
+    title: "企业智能体-全栈开发工程师-WorkBuddy",
     direction: "Agent Infra",
-    location: "成都",
+    location: "深圳",
     salary: "面议",
-    seniority: "5 年以上",
+    seniority: "3 年以上",
     education: "本科+",
     source: "腾讯招聘",
-    link: "https://careers.tencent.com/zh-cn/jobdesc.html?postId=2039169824982204416",
-    skills: ["AgentLoop(推理-行动循环)/工具编排/指令调度", "Context Engineering/多轮对话压缩/Skill 体系", "跨会话 Long-term Memory/长任务状态快照", "Harness 开发者工具与可视化平台(轨迹回放/工具注册)", "Agent 评测体系(运行 Trace/用户反馈)", "沙箱执行/可观测性/多租户高并发"],
+    link: "https://careers.tencent.com/jobdesc.html?postId=2077641608832135168",
+    skills: ["WorkBuddy Managed Agents 产品全链路研发(编排/运行/治理/评测)", "企业专属部署架构(多租户隔离/模型服务接口/数据交互)", "代码质量与线上质量监控/性能优化/稳定性治理", "工程 Harness 建设(spec-driven/context engineering/harness)", "代码生成/测试/评测/发布的自动化 harness", "Agent 应用开发/Prompt/Context 工程/RAG/大模型推理服务化"],
   },
   {
     company: "阿里巴巴",
