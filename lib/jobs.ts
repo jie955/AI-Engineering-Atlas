@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-24"
+export const jobsLastUpdated = "2026-10-25"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-24，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-25，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -111,15 +111,15 @@ export const jobs: Job[] = [
   },
   {
     company: "阿里巴巴",
-    title: "千问事业部-多模态检索与agent算法专家",
+    title: "千问事业部-智能助手大模型算法专家(生态终端方向)",
     direction: "多模态",
     location: "杭州 / 北京",
     salary: "面议",
     seniority: "1 年+",
     education: "硕士+",
     source: "夸克招聘",
-    link: "https://talent.quark.cn/off-campus/position-detail?lang=zh&positionId=100025920004",
-    skills: ["多模态检索", "智能体搜索 Agentic Search", "多模态 RAG", "VLM", "语义匹配", "内容理解"],
+    link: "https://talent.quark.cn/off-campus/position-detail?lang=zh&positionId=100026080002",
+    skills: ["智能助手核心能力建设", "qwen 模型下一代对话交互", "系统级手机助手/车载座舱语音助手", "llm/omni/agent 模型训练", "多模态 RAG", "指令跟随/任务理解与执行"],
   },
   {
     company: "百度",
@@ -239,31 +239,31 @@ export const jobs: Job[] = [
     education: "本科+",
     source: "小红书招聘(Alion)",
     link: "https://alion.io/job/iaohongshu-redstarai-gentsuanfagongchengshi",
-    skills: ["站内 C 端 Agent 点点算法研发", "Agentic 后训练 / Memory 与个性化", "Context 优化 / AI 搜索", "mid-training / distillation", "Agentic RL / Code Agent", "SFT/RL/DPO/PPO/GRPO 后训练栈"],
+    skills: ["站内 C 端 Agent 点点的算法研发", "Agentic 后训练 / Memory 与个性化", "Context 优化 / AI 搜索", "mid-training / distillation", "Agentic RL / Code Agent", "SFT/RL/DPO/PPO/GRPO 后训练栈"],
   },
   {
     company: "华为",
-    title: "大模型工程技术专家-AI Agent",
-    direction: "Agent Infra",
-    location: "北京",
-    salary: "50-70K",
-    seniority: "经验不限",
+    title: "AI 应用研发工程师（Agent 方向，2012实验室）",
+    direction: "AI Agent",
+    location: "上海",
+    salary: "面议",
+    seniority: "2 年以上",
     education: "本科+",
-    source: "猎聘",
-    link: "https://m.liepin.com/job/1984714237.shtml",
-    skills: ["企业领域模型持续预训练(CPT)技术规划", "领域数据构建与筛选/私域知识融合", "领域能力评估与对比基准", "企业多业务线模型能力模块化复用", "模型能力提升与资源投入平衡", "IT 技术战略与治理落地"],
+    source: "华为招聘",
+    link: "https://career.huawei.com/cn/job-details?advertisementId=44650",
+    skills: ["AI Agent 应用设计与开发(智能体编排/工具调用/记忆管理)", "Agent 应用系统集成与性能优化", "Prompt 工程与 RAG(检索增强生成)方案落地", "主流 Agent 框架(LangChain/LlamaIndex/AutoGen)", "微服务架构/RESTful API/消息队列", "Agent 技术前沿跟踪与选型创新"],
   },
   {
     company: "小米",
-    title: "座舱AI-多模态大模型算法专家/高级工程师",
+    title: "汽车智能座舱大模型算法工程师",
     direction: "多模态",
     location: "北京",
-    salary: "70-100K·18薪",
-    seniority: "2-6 年",
-    education: "硕士+",
-    source: "猎聘",
-    link: "https://m.liepin.com/job/1985710619.shtml",
-    skills: ["智能座舱多模态统一建模", "大模型后训练与大小模型协同", "推理加速/模型压缩/端侧量化部署", "端云协同与 Agent 落地(感知-理解-推理-决策-执行)", "多模态数据采集/清洗/合成/闭环评测", "MiMo-V2.6 / 主动交互 / 个性化服务"],
+    salary: "21万/年",
+    seniority: "校招",
+    education: "本科",
+    source: "牛企直聘 / 小米招聘",
+    link: "https://campus.niuqizp.com/job-vUUN5NLnZ.html",
+    skills: ["舱内外视觉算法与多模态大模型研发", "座舱感知理解能力训练/评测/迭代", "计算机视觉(检测/分割/跟踪/人脸人体理解)", "模型工程化验证与端侧部署", "端侧适配/推理性能分析/问题定位", "VLM/多模态模型与车载场景"],
   },
   {
     company: "深度求索 DeepSeek",
@@ -291,15 +291,15 @@ export const jobs: Job[] = [
   },
   {
     company: "MiniMax",
-    title: "AI Agent 服务端研发工程师",
-    direction: "Agent Infra",
+    title: "AI前端工程师（Agent 方向）",
+    direction: "AI Agent",
     location: "上海",
     salary: "面议",
-    seniority: "校招",
-    education: "本科+",
-    source: "MiniMax 招聘",
-    link: "https://hiringcafe.com/job/ai-agent-minimax-shanghai-shanghai-fdoycblmivq2u2m1",
-    skills: ["MiniMax Agent/AI App 服务端研发", "Agent 系统架构/任务调度/上下文管理/工具调用/数据链路", "高并发/分布式/存储/缓存", "复杂系统设计", "多模态 Agent 矩阵", "LLM/Agent/AI App"],
+    seniority: "3-5 年",
+    education: "本科",
+    source: "MiniMax 招聘 / BOSS直聘",
+    link: "https://m.zhipin.com/job_detail/b6a5f0f0d5c382ad0nF-3N2-E1dW.html",
+    skills: ["MiniMax Agent Web / 桌面端产品前端研发", "AI Agent 交互体验/工作流界面/多模态内容展示", "与产品/设计/服务端/算法协作推动 AI 能力产品化", "前端性能与工程架构优化", "复杂 AI 能力产品化落地", "多 Agent 协作前端支撑"],
   },
   {
     company: "智谱 AI",
@@ -322,7 +322,7 @@ export const jobs: Job[] = [
     seniority: "应届",
     education: "本科+",
     source: "百川智能招聘",
-    link: "https://campus.niuqizp.com/job-vml5aznta.html",
+    link: "https://cq6qe6bvfr6.jobs.feishu.cn/646926",
     skills: ["大模型 Agent 核心算法", "规划与推理/工具调用/记忆/Agent Loop/Harness", "Agent 架构/训练与强化学习", "多智能体协作/长程任务/自学习", "通用与领域 Agent", "Prompt/第一性原理/Loop Engineer"],
   },
   {
