@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-25"
+export const jobsLastUpdated = "2026-10-26"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-25，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-26，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -70,7 +70,7 @@ export const jobs: Job[] = [
     seniority: "1-3 年",
     education: "本科+",
     source: "字节跳动招聘 / BOSS直聘",
-    link: "https://jobs.bytedance.com/experienced/position/7654959567977466165/detail",
+    link: "https://m.zhipin.com/job_detail/e842e76efad5a9c80nB-0924FFRR.html",
     skills: ["Agent 核心系统研发", "面向复杂任务的通用 Agent 基础设施", "Agent 运行时与执行引擎", "工具调用/上下文管理/长程执行", "云原生/分布式/任务调度/可观测性", "资源隔离/网络访问控制"],
   },
   {
@@ -207,15 +207,15 @@ export const jobs: Job[] = [
   },
   {
     company: "阶跃星辰 StepFun",
-    title: "Agent Infra开发工程师",
+    title: "Agent Infra开发工程师/架构师",
     direction: "Agent Infra",
     location: "上海",
-    salary: "30-50K",
+    salary: "30-60K·16薪",
     seniority: "3-5 年",
     education: "本科+",
-    source: "马士兵教育",
-    link: "https://mashibing.com/job/6578",
-    skills: ["Agent Infra 架构", "模型调用/工具执行", "上下文管理与权限控制", "Agent Loop 与 Graph Engineering", "多 Agent 协同", "可观测与评测"],
+    source: "猎聘",
+    link: "https://m.liepin.com/job/1985414795.shtml",
+    skills: ["企业级 AI Agent 基础设施(开发/评测/部署/运行)", "Agent Harness 架构(模型调用/工具执行/上下文管理/权限控制)", "Agent Loop 与 Graph Engineering(规划/状态流转/多Agent协同)", "Agent 可观测性与效果评测体系", "分布式系统/服务化/高可用/任务调度", "Function Calling/RAG/MCP/模型路由/记忆系统"],
   },
   {
     company: "快手",
@@ -291,15 +291,15 @@ export const jobs: Job[] = [
   },
   {
     company: "MiniMax",
-    title: "AI前端工程师（Agent 方向）",
-    direction: "AI Agent",
-    location: "上海",
-    salary: "面议",
-    seniority: "3-5 年",
-    education: "本科",
-    source: "MiniMax 招聘 / BOSS直聘",
-    link: "https://m.zhipin.com/job_detail/b6a5f0f0d5c382ad0nF-3N2-E1dW.html",
-    skills: ["MiniMax Agent Web / 桌面端产品前端研发", "AI Agent 交互体验/工作流界面/多模态内容展示", "与产品/设计/服务端/算法协作推动 AI 能力产品化", "前端性能与工程架构优化", "复杂 AI 能力产品化落地", "多 Agent 协作前端支撑"],
+    title: "服务端开发工程师（Agent 后端）",
+    direction: "Agent Infra",
+    location: "北京",
+    salary: "50-80K",
+    seniority: "1-3 年",
+    education: "本科+",
+    source: "猎聘 / MiniMax 招聘",
+    link: "https://m.liepin.com/a/80906173.shtml",
+    skills: ["Agent 执行环境快照系统的搭建与维护", "接入各类 Agent 框架支撑高效稳定评测", "与研究员协作产出高质量 Agent 数据", "Agent 数据驱动模型能力迭代优化", "大模型与 Agent 基本原理", "扎实的计算机基础/常用数据结构与算法"],
   },
   {
     company: "智谱 AI",
@@ -333,8 +333,8 @@ export const jobs: Job[] = [
     salary: "面议",
     seniority: "3 年+",
     education: "硕士+",
-    source: "零一万物招聘",
-    link: "https://01ai.jobs.feishu.cn/index/position/7605812208450734374/detail",
+    source: "零一万物招聘 / 全职招聘网",
+    link: "https://m1.quanzhi.com/job/detail/6a8b2bf0c24b0728e64077e2",
     skills: ["Agent 架构", "Prompt/CoT/ToT", "Tool Use", "SFT/DPO", "多智能体协同", "RAG"],
   },
   {
