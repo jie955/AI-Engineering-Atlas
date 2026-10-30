@@ -19,7 +19,7 @@ export interface Job {
 }
 
 // 最近一次抓取日期（YYYY-MM-DD）
-export const jobsLastUpdated = "2026-10-29"
+export const jobsLastUpdated = "2026-10-30"
 
 // 招聘方聚焦方向：大厂 + 头部 AI 独角兽
 export const jobFocus = {
@@ -47,7 +47,7 @@ export const salaryRanges: { role: string; monthly: string; annual: string }[] =
 ]
 
 // 当前聚合到的职位（聚焦大厂 + 头部 AI 独角兽，由定时任务每日覆盖更新）
-// 抓取日期：2026-10-29，覆盖 18 家目标公司，共 25 条公开在招岗位
+// 抓取日期：2026-10-30，覆盖 18 家目标公司，共 25 条公开在招岗位
 export const jobs: Job[] = [
   {
     company: "字节跳动",
@@ -183,15 +183,15 @@ export const jobs: Job[] = [
   },
   {
     company: "蚂蚁集团",
-    title: "大模型研发工程师-多Agent系统",
+    title: "智能体研发工程师(Agent开发)",
     direction: "AI Agent",
-    location: "上海",
+    location: "北京",
     salary: "面议",
-    seniority: "3-5 年",
-    education: "硕士+",
+    seniority: "5-10 年",
+    education: "本科+",
     source: "BOSS直聘",
-    link: "https://www.zhipin.com/job_detail/24a102705f3392120nR_2Ny4FFBS.html",
-    skills: ["多 Agent 系统研发(工具调用/记忆/多Agent协作/长任务编排)", "数字员工平台端到端落地", "Agent 应用与业务系统深度集成", "AI coding 能力促进与团队技术演进", "产品化落地与用户体验优化", "大模型与智能体前沿技术跟踪"],
+    link: "https://www.zhipin.com/job_detail/fef30491b33e68350nZ73dy-FlVT.html",
+    skills: ["LLM / RAG / Skill / Java 分布式", "任务规划/工具调用(Function Calling)/记忆管理/上下文管理", "多智能体协作与对话编排", "Agent / 工具链 / 工作流提升研发吞吐与效率", "AI Infra / Agent tool use / ReAct 架构设计", "Java/Python/PyTorch/Kubernetes 工程化落地"],
   },
   {
     company: "阶跃星辰 StepFun",
@@ -219,27 +219,27 @@ export const jobs: Job[] = [
   },
   {
     company: "快手",
-    title: "【快手】Data Agent智能体研发工程师",
+    title: "大模型智能体研发工程师",
     direction: "AI Agent",
     location: "北京",
     salary: "面议",
-    seniority: "3 年以上",
+    seniority: "应届 / 1 年以内",
     education: "本科+",
-    source: "面试马",
-    link: "https://www.mianshima.com/job/12/30878",
-    skills: ["Java 多线程/JVM 原理", "AI Agent 核心架构(Tool/Skill 注册编排/多轮状态管理/任务规划)", "RAG(向量库/Embedding/混合检索/RAG-Fusion/Query Rewrite)", "Prompt 工程(CoT/ToT/Few-shot/防注入)", "Redis/Kafka 高并发", "分布式系统/大数据生态(Hive/Spark/Flink/ClickHouse)"],
+    source: "快手招聘(Alion)",
+    link: "https://alion.io/job/kuaishou-omoxingzhinengtiyanfagongchengshi",
+    skills: ["LLM / RAG / NLP 大模型产品落地", "知识问答/代码补全/图文生成/数据分析", "分布式系统与高并发(消息队列/ES/Redis/MySQL)", "大模型或多模态模型应用研发与部署", "智能助手 Agent 架构设计", "Java/Python/Node.js 并发与多线程优化"],
   },
   {
     company: "小红书",
-    title: "【REDstar】AI Agent算法工程师",
+    title: "【REDstar】AI agent算法工程师(企业智能)",
     direction: "AI Agent",
     location: "北京 / 上海 / 杭州",
     salary: "面议",
     seniority: "经验不限",
     education: "本科+",
-    source: "小红书招聘(Alion)",
-    link: "https://alion.io/job/iaohongshu-redstarai-gentsuanfagongchengshi",
-    skills: ["站内 C 端 Agent 点点的算法研发", "Agentic 后训练 / Memory 与个性化", "Context 优化 / AI 搜索", "mid-training / distillation", "Agentic RL / Code Agent", "SFT/RL/DPO/PPO/GRPO 后训练栈"],
+    source: "小红书招聘(面试马)",
+    link: "https://www.mianshima.com/job/15/21129",
+    skills: ["AI-native 产品 / LLM / Agent / Workflow Automation", "Context Engineering 与高价值 AI 场景抽象", "Python/Java/API 调用 / RAG / Prompt Engineering", "LangChain/LangGraph/Coze 工程实践", "AI 评测 / 数据标注 / Prompt 优化 / RLHF / Badcase 归因", "跨角色协同(产品/研发/运营/数据/算法)"],
   },
   {
     company: "华为",
