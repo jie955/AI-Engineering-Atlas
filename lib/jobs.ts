@@ -198,7 +198,7 @@ export const jobs: Job[] = [
     title: "AI Agent工程师-蚂蚁保",
     direction: "AI Agent",
     location: "上海 / 杭州",
-    salary: "面议",
+    salary: "45-75K·15薪",
     seniority: "5-10 年",
     education: "本科+",
     source: "猎聘",
